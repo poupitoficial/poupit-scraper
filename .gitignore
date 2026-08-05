@@ -70,6 +70,10 @@ web_modules/
 .env.*
 !.env.example
 
+# dumps completos de scraping (grandes, gerados por scripts/harvest*.mjs)
+pd_products_full.json
+continente_products_full.json
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache

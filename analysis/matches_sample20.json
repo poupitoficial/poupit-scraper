@@ -1,0 +1,522 @@
+[
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Tequila Sierra Blanco",
+      "brand": "Sierra",
+      "price": 15.99,
+      "qty": {
+        "qty": 0.7001,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/espirituosas/gin-vodka-e-tequila/tequila-sierra-blanco-sierra-2961.html"
+    },
+    "continente": {
+      "name": "Sierra Tequila Blanco",
+      "brand": "Sierra",
+      "price": 15.99,
+      "qty": {
+        "qty": 0.7001,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/sierra-tequila-blanco-sierra-8785482.html"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Flor de Sal",
+      "brand": "Marnoto",
+      "price": 1.84,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/temperos-e-molhos/sal/flor-de-sal-marnoto-555699.html"
+    },
+    "continente": {
+      "name": "Flor de Sal Marnoto",
+      "brand": "Marnoto",
+      "price": 1.84,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/flor-de-sal-marnoto-marnoto-2767086.html"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Tortitas de Milho",
+      "brand": "Bicentury",
+      "price": 2.15,
+      "qty": {
+        "qty": 0.13,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/fibra-tortitas-e-marinheiras/tortitas-de-milho-bicentury-774966.html"
+    },
+    "continente": {
+      "name": "Tortitas de Milho Bicentury",
+      "brand": "Bicentury",
+      "price": 2.15,
+      "qty": {
+        "qty": 0.13,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/tortitas-de-milho-bicentury-bicentury-3719734.html"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Vinho Branco Douro Vallado",
+      "brand": "Vallado",
+      "price": 9.25,
+      "qty": {
+        "qty": 0.7502,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/vinhos/vinho-branco/vinho-branco-douro-vallado-vallado-913470.html"
+    },
+    "continente": {
+      "name": "Vallado Douro Vinho Branco",
+      "brand": "Vallado",
+      "price": 6.99,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/vallado-douro-vinho-branco-vallado-5473949.html"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Cocktail Casal Garcia Fruitzy Maracujá",
+      "brand": "Casal Garcia",
+      "price": 3.99,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/vinhos/champanhe-espumante-e-frisante/cocktail-casal-garcia-fruitzy-maracuja-casal-garcia-971649.html"
+    },
+    "continente": {
+      "name": "Casal Garcia Fruitzy Maracujá Cocktail",
+      "brand": "Casal Garcia",
+      "price": 3.99,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/casal-garcia-fruitzy-maracuja-cocktail-casal-garcia-8005792.html"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "pd": {
+      "name": "Iogurte Grego Maçã e Canela Pack 4",
+      "brand": "Oikos Danone",
+      "price": 2.39,
+      "qty": {
+        "qty": 0.4401,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/iogurtes-e-sobremesas/iogurtes/iogurtes-gregos%E2%80%8B/iogurte-grego-maca-e-canela-pack-4-oikos-danone-1010159.html"
+    },
+    "continente": {
+      "name": "Iogurte Grego Maçã e Canela Oikos Danone",
+      "brand": "Oikos Danone",
+      "price": 2.39,
+      "qty": {
+        "qty": 0.4401,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/iogurte-grego-maca-e-canela-oikos-danone-oikos-danone-7214076.html"
+    }
+  },
+  {
+    "score": 0.8,
+    "ownBrand": false,
+    "pd": {
+      "name": "Iogurte Líquido Reduz Colesterol Morango Pack 12",
+      "brand": "Danacol Danone",
+      "price": 5.99,
+      "qty": {
+        "qty": 1.2004,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/iogurtes-e-sobremesas/iogurtes/iogurtes-bifidus-e-funcionais%E2%80%8B/iogurte-liquido-reduz-colesterol-morango-pack-12-danacol-danone-697065.html"
+    },
+    "continente": {
+      "name": "Reduz Colesterol Líquido Morango Danacol Danone",
+      "brand": "Danacol Danone",
+      "price": 5.99,
+      "qty": {
+        "qty": 1.2004,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/reduz-colesterol-liquido-morango-danacol-danone-danacol-danone-4865289.html"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "pd": {
+      "name": "Granola de Aveia com Arandos e Sementes de Abóbora",
+      "brand": "Fitness",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.2999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/cereais-barras-e-bolsas-de-fruta/muesli-e-granola/granola-de-aveia-com-arandos-e-sementes-de-abobora-fitness-828235.html"
+    },
+    "continente": {
+      "name": "Granola Arandos e Sementes de Abóbora Fitness",
+      "brand": "Fitness",
+      "price": 4.39,
+      "qty": {
+        "qty": 0.3001,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/granola-arandos-e-sementes-de-abobora-fitness-fitness-5931707.html"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "pd": {
+      "name": "Salsichas Frankfurt",
+      "brand": "Izidoro",
+      "price": 1.49,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/conservas/salsichas/salsichas-frankfurt-izidoro-104473.html"
+    },
+    "continente": {
+      "name": "Salsichas Frankfurt em Lata 10 un Izidoro",
+      "brand": "Izidoro",
+      "price": 1.49,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/salsichas-frankfurt-em-lata-10-un-izidoro-izidoro-4036382.html"
+    }
+  },
+  {
+    "score": 0.636,
+    "ownBrand": false,
+    "pd": {
+      "name": "Tortitas de Arroz Integral e Chocolate Branco Sabor a Iogurte",
+      "brand": "Bicentury",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.13,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/fibra-tortitas-e-marinheiras/tortitas-de-arroz-integral-e-chocolate-branco-sabor-a-iogurte-bicentury-701115.html"
+    },
+    "continente": {
+      "name": "Tortitas de Arroz Integral Chocolate Branco com Iogurte Bicentury",
+      "brand": "Bicentury",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.13,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/tortitas-de-arroz-integral-chocolate-branco-com-iogurte-bicentury-bicentury-2688836.html"
+    }
+  },
+  {
+    "score": 0.6,
+    "ownBrand": false,
+    "pd": {
+      "name": "Leite de Coco para Culinária",
+      "brand": "Koala",
+      "price": 2.49,
+      "qty": {
+        "qty": 0.3997,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/sobremesas/leite-condensado-e-de-coco/leite-de-coco-para-culinaria-koala-1003668.html"
+    },
+    "continente": {
+      "name": "Leite de Coco Koala",
+      "brand": "Koala",
+      "price": 2.24,
+      "qty": {
+        "qty": 0.4,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/leite-de-coco-koala-koala-2223649.html"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "pd": {
+      "name": "Bolacha Maria Oro",
+      "brand": "Cuétara",
+      "price": 2.94,
+      "qty": {
+        "qty": 0.6,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/maria-manteiga-e-classicas/bolacha-maria-oro-cuetara-647482.html"
+    },
+    "continente": {
+      "name": "Bolachas Maria Oro Cuétara",
+      "brand": "Cuétara",
+      "price": 3.49,
+      "qty": {
+        "qty": 0.5997,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/bolachas-maria-oro-cuetara-cuetara-3836439.html"
+    }
+  },
+  {
+    "score": 0.889,
+    "ownBrand": true,
+    "pd": {
+      "name": "Bebida Vegetal de Aveia e Amêndoa Sem Açúcar",
+      "brand": "Pingo Doce",
+      "price": 1.35,
+      "qty": {
+        "qty": 1,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/leite-e-bebidas-vegetais/bebidas-vegetais/bebida-de-amendoa%E2%80%8B/bebida-vegetal-de-aveia-e-amendoa-sem-acucar-pingo-doce-952930.html"
+    },
+    "continente": {
+      "name": "Bebida Vegetal de Amêndoa e Aveia sem Açúcar Continente",
+      "brand": "Continente",
+      "price": 1.35,
+      "qty": {
+        "qty": 1,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/bebida-vegetal-de-amendoa-e-aveia-sem-acucar-continente-continente-8524374.html"
+    }
+  },
+  {
+    "score": 0.8,
+    "ownBrand": true,
+    "pd": {
+      "name": "Sopa de Rabo de Boi",
+      "brand": "Pingo Doce",
+      "price": 0.89,
+      "qty": {
+        "qty": 0.074,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/sopas-e-refeicoes-pre-preparadas/sopas-instantaneas/sopa-de-rabo-de-boi-pingo-doce-1000716.html"
+    },
+    "continente": {
+      "name": "Sopa Rabo de Boi Continente",
+      "brand": "Continente",
+      "price": 0.89,
+      "qty": {
+        "qty": 0.074,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/sopa-rabo-de-boi-continente-continente-7448543.html"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": true,
+    "pd": {
+      "name": "Polpa de Tomate",
+      "brand": "Pingo Doce",
+      "price": 0.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/temperos-e-molhos/polpas-e-concentrados/polpa-de-tomate-pingo-doce-927480.html"
+    },
+    "continente": {
+      "name": "Polpa de Tomate Continente",
+      "brand": "Continente",
+      "price": 0.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/polpa-de-tomate-continente-continente-4898365.html"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": true,
+    "pd": {
+      "name": "Molho Bechamel",
+      "brand": "Pingo Doce",
+      "price": 1.69,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/manteiga-margarina-e-natas/natas-bechamel-e-chantilly/molho-bechamel-pingo-doce-555481.html"
+    },
+    "continente": {
+      "name": "Molho Bechamel Continente",
+      "brand": "Continente",
+      "price": 1.69,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/molho-bechamel-continente-continente-4337448.html"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": true,
+    "pd": {
+      "name": "Queijo Ricotta",
+      "brand": "Pingo Doce",
+      "price": 1.69,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/charcutaria-e-queijos/queijos/queijo-estrangeiro/queijo-ricotta-pingo-doce-986010.html"
+    },
+    "continente": {
+      "name": "Queijo Ricotta Continente",
+      "brand": "Continente",
+      "price": 1.69,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/queijo-ricotta-continente-continente-8376018.html"
+    }
+  },
+  {
+    "score": 0.6,
+    "ownBrand": true,
+    "pd": {
+      "name": "Caju Frito com Sal",
+      "brand": "Pingo Doce",
+      "price": 2.79,
+      "qty": {
+        "qty": 0.2,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/batatas-fritas-snacks-e-frutos-secos/frutos-secos-e-desidratados/caju-frito-com-sal-pingo-doce-969937.html"
+    },
+    "continente": {
+      "name": "Caju com Sal Continente",
+      "brand": "Continente",
+      "price": 2.79,
+      "qty": {
+        "qty": 0.2,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/caju-com-sal-continente-continente-8114842.html"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "pd": {
+      "name": "Salada Gourmet Embalada",
+      "brand": "Pingo Doce",
+      "price": 1.19,
+      "qty": {
+        "qty": 0.175,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/saladas-e-legumes-preparados/salada-gourmet-embalada-pingo-doce-725559.html"
+    },
+    "continente": {
+      "name": "Salada Gourmet Continente",
+      "brand": "Continente",
+      "price": 1.19,
+      "qty": {
+        "qty": 0.175,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/salada-gourmet-continente-continente-3709652.html"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "pd": {
+      "name": "Cenoura Ripada Embalada",
+      "brand": "Pingo Doce",
+      "price": 0.99,
+      "qty": {
+        "qty": 0.2,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/saladas-e-legumes-preparados/cenoura-ripada-embalada-pingo-doce-927132.html"
+    },
+    "continente": {
+      "name": "Cenoura Ripada Continente",
+      "brand": "Continente",
+      "price": 0.99,
+      "qty": {
+        "qty": 0.2,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/cenoura-ripada-continente-continente-3802122.html"
+    }
+  }
+]

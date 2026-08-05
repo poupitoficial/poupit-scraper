@@ -1,0 +1,30 @@
+name: Matching Pingo Doce x Continente
+
+on:
+  schedule:
+    # 06:00 UTC, depois do scrape.yml (4h) terminar = 06:00 em Portugal no inverno, 07:00 no horario de verao (DST).
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - run: node scripts/harvestPingoDoce.mjs
+      - run: node scripts/harvestContinente.mjs
+      - run: node scripts/matchProducts.mjs
+
+      - run: node scripts/insertMatches.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
