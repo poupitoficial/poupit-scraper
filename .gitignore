@@ -73,6 +73,8 @@ web_modules/
 # dumps completos de scraping (grandes, gerados por scripts/harvest*.mjs)
 pd_products_full.json
 continente_products_full.json
+lidl_products_full.json
+auchan_products_full.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

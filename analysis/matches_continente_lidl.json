@@ -1,0 +1,194 @@
+[
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Água com Gás Pedras Salgadas",
+      "brand": "Pedras Salgadas",
+      "price": 5.39,
+      "qty": {
+        "qty": 5.9889,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/agua-com-gas-pedras-salgadas-pedras-salgadas-8773219.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwdc22d743/images/col/877/8773219-frente.png?sw=280&sh=280",
+      "category": "bebidas",
+      "subcategory": "agua"
+    },
+    "b": {
+      "name": "PEDRAS SALGADAS Água com Gás",
+      "brand": "PEDRAS SALGADAS",
+      "price": 5.39,
+      "qty": {
+        "qty": 5.9889,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pedras-salgadas-agua-com-gas/p10052807",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/V14ecxCkP2UC4UrBo3sy_ZRojgnaGkdEmUjAe9CtL2k/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0UzMUQwMzQ3NTYzRTZBNTE3NjUxNjc4Qj/BERkREMTA4MUNCN0JCQTFGNjhBRDA5QzkwNUM2QzFFMUFENjI4QzAucG5n.png",
+      "category": "bebidas",
+      "subcategory": "agua"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Casal Mendes Sangria Tinta",
+      "brand": "Casal Mendes",
+      "price": 4.29,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/casal-mendes-sangria-tinta-casal-mendes-7620779.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw42782800/images/col/762/7620779-frente.jpg?sw=280&sh=280",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    },
+    "b": {
+      "name": "CASAL MENDES Sangria Tinta/Branca",
+      "brand": "CASAL MENDES",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.7494,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/casal-mendes-sangria-tinta-branca/p10052917",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/y839IG8XVdOvmdQcqQEsBPNYeLoE0OO6gf-wpxShKQ0/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS81Q0Y3RjdDOUIyQ0YzRjE5MEQ0OUQ2RkY/xMzcxMzc3MUMzMUI5N0JCMDE1Mjc5QzEwNzRGMTRDMjE4MEE0ODgzLnBuZw.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Uva Branca sem Grainha Continente",
+      "brand": null,
+      "price": 2.79,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/uva-branca-sem-grainha-continente-continente-7618292.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw5c3ca6e6/images/col/761/7618292-frente.jpg?sw=280&sh=280",
+      "category": "frutas_legumes",
+      "subcategory": null
+    },
+    "b": {
+      "name": "Uva Branca sem Grainha Nacional",
+      "brand": null,
+      "price": 2.19,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/uva-branca-sem-grainha-nacional/p10052594",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5-SXrdVxwCW_Hh2jIVkPlrXNdgsMN1bWlmi2X-twsT4/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0YyRkQ4QjFGMkVCMEVGNjdEMUM4QUY3QT/M0NTIzMkZFRUVBQThCRUZENkVDNUVGNkIyMTk3OEY2MEYxRTRGRDAucG5n.png",
+      "category": "frutas_legumes",
+      "subcategory": "fruta"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Casal Mendes Sangria Branca",
+      "brand": "Casal Mendes",
+      "price": 4.29,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/casal-mendes-sangria-branca-casal-mendes-7620781.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw4e1c7584/images/col/762/7620781-frente.jpg?sw=280&sh=280",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    },
+    "b": {
+      "name": "CASAL MENDES Sangria Tinta/Branca",
+      "brand": "CASAL MENDES",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.7494,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/casal-mendes-sangria-tinta-branca/p10052917",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/y839IG8XVdOvmdQcqQEsBPNYeLoE0OO6gf-wpxShKQ0/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS81Q0Y3RjdDOUIyQ0YzRjE5MEQ0OUQ2RkY/xMzcxMzc3MUMzMUI5N0JCMDE1Mjc5QzEwNzRGMTRDMjE4MEE0ODgzLnBuZw.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Bolachas Mini Dinossauros Cereais Artiach",
+      "brand": "Artiach",
+      "price": 1.09,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/bolachas-mini-dinossauros-cereais-artiach-artiach-4951641.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw69064213/images/col/495/4951641-frente.png?sw=280&sh=280",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    },
+    "b": {
+      "name": "ARTIACH Mini Dinosaurus Bolachas de Cereais",
+      "brand": "ARTIACH",
+      "price": 1.09,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/artiach-mini-dinosaurus-bolachas-de-cereais/p10052899",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5QdyDHnBoeh3OW-tX-ift1DtYl1CJ_t0onBLhECuCi4/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE2M0M1N0M0QjY1OTE5QzkyRkJEQTczRE/I1NzJENzA5RTA1RjQzOUU5MzBFMzFDNEU0MzE3ODY4QTg0M0QxRjYucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Snacks Milho Tex-Mex Doritos",
+      "brand": "Doritos",
+      "price": 2.29,
+      "qty": {
+        "qty": 0.225,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.continente.pt/produto/snacks-milho-tex-mex-doritos-doritos-8376019.html",
+      "imageUrl": "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw7ba79d6b/images/col/837/8376019-hero.png?sw=280&sh=280",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    },
+    "b": {
+      "name": "DORITOS Tex Mex",
+      "brand": "DORITOS",
+      "price": 2.25,
+      "qty": {
+        "qty": 0.225,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/doritos-tex-mex/p10052911",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/Mu8qHVnIl1ZpYog_a7wkC-j6JIp3Z90JHOsYkyTWagk/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzI3MTc4MDJEQkU5NTM2ODE2NDIwQjZFMj/MzNTRFMzY0MkE1MzAzMjkyNzAzQUM0QzkzMkRDNTAzRTlGNkRFMEMucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    }
+  }
+]

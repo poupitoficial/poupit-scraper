@@ -27,6 +27,8 @@ const rows = brandMatches.map((m) => {
       category,
       quantity: qty?.qty ?? null,
       quantity_unit: qty?.kind ?? null,
+      // uma imagem por produto (nao por loja) - usa a do PD, com fallback para a do Continente
+      image_url: m.pd.imageUrl || m.continente.imageUrl || null,
     },
     pdPrice: m.pd.price,
     ctPrice: m.continente.price,

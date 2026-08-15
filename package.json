@@ -6,7 +6,10 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "scrape": "node src/index.js"
+    "scrape": "node src/index.js",
+    "scrape:pingodoce": "node src/pingoDoceIndex.js",
+    "scrape:lidl": "node src/lidlIndex.js",
+    "scrape:auchan": "node src/auchanIndex.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

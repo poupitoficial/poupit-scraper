@@ -295,12 +295,87 @@ const BEBIDAS_URLS = [
   "https://www.continente.pt/bebidas-e-garrafeira/vinhos/vinho-verde/",
 ];
 
+// Subcategoria (e por vezes categoria, ex. cafe/cha e alimentacao infantil) derivada
+// do proprio path da pagina de categoria do Continente - nunca do nome do produto.
+// "mercearia" pura foi descontinuada (ver supabase/002_categories_and_subcategory.sql);
+// tudo o que la estava agora cai em mercearia_doce_salgada, bebidas (cafe/cha) ou bebe
+// (alimentacao infantil).
+const URL_RULES = [
+  { test: /\/cafe-cha-e-bebidas-soluveis\//, category: "bebidas", subcategory: "cafe_cha" },
+  { test: /\/alimentacao-infantil\//, category: "bebe", subcategory: "cuidado_bebe" },
+
+  { test: /\/arroz-massa-e-farinha\//, subcategory: "massas_arroz" },
+  { test: /\/conservas\//, subcategory: "conservas" },
+  { test: /\/azeite-oleo-e-vinagre\//, subcategory: "azeite_oleos" },
+  { test: /\/molhos-temperos-e-sal\//, subcategory: "molhos_temperos" },
+  { test: /\/sopas-e-refeicoes\//, subcategory: "molhos_temperos" },
+  { test: /\/cabazes\//, subcategory: "massas_arroz" },
+  { test: /\/acucar-e-sobremesas\//, subcategory: "compotas_mel" },
+  { test: /\/batatas-fritas-e-aperitivos\//, subcategory: "snacks_aperitivos" },
+  { test: /\/bolachas-biscoitos-e-tostas\//, subcategory: "bolachas_cereais" },
+  { test: /\/cereais-e-barras\//, subcategory: "bolachas_cereais" },
+  { test: /\/chocolate-gomas-e-rebucados\//, subcategory: "chocolates_doces" },
+  { test: /\/compotas-cremes-e-mel\//, subcategory: "compotas_mel" },
+
+  { test: /\/(laticinios-e-ovos|frescos)\/leite\//, subcategory: "leite" },
+  { test: /\/iogurtes-e-outros-lacteos\//, subcategory: "iogurtes" },
+  { test: /\/queijos\//, subcategory: "queijos" },
+  { test: /\/manteigas-e-cremes-para-barrar\//, subcategory: "manteiga_natas" },
+  { test: /\/natas-e-bechamel\//, subcategory: "manteiga_natas" },
+  { test: /\/laticinios-e-ovos\/ovos\//, subcategory: "ovos" },
+  { test: /\/gelatina-mousse-e-pudins\//, subcategory: "sobremesas_lacteas" },
+  { test: /\/bebidas-vegetais-e-vegegurtes\//, subcategory: "bebidas_iogurtes_vegetais" },
+  { test: /\/laticinios-e-alternativas-vegetais\//, subcategory: "bebidas_iogurtes_vegetais" },
+
+  { test: /\/talho\/frango-e-peru\//, subcategory: "aves" },
+  { test: /\/talho\/pato-e-coelho\//, subcategory: "aves" },
+  { test: /\/talho\/porco\//, subcategory: "carne_porco" },
+  { test: /\/talho\/(novilho-vitela-e-vitelao|cabrito-e-borrego)\//, subcategory: "carne_vaca" },
+  { test: /\/talho\/pronto-a-cozinhar\//, subcategory: "charcutaria_enchidos" },
+  { test: /\/peixaria\/marisco\//, subcategory: "marisco" },
+  { test: /\/peixaria\/polvo-lulas-e-chocos\//, subcategory: "marisco" },
+  { test: /\/peixaria\//, subcategory: "peixe_fresco" },
+
+  { test: /\/frescos\/frutas\/frutos-secos-desidratados-e-sementes\//, subcategory: "frutos_secos" },
+  { test: /\/frescos\/frutas\//, subcategory: "fruta" },
+  { test: /\/frescos\/legumes\//, subcategory: "legumes" },
+
+  { test: /\/padaria-e-pastelaria\/(pao-de-forma-e-embalado|pao-do-dia-e-broa|pao-de-hamburguer-e-cachorro|wraps-e-tortilhas)\//, subcategory: "pao" },
+  { test: /\/padaria-e-pastelaria\/(bolos-e-sobremesas|pastelaria-sortida|bolas-de-berlim|massas-para-culinaria)\//, subcategory: "bolos_pastelaria" },
+  { test: /\/padaria-e-pastelaria\/(biscoitos|tostas-e-gressinos)\//, subcategory: "torradas_tostas" },
+  { test: /\/padaria-e-pastelaria\/croissants-e-paes-de-leite\//, subcategory: "croissants_folhados" },
+
+  { test: /\/congelados\/gelados/, subcategory: "gelados" },
+  { test: /\/congelados\/sobremesas\//, subcategory: "gelados" },
+  { test: /\/congelados\/frutas-e-legumes\//, subcategory: "vegetais_congelados" },
+  { test: /\/congelados\/batata-frita-e-pure\//, subcategory: "vegetais_congelados" },
+  { test: /\/congelados\/douradinhos-e-filetes\//, subcategory: "peixe_marisco_congelado" },
+  { test: /\/congelados\/(crocantes-e-hamburgueres|hamburgueres-e-almondegas|nuggets-e-crocantes|vegetariano-e-vegan)\//, subcategory: "carne_congelada" },
+  { test: /\/congelados\/(pizzas|salgados-folhados-e-pastelaria)\//, subcategory: "massa_pizza_congelada" },
+  { test: /\/congelados\/(refeicoes-prontas|refeicoes-congeladas|congelados-para-air-fryer)/, subcategory: "pratos_prontos_congelados" },
+
+  { test: /\/bebidas-e-garrafeira\/agua\//, subcategory: "agua" },
+  { test: /\/bebidas-e-garrafeira\/(sumos-e-refrigerantes|bebidas-energeticas-e-isotonicas)\//, subcategory: "refrigerantes_sumos" },
+  { test: /\/bebidas-e-garrafeira\/(vinhos|champanhe-e-espumante|garrafeira|gama-cave)/, subcategory: "vinho" },
+  { test: /\/bebidas-e-garrafeira\/cervejas-e-sidras\//, subcategory: "cerveja" },
+  { test: /\/bebidas-e-garrafeira\/(bebidas-espirituosas|0\.0--alcool)\//, subcategory: "bebidas_espirituosas" },
+];
+
+function classify(url, defaultCategory) {
+  for (const rule of URL_RULES) {
+    if (rule.test.test(url)) {
+      return { category: rule.category ?? defaultCategory, subcategory: rule.subcategory ?? null };
+    }
+  }
+  return { category: defaultCategory, subcategory: null };
+}
+
 function build(urls, category) {
-  return urls.map((url) => ({ url, category }));
+  return urls.map((url) => ({ url, ...classify(url, category) }));
 }
 
 export const CATEGORY_QUERIES = [
-  ...build(MERCEARIA_URLS, "mercearia"),
+  ...build(MERCEARIA_URLS, "mercearia_doce_salgada"),
   ...build(MERCEARIA_DOCE_SALGADA_URLS, "mercearia_doce_salgada"),
   ...build(LATICINIOS_OVOS_URLS, "laticinios_ovos"),
   ...build(TALHO_PEIXARIA_URLS, "talho_peixaria"),

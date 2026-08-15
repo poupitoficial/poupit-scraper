@@ -20,6 +20,7 @@ async function fetchText(url) {
       "User-Agent": "Mozilla/5.0 (compatible; poupit-scraper/1.0; +https://github.com/)",
       Accept: "text/html,application/xml",
     },
+    signal: AbortSignal.timeout(20000),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} em ${url}`);
   return res.text();
@@ -43,8 +44,8 @@ export async function collectRelevantProductUrls() {
   for (const sitemapUrl of sitemapUrls) {
     const xml = await fetchText(sitemapUrl);
     for (const productUrl of extractLocs(xml)) {
-      const category = classifyPdUrl(productUrl);
-      if (category) relevant.push({ url: productUrl, category });
+      const classification = classifyPdUrl(productUrl);
+      if (classification) relevant.push({ url: productUrl, ...classification });
     }
   }
   return relevant;
@@ -89,7 +90,7 @@ function findProductGtmItem(html) {
   return null;
 }
 
-function parseProductPage(html, url, category) {
+function parseProductPage(html, url, category, subcategory) {
   const item = findProductGtmItem(html);
   if (!item) return null;
 
@@ -107,6 +108,7 @@ function parseProductPage(html, url, category) {
     url,
     imageUrl: parseImageUrl(html),
     category,
+    subcategory,
   };
 }
 
@@ -115,10 +117,10 @@ function parseProductPage(html, url, category) {
 export async function* fetchPingoDoceProducts({ onProductError, delayMs = 350 } = {}) {
   const productUrls = await collectRelevantProductUrls();
 
-  for (const { url, category } of productUrls) {
+  for (const { url, category, subcategory } of productUrls) {
     try {
       const html = await fetchText(url);
-      const product = parseProductPage(html, url, category);
+      const product = parseProductPage(html, url, category, subcategory);
       if (product && product.price) yield product;
     } catch (err) {
       onProductError?.(url, err);

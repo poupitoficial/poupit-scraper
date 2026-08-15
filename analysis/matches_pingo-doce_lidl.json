@@ -1,0 +1,714 @@
+[
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Azeite Virgem Delicado",
+      "brand": "Gallo",
+      "price": 5.49,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/azeite-oleo-e-vinagre/azeite/azeite-virgem-delicado-gallo-755916.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/755916_b70ab969eddb792a2251c3198fe8b68a.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
+    },
+    "b": {
+      "name": "GALLO Azeite Virgem Delicado",
+      "brand": "GALLO",
+      "price": 4.69,
+      "qty": {
+        "qty": 0.7504,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/gallo-azeite-virgem-delicado/p10052795",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/jyGplXrcHtIfZ0jJUrkvLcsvxwsFzr1SvVWwkObeEdM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0E2QTc1MjZEOTFGMUU4NzkzRENGNjRCME/FDMTY1OTE2NUUwRjZDOTFGQTMzRjZFRUJEMDZCRTQyOUJGOUI0RDIucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Solero Exótico",
+      "brand": "Solero",
+      "price": 1.99,
+      "qty": {
+        "qty": 0.27,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-de-pauzinho/gelado-solero-exotico-solero-942259.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/942259_97c8638274b75a48b06ac5303a9b27c2.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Solero Gelado Exótico",
+      "brand": "Solero",
+      "price": 1.99,
+      "qty": {
+        "qty": 0.27,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/solero-gelado-exotico/p10052722",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/uUBROvDvqsBEYNkxEh727iuYd53nbl29UdWHqMquOYA/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Q3ODVCMUVGMEE3QjJBNUFGOEMzNUE1RT/c4NzVBMzZCRDVCMjk4NTQ4RjRBREM5QTA3MDZGQjk1NDk4MTlBRkMucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Iogurte Líquido Morango Pack 8",
+      "brand": "Mimosa",
+      "price": 2.59,
+      "qty": {
+        "qty": 1.2103,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/iogurtes-e-sobremesas/iogurtes/iogurtes-liquidos%E2%80%8B/iogurte-liquido-morango-pack-8-mimosa-821278004.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/821278004_b26be1177a46aa9e1fdf4b777db3f68c.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
+    },
+    "b": {
+      "name": "MIMOSA Iogurte Líquido de Morango",
+      "brand": "MIMOSA",
+      "price": 2.59,
+      "qty": {
+        "qty": 1.2103,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/mimosa-iogurte-liquido-de-morango/p10052883",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/eFWvj3W71lh_K-g-aFGT2YVJvsvSPPfXy3NWVLqRn1k/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Q0RTY2MkNBNDM5RDk5RURFRUZGNUQ2Rk/U2N0NENjMyQ0E3NDRFQjFDODczOTcyRjk2MUVBQkQ3QjRERTBCNDkucG5n.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Bebida de Frutos Morango",
+      "brand": "Sunny Delight",
+      "price": 2.69,
+      "qty": {
+        "qty": 1.2512,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/smoothies-e-sumos-refrigerados/bebida-de-frutos-morango-sunny-delight-1006826.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1006826_0adaa22517bdeae85070928fb08ebff9.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "SUNNY DELIGHT Bebida de Morango",
+      "brand": "SUNNY DELIGHT",
+      "price": 1.99,
+      "qty": {
+        "qty": 1.2516,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/sunny-delight-bebida-de-morango/p10052881",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/98oPeariBdFiLFVQmq08cC5NVWr9r9CdVQLl_d4_20Y/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VFQzIxNDMwQzAwMDI3OTI2NzdGRDg3Qj/kzQzQ4RTA5QUQyMEM5QTMwREQ5NzYxNTMyMEI4REFCQUI5MTk5OUMucG5n.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Água com Gás Pedras Pack 6",
+      "brand": "Pedras Salgadas",
+      "price": 5.39,
+      "qty": {
+        "qty": 5.9889,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/aguas/aguas-com-gas/agua-com-gas-pedras-pack-6-pedras-salgadas-1007355.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1007355_a84cf870a8597868095fd25ac4018689.jpg",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "PEDRAS SALGADAS Água com Gás",
+      "brand": "PEDRAS SALGADAS",
+      "price": 5.39,
+      "qty": {
+        "qty": 5.9889,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pedras-salgadas-agua-com-gas/p10052807",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/V14ecxCkP2UC4UrBo3sy_ZRojgnaGkdEmUjAe9CtL2k/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0UzMUQwMzQ3NTYzRTZBNTE3NjUxNjc4Qj/BERkREMTA4MUNCN0JCQTFGNjhBRDA5QzkwNUM2QzFFMUFENjI4QzAucG5n.png",
+      "category": "bebidas",
+      "subcategory": "agua"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Refrigerante Fanta Laranja",
+      "brand": "Fanta",
+      "price": 1.49,
+      "qty": {
+        "qty": 1.9867,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/refrigerantes-com-gas/refrigerante-fanta-laranja-fanta-1009801.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1009801_e409cf63a212545ddec169b61082513e.jpg",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "FANTA Refrigerante de Laranja",
+      "brand": "FANTA",
+      "price": 1.29,
+      "qty": {
+        "qty": 1.9846,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/fanta-refrigerante-de-laranja/p10052817",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/n83a_dhNjzhQ7U9ZDSKGvFELUZ7gHIOR5ARyVEcAoE8/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzU0RDYwOUYzREY2MUZBQTBGMjAyQzJGM0/UxRTIzOThCREUwNUFDMEY1OEI2RjNEQkEwNzY3MzI0NjFDRUM1NTUucG5n.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Bolachas Mini com Cereais Dinosaurus Pack 3",
+      "brand": "Artiach",
+      "price": 1.99,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/bolachas-infantis/bolachas-mini-com-cereais-dinosaurus-pack-3-artiach-701840.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/701840_a465f083ff94d4def37cf6e13bb0337f.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    },
+    "b": {
+      "name": "ARTIACH Mini Dinosaurus Bolachas de Cereais",
+      "brand": "ARTIACH",
+      "price": 1.09,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/artiach-mini-dinosaurus-bolachas-de-cereais/p10052899",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5QdyDHnBoeh3OW-tX-ift1DtYl1CJ_t0onBLhECuCi4/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE2M0M1N0M0QjY1OTE5QzkyRkJEQTczRE/I1NzJENzA5RTA1RjQzOUU5MzBFMzFDNEU0MzE3ODY4QTg0M0QxRjYucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Espumante Rosé Bruto Mateus",
+      "brand": "Mateus",
+      "price": 4.99,
+      "qty": {
+        "qty": 0.7504,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/vinhos/champanhe-espumante-e-frisante/espumante-rose-bruto-mateus-mateus-613951.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/613951_48b2120f2e3f72c971e54882995f8009.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    },
+    "b": {
+      "name": "MATEUS Espumante Rosé",
+      "brand": "MATEUS",
+      "price": 4.89,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/mateus-espumante-rose/p10052921",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/q2881wM2vzFxdLXPURhIEzzh8bj8Uz0f4v_O744dJcc/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS85RTYyRkVFRDc5NTlGMDk3QUQ2MDY5N0U/zOTgwQ0JGOTdDOTQwQjJCNUM2RkMwMkZCMzY1OUYwRjU1Nzg2QzI0LmpwZw.jpg",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Spray Anti Bolores Perfect Finish",
+      "brand": "Cif",
+      "price": 2.49,
+      "qty": {
+        "qty": 0.4353,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/abrasivos-casa/spray-anti-bolores-perfect-finish-cif-859408.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/859408_e0184bfb0269cb6eacde047f78cf83b9.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    },
+    "b": {
+      "name": "CIF Perfect Finish Spray Anti-Bolor",
+      "brand": "CIF",
+      "price": 2.49,
+      "qty": {
+        "qty": 0.4353,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/cif-perfect-finish-spray-anti-bolor/p10052939",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/FSy_miBewLSWNClgeOkJGeiu8nPm0UnJbGHlUkQAeYE/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yQTcxMzY4RTM5OEM3MzQ0MjNBQzFCNzA/xQUFDQTM2NDJBMUZFODI0M0UzRTJCQzE4RDQ3NDYxNjM3RUMxMTBELmpwZw.jpg",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Aroma Essence Relax",
+      "brand": "Palmolive",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-aroma-essence-relax-palmolive-962155.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/962155_bd987d4d30ddd7223cc5dd7fad0ead4f.png",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Aroma Essence Delight",
+      "brand": "Palmolive",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-aroma-essence-delight-palmolive-962157.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/962157_ce0d19fc3d3129f0904cea13d44e9ec1.png",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Snacks Doritos Tex-Mex",
+      "brand": "Doritos",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.225,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/batatas-fritas-snacks-e-frutos-secos/snacks-salgados/snacks-doritos-tex-mex-doritos-993761.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/993761_30f369b6dcde60bed2e302a4304ac773.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    },
+    "b": {
+      "name": "DORITOS Tex Mex",
+      "brand": "DORITOS",
+      "price": 2.25,
+      "qty": {
+        "qty": 0.225,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/doritos-tex-mex/p10052911",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/Mu8qHVnIl1ZpYog_a7wkC-j6JIp3Z90JHOsYkyTWagk/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzI3MTc4MDJEQkU5NTM2ODE2NDIwQjZFMj/MzNTRFMzY0MkE1MzAzMjkyNzAzQUM0QzkzMkRDNTAzRTlGNkRFMEMucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Refrigerante Fanta Laranja Pack 6",
+      "brand": "Fanta",
+      "price": 4.29,
+      "qty": {
+        "qty": 1.977,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/refrigerantes-com-gas/refrigerante-fanta-laranja-pack-6-fanta-1008061.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1008061_985d57133fa8650079413cb83602b1ef.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "FANTA Refrigerante de Laranja",
+      "brand": "FANTA",
+      "price": 1.29,
+      "qty": {
+        "qty": 1.9846,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/fanta-refrigerante-de-laranja/p10052817",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/n83a_dhNjzhQ7U9ZDSKGvFELUZ7gHIOR5ARyVEcAoE8/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzU0RDYwOUYzREY2MUZBQTBGMjAyQzJGM0/UxRTIzOThCREUwNUFDMEY1OEI2RjNEQkEwNzY3MzI0NjFDRUM1NTUucG5n.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Bolo Rei Desmanchado",
+      "brand": "Nossa Padaria",
+      "price": 9.99,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/padaria-e-pastelaria/pastelaria/bolos-familiares/bolo-rei-desmanchado-nossa-padaria-253101.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/253101_dd4f03290c058e35ccdbc9020e9ec64e.png",
+      "category": "padaria_pastelaria",
+      "subcategory": "pao"
+    },
+    "b": {
+      "name": "Deluxe Bolo Rei",
+      "brand": "Deluxe",
+      "price": 5.99,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/deluxe-bolo-rei/p10036003",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5SAX8_lXvs0ERtgxL_7URYCD7WE1S_6G68s6BDfrh48/sm:1/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VGRDM0Mzc2NjdCRkE0RjdDRTk3RTk0MU/U2NzgwN0YyRDZFQ0I4QUE3MDBDN0VEODU0NDgzNjMzNzk2OEM5MzIucG5n.png",
+      "category": "padaria_pastelaria",
+      "subcategory": "bolos_pastelaria"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Tentáculos de Pota Congelados",
+      "brand": "Nossa Peixaria",
+      "price": 4.99,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/polvo-lula-pota-e-choco/congelado/tentaculos-de-pota-congelados-nossa-peixaria-670789.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/670789_1_bc0962a47978f97ea2bec00237f34e0e.png",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Ocean Sea Tentáculos de Pota",
+      "brand": "Ocean Sea",
+      "price": 5.99,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/ocean-sea-tentaculos-de-pota/p10052622",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/CN6piMZfaY8qv_m-Oimpw2Zo8yDpBiiqkLTzZEXProM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzk3MDY5OTBCRTdGODAwMEU0QTc1REI5Qz/Y0NkEzMkJEMjk5OThCM0M1OTc3N0JGMzdGRURDRjQyNjNFNTVDODUucG5n.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Spray Madeiras Perfect Finish",
+      "brand": "Cif",
+      "price": 2.49,
+      "qty": {
+        "qty": 0.4353,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/lava-tudo/spray-madeiras-perfect-finish-cif-890839.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/890839_34e5844d5a4b2947338157b1de5121d4.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    },
+    "b": {
+      "name": "CIF Perfect Finish Spray Anti-Bolor",
+      "brand": "CIF",
+      "price": 2.49,
+      "qty": {
+        "qty": 0.4353,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/cif-perfect-finish-spray-anti-bolor/p10052939",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/FSy_miBewLSWNClgeOkJGeiu8nPm0UnJbGHlUkQAeYE/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yQTcxMzY4RTM5OEM3MzQ0MjNBQzFCNzA/xQUFDQTM2NDJBMUZFODI0M0UzRTJCQzE4RDQ3NDYxNjM3RUMxMTBELmpwZw.jpg",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Tentáculos de Pota Congelados",
+      "brand": "Nossa Peixaria",
+      "price": 8.99,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/polvo-lula-pota-e-choco/congelado/tentaculos-de-pota-congelados-nossa-peixaria-941292.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/941292_50cb66abfecf6700a2ee278f18c1371d.jpg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Ocean Sea Tentáculos de Pota",
+      "brand": "Ocean Sea",
+      "price": 5.99,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/ocean-sea-tentaculos-de-pota/p10052622",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/CN6piMZfaY8qv_m-Oimpw2Zo8yDpBiiqkLTzZEXProM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzk3MDY5OTBCRTdGODAwMEU0QTc1REI5Qz/Y0NkEzMkJEMjk5OThCM0M1OTc3N0JGMzdGRURDRjQyNjNFNTVDODUucG5n.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Silky Oil",
+      "brand": "Palmolive",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-silky-oil-palmolive-962160.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/962160_4db5fdb5f3d935925f03ca5f4b1d4158.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Pipocas Doces",
+      "brand": "Pingo Doce",
+      "price": 0.85,
+      "qty": {
+        "qty": 0.1499,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/batatas-fritas-snacks-e-frutos-secos/pipocas/pipocas-doces-pingo-doce-963008.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/963008_5230a8b12cda0a425999fd66589259cd.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    },
+    "b": {
+      "name": "Snack Day Pipocas Doces",
+      "brand": "Snack Day",
+      "price": 0.79,
+      "qty": {
+        "qty": 0.1499,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/snack-day-pipocas-doces/p10052626",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/WI0DbOdpW3y8bxKOE0Oy0Z44E9GwzjmHPlZPpDCpqUA/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0FGQjdEQjdEOTVENzdEODQ4NUZCNzg0OE/VDN0MzMTc4NzM1QTcyQjVCOEY1MEVGNTQ4QjE2OUM4RjUzQzQ3QjcucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "snacks_aperitivos"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Tiramisu Les Desserts",
+      "brand": "Carte D'Or",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.8246,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-familiares/gelado-tiramisu-les-desserts-carte-d%27or-970504.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/970504_d8ff2ddacfb3f6160f48827fbf78e68b.jpg",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Carte D'Or Gelado Tiramisu",
+      "brand": "Carte D'Or",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.8246,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/carte-d-or-gelado-tiramisu/p10052720",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/MFeGVQTf3FZlC5vqGjbIjbKRjwDad3lUlRcTDtoBOkI/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0FGMTMxOUNGODYxMUQ4Mjc4RjQzNzlGRj/NBMEZGMjQxQzY0NTFCMTVCQUFFQjdERUJFQTU0NjczNEI0QTk5NjIucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Restful Sleep",
+      "brand": "Palmolive",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-restful-sleep-palmolive-989978.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/989978_7d4724fcdf6e36fbce37bd5587f1fb8a.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Gentle Massage",
+      "brand": "Palmolive",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-gentle-massage-palmolive-991443.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/991443_1a6559a3fa68e34ce8a448c5f84b683e.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gel de Banho Blueberry & Lily",
+      "brand": "Palmolive",
+      "price": 3.29,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-blueberry-%26-lily-palmolive-1006559.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1006559_1_972d8f583d5ec6703d06f2b3a3585ee7.png",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    },
+    "b": {
+      "name": "PALMOLIVE Gel de Banho Aroma",
+      "brand": "PALMOLIVE",
+      "price": 2.99,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/palmolive-gel-de-banho-aroma/p10052827",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
+      "category": "higiene_pessoal_beleza",
+      "subcategory": "cuidado_pele"
+    }
+  }
+]

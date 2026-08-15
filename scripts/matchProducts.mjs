@@ -196,8 +196,8 @@ for (const p of pdPrepped) {
     matches.push({
       score: Number(bestScore.toFixed(3)),
       ownBrand: p.ownBrand,
-      pd: { name: p.name, brand: p.brand, price: p.price, qty: p.qty, url: p.url },
-      continente: { name: best.name, brand: best.brand, price: best.price, qty: best.qty, url: best.url },
+      pd: { name: p.name, brand: p.brand, price: p.price, qty: p.qty, url: p.url, imageUrl: p.imageUrl ?? null },
+      continente: { name: best.name, brand: best.brand, price: best.price, qty: best.qty, url: best.url, imageUrl: best.imageUrl ?? null },
     });
   }
 }

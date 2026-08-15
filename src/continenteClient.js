@@ -21,6 +21,7 @@ async function fetchCategoryPage(url) {
       "User-Agent": "Mozilla/5.0 (compatible; poupit-scraper/1.0; +https://github.com/)",
       Accept: "text/html",
     },
+    signal: AbortSignal.timeout(20000),
   });
   if (!res.ok) {
     throw new Error(`HTTP ${res.status} em ${url}`);
@@ -75,7 +76,7 @@ function parseTiles(html) {
 // encontrado, ja anotado com a nossa categoria interna (mercearia, laticinios_ovos, ...).
 // Um pedido HTTP normal por categoria, sem paginacao e sem parametros de query.
 export async function* fetchCategoryProducts({ onCategoryError } = {}) {
-  for (const { url, category } of CATEGORY_QUERIES) {
+  for (const { url, category, subcategory } of CATEGORY_QUERIES) {
     let html;
     try {
       html = await fetchCategoryPage(url);
@@ -86,7 +87,7 @@ export async function* fetchCategoryProducts({ onCategoryError } = {}) {
 
     const tiles = parseTiles(html);
     for (const tile of tiles) {
-      yield { ...tile, category, sourceUrl: url };
+      yield { ...tile, category, subcategory, sourceUrl: url };
     }
 
     await sleep(300);

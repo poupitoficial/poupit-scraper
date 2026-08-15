@@ -9,6 +9,7 @@ create table public.matched_products (
   category text,
   quantity numeric,
   quantity_unit text,
+  image_url text, -- uma imagem por produto (nao por loja); vem do PD, com fallback Continente
   created_at timestamptz not null default now()
 );
 

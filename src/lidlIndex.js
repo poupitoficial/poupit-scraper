@@ -1,35 +1,34 @@
 import "dotenv/config";
 import { supabase } from "./supabase.js";
-import { fetchCategoryProducts, MAX_PRODUCT_PRICE } from "./continenteClient.js";
+import { fetchLidlProducts, MAX_PRODUCT_PRICE } from "./lidlClient.js";
 import { priceChanged } from "./priceHistory.js";
 
-const SUPERMARKET_SLUG = process.env.CONTINENTE_SUPERMARKET_SLUG || "continente";
+const SLUG = "lidl";
 
 async function getSupermarketId() {
-  const { data, error } = await supabase
+  const { data, error } = await supabase.from("supermarkets").select("id").eq("slug", SLUG).maybeSingle();
+  if (error) throw error;
+  if (data) return data.id;
+  const { data: created, error: insertError } = await supabase
     .from("supermarkets")
+    .insert({ name: "Lidl", slug: SLUG })
     .select("id")
-    .eq("slug", SUPERMARKET_SLUG)
     .single();
-
-  if (error || !data) {
-    throw new Error(
-      `Supermercado "${SUPERMARKET_SLUG}" nao encontrado na tabela supermarkets: ${error?.message ?? "sem resultados"}`
-    );
-  }
-  return data.id;
+  if (insertError) throw insertError;
+  return created.id;
 }
 
 async function upsertProduct({
   externalId,
   name,
-  brand,
   category,
   subcategory,
   price,
   pricePerUnit,
   url,
   imageUrl,
+  brand,
+  ean,
   supermarketId,
 }) {
   const { data: existing, error: findError } = await supabase
@@ -45,21 +44,27 @@ async function upsertProduct({
   if (!productId) {
     const { data: product, error: productError } = await supabase
       .from("products")
-      .insert({ name, brand: brand || null, category, subcategory, image_url: imageUrl })
+      .insert({
+        name,
+        category,
+        subcategory,
+        image_url: imageUrl,
+        brand: brand || null,
+        barcode: ean || null,
+      })
       .select("id")
       .single();
     if (productError) throw productError;
     productId = product.id;
   } else {
-    // mantem marca/categoria/subcategoria/imagem em dia em produtos ja existentes
-    // (ex. reclassificacoes feitas no categoryMap depois do primeiro scrape)
     const update = { category, subcategory, brand: brand || null };
     if (imageUrl) update.image_url = imageUrl;
+    if (ean) update.barcode = ean;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);
     if (updateError) throw updateError;
   }
 
-  const { data: supermarketProduct, error: upsertError } = await supabase
+  const { data: sp, error: upsertError } = await supabase
     .from("supermarket_products")
     .upsert(
       {
@@ -79,72 +84,60 @@ async function upsertProduct({
   if (upsertError) throw upsertError;
 
   if (priceChanged(existing?.current_price, price)) {
-    const { error: priceError } = await supabase.from("prices").insert({
-      supermarket_product_id: supermarketProduct.id,
-      price,
-      price_per_unit: pricePerUnit,
-    });
+    const { error: priceError } = await supabase
+      .from("prices")
+      .insert({ supermarket_product_id: sp.id, price, price_per_unit: pricePerUnit });
     if (priceError) throw priceError;
   }
 }
 
 async function main() {
   const supermarketId = await getSupermarketId();
-
-  const summary = {
-    found: 0,
-    saved: 0,
-    ignoredPrice: 0,
-    ignoredCategory: 0,
-    errors: 0,
-  };
+  const summary = { found: 0, saved: 0, ignoredPrice: 0, ignoredNoPriceOrCategory: 0, errors: 0 };
   const seen = new Set();
 
-  const onCategoryError = (url, err) => {
+  const onProductError = (id, err) => {
     summary.errors += 1;
-    console.error(`Falha a carregar categoria "${url}": ${err.message}`);
+    console.error(`Erro no produto ${id}: ${err.message}`);
   };
 
-  for await (const tile of fetchCategoryProducts({ onCategoryError })) {
+  for await (const p of fetchLidlProducts({ onProductError })) {
     summary.found += 1;
-
-    if (!tile.category) {
-      summary.ignoredCategory += 1;
-      continue;
-    }
-    if (typeof tile.price !== "number" || tile.price >= MAX_PRODUCT_PRICE) {
+    if (typeof p.price !== "number" || p.price >= MAX_PRODUCT_PRICE) {
       summary.ignoredPrice += 1;
       continue;
     }
-    if (seen.has(tile.id)) continue;
-    seen.add(tile.id);
+    if (seen.has(p.id)) continue;
+    seen.add(p.id);
 
     try {
       await upsertProduct({
-        externalId: String(tile.id),
-        name: tile.name,
-        brand: tile.brand ?? null,
-        category: tile.category,
-        subcategory: tile.subcategory ?? null,
-        price: tile.price,
-        pricePerUnit: tile.pricePerUnit ?? null,
-        url: tile.url ?? null,
-        imageUrl: tile.imageUrl ?? null,
+        externalId: p.id,
+        name: p.name,
+        category: p.category,
+        subcategory: p.subcategory,
+        price: p.price,
+        pricePerUnit: p.pricePerUnit,
+        url: p.url,
+        imageUrl: p.imageUrl,
+        brand: p.brand,
+        ean: p.ean,
         supermarketId,
       });
       summary.saved += 1;
     } catch (err) {
       summary.errors += 1;
-      console.error(`Erro no produto ${tile.id} (${tile.name}): ${err.message}`);
+      console.error(`Erro ao gravar ${p.id} (${p.name}): ${err.message}`);
     }
   }
 
-  console.log("--- Resumo ---");
-  console.log(`Produtos encontrados: ${summary.found}`);
+  console.log("--- Resumo Lidl ---");
+  console.log(`Produtos no catalogo (sitemap): ${summary.found}`);
   console.log(`Guardados/atualizados: ${summary.saved}`);
   console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
-  console.log(`Ignorados (categoria desconhecida): ${summary.ignoredCategory}`);
   console.log(`Erros: ${summary.errors}`);
+  console.log("Nota: fetchLidlProducts ja filtra por dentro produtos sem preco publicado");
+  console.log("ou fora das 11 categorias (ver src/lidlCategoryMap.js) - nao aparecem aqui.");
 
   if (summary.errors > 0) process.exitCode = 1;
 }
