@@ -1,9 +1,13 @@
-name: Matching Pingo Doce x Continente
+name: Matching entre lojas
 
 on:
   schedule:
-    # 06:00 UTC, depois do scrape.yml (4h) terminar = 06:00 em Portugal no inverno, 07:00 no horario de verao (DST).
-    - cron: "0 6 * * *"
+    # 09:00 UTC, depois do scrape.yml (04:00 UTC, ate 4h de folga) terminar = 09:00
+    # em Portugal no inverno, 10:00 no horario de verao (DST). Janela alargada porque
+    # o scrape agora cobre 4 lojas (Continente/Pingo Doce/Lidl/Auchan), nao so o
+    # Continente — o Pingo Doce sozinho busca pagina a pagina (~9600 produtos,
+    # ~350ms cada) e pode demorar mais de 1h.
+    - cron: "0 9 * * *"
   workflow_dispatch: {}
 
 jobs:
@@ -20,11 +24,18 @@ jobs:
 
       - run: npm ci
 
-      - run: node scripts/harvestPingoDoce.mjs
-      - run: node scripts/harvestContinente.mjs
-      - run: node scripts/matchProducts.mjs
+      # matchAll.mjs exporta o estado atual de cada loja diretamente da BD
+      # (scripts/exportFromSupabase.mjs) e corre os 6 pares possiveis entre
+      # continente/pingo-doce/lidl/auchan, gravando analysis/matches_*.json.
+      - run: node scripts/matchAll.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
-      - run: node scripts/insertMatches.mjs
+      # Insere matches de alta confianca (score>=0.75) em matched_products,
+      # e os de baixa confianca em matched_products_review. Precisa das
+      # migrations supabase/003, 004 e 007 (ja no repo, por correr na BD).
+      - run: node scripts/insertMatchesAll.mjs
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
