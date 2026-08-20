@@ -15,6 +15,7 @@ const SOURCES = {
   "pingo-doce": "pd_products_full.json",
   lidl: "lidl_products_full.json",
   auchan: "auchan_products_full.json",
+  aldi: "aldi_products_full.json",
 };
 
 console.log("--- a exportar dados atuais da BD ---");
@@ -35,6 +36,10 @@ const PAIRS = [
   ["pingo-doce", "lidl"],
   ["pingo-doce", "auchan"],
   ["lidl", "auchan"],
+  ["continente", "aldi"],
+  ["pingo-doce", "aldi"],
+  ["lidl", "aldi"],
+  ["auchan", "aldi"],
 ];
 
 const outDir = path.join(root, "analysis");
