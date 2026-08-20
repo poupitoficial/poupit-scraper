@@ -1,7 +1,9 @@
 import "dotenv/config";
 import { supabase } from "./supabase.js";
-import { fetchPingoDoceProducts, MAX_PRODUCT_PRICE } from "./pingoDoceClient.js";
+import { fetchPingoDoceProducts, MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from "./pingoDoceClient.js";
 import { priceChanged } from "./priceHistory.js";
+import { extractQuantity } from "./quantityExtractor.js";
+import { normalizeBrand } from "./brandAliases.js";
 
 const SLUG = "pingo-doce";
 
@@ -39,17 +41,19 @@ async function upsertProduct({
   if (findError) throw findError;
 
   let productId = existing?.product_id;
+  const qty = extractQuantity(name);
+  const normalizedBrand = brand ? normalizeBrand(brand) : null;
 
   if (!productId) {
     const { data: product, error: productError } = await supabase
       .from("products")
-      .insert({ name, category, subcategory, image_url: imageUrl, brand: brand || null })
+      .insert({ name, category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, image_url: imageUrl, brand: normalizedBrand, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null })
       .select("id")
       .single();
     if (productError) throw productError;
     productId = product.id;
   } else {
-    const update = { category, subcategory, brand: brand || null };
+    const update = { category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, brand: normalizedBrand, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null };
     if (imageUrl) update.image_url = imageUrl;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);
     if (updateError) throw updateError;
@@ -92,9 +96,9 @@ async function main() {
     console.error(`Erro em ${url}: ${err.message}`);
   };
 
-  for await (const p of fetchPingoDoceProducts({ onProductError, delayMs: 350 })) {
+  for await (const p of fetchPingoDoceProducts({ onProductError })) {
     summary.found += 1;
-    if (typeof p.price !== "number" || p.price >= MAX_PRODUCT_PRICE) {
+    if (typeof p.price !== "number" || p.price >= MAX_PRODUCT_PRICE || p.price < MIN_PRODUCT_PRICE) {
       summary.ignoredPrice += 1;
       continue;
     }
@@ -128,7 +132,7 @@ async function main() {
   console.log("--- Resumo Pingo Doce ---");
   console.log(`Encontrados: ${summary.found}`);
   console.log(`Guardados/atualizados: ${summary.saved}`);
-  console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
+  console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e ou < ${MIN_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
   console.log(`Erros: ${summary.errors}`);
 
   if (summary.errors > 0) process.exitCode = 1;

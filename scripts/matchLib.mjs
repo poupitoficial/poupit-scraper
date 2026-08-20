@@ -15,6 +15,11 @@ function stripAccents(s) {
 
 const QTY_RE = /(\d+)\s*x\s*(\d+(?:[.,]\d+)?)\s*(kg|g|l|ml|cl)\b|(\d+(?:[.,]\d+)?)\s*(kg|g|l|ml|cl)\b/i;
 
+// Intervalos de peso usados como rotulo de tamanho (fraldas "9-15kg", racao
+// animal "10-25kg"), nao a quantidade real do produto - ver mesma constante
+// em src/quantityExtractor.js para o racional completo.
+const WEIGHT_RANGE_RE = /(?:\d+(?:[.,]\d+)?\s*-\s*\d+(?:[.,]\d+)?|[<>+]\s*\d+(?:[.,]\d+)?)\s*(?:kg|g|l|ml|cl)\b/gi;
+
 function toBaseUnit(value, unit) {
   const v = Number(String(value).replace(",", "."));
   switch (unit.toLowerCase()) {
@@ -28,7 +33,7 @@ function toBaseUnit(value, unit) {
 }
 
 function extractQuantity(name) {
-  const m = name.match(QTY_RE);
+  const m = name.replace(WEIGHT_RANGE_RE, " ").match(QTY_RE);
   if (!m) return null;
   if (m[1] && m[2] && m[3]) {
     const base = toBaseUnit(m[2], m[3]);

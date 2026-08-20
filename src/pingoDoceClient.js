@@ -2,6 +2,13 @@ import he from "he";
 import { classifyPdUrl } from "./pingoDoceCategoryMap.js";
 
 export const MAX_PRODUCT_PRICE = 100;
+// Produtos de balcao (padaria/talho/peixaria) vendidos a peso na loja fisica
+// aparecem no catalogo online do Pingo Doce com 0.01e como valor de
+// preenchimento (nao vendaveis online) - confirmado ao vivo (auditoria de
+// precos desta sessao: 9 produtos, "Pao Brasileiro", "Picanha de Bovino",
+// "Camarao Cozido"...). Nao e um bug de parsing nosso, e um placeholder do
+// proprio site - filtra-se aqui como preco invalido, tal como MAX_PRODUCT_PRICE.
+export const MIN_PRODUCT_PRICE = 0.05;
 
 const SITEMAP_INDEX_URL = "https://www.pingodoce.pt/home/sitemap_index.xml";
 const LOC_RE = /<loc>([^<]+)<\/loc>/g;
