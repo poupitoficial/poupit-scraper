@@ -9,7 +9,8 @@
     "scrape": "node src/index.js",
     "scrape:pingodoce": "node src/pingoDoceIndex.js",
     "scrape:lidl": "node src/lidlIndex.js",
-    "scrape:auchan": "node src/auchanIndex.js"
+    "scrape:auchan": "node src/auchanIndex.js",
+    "scrape:aldi": "node src/aldiIndex.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

@@ -186,4 +186,5 @@ export const OWN_BRAND_RE = {
   "pingo-doce": /^(pingo doce|nossa |nosso |os nossos|comida fresca)/i,
   lidl: /^(chef select|cien|milbona|alesto|freeway|solevita|ocean sea|kania|snack day|formil|silvercrest|parkside|crivit|tastino|deluxe|w5|vitasan|vemondo|sondey)/i,
   auchan: /^(auchan|pouce|cosmia)/i,
+  aldi: /^(aldi|crofton|frantastique|up2fashion|workzone|cucina|ravini|deco craft|power force|milsani|choceur)/i,
 };
