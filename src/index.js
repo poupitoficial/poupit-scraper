@@ -2,6 +2,8 @@ import "dotenv/config";
 import { supabase } from "./supabase.js";
 import { fetchCategoryProducts, MAX_PRODUCT_PRICE } from "./continenteClient.js";
 import { priceChanged } from "./priceHistory.js";
+import { extractQuantity } from "./quantityExtractor.js";
+import { normalizeBrand } from "./brandAliases.js";
 
 const SUPERMARKET_SLUG = process.env.CONTINENTE_SUPERMARKET_SLUG || "continente";
 
@@ -41,11 +43,13 @@ async function upsertProduct({
   if (findError) throw findError;
 
   let productId = existing?.product_id;
+  const qty = extractQuantity(name);
+  const normalizedBrand = brand ? normalizeBrand(brand) : null;
 
   if (!productId) {
     const { data: product, error: productError } = await supabase
       .from("products")
-      .insert({ name, brand: brand || null, category, subcategory, image_url: imageUrl })
+      .insert({ name, brand: normalizedBrand, category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, image_url: imageUrl, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null })
       .select("id")
       .single();
     if (productError) throw productError;
@@ -53,7 +57,7 @@ async function upsertProduct({
   } else {
     // mantem marca/categoria/subcategoria/imagem em dia em produtos ja existentes
     // (ex. reclassificacoes feitas no categoryMap depois do primeiro scrape)
-    const update = { category, subcategory, brand: brand || null };
+    const update = { category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, brand: normalizedBrand, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null };
     if (imageUrl) update.image_url = imageUrl;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);
     if (updateError) throw updateError;

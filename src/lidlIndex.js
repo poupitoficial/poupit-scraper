@@ -2,6 +2,8 @@ import "dotenv/config";
 import { supabase } from "./supabase.js";
 import { fetchLidlProducts, MAX_PRODUCT_PRICE } from "./lidlClient.js";
 import { priceChanged } from "./priceHistory.js";
+import { extractQuantity } from "./quantityExtractor.js";
+import { normalizeBrand } from "./brandAliases.js";
 
 const SLUG = "lidl";
 
@@ -40,6 +42,8 @@ async function upsertProduct({
   if (findError) throw findError;
 
   let productId = existing?.product_id;
+  const qty = extractQuantity(name);
+  const normalizedBrand = brand ? normalizeBrand(brand) : null;
 
   if (!productId) {
     const { data: product, error: productError } = await supabase
@@ -48,16 +52,19 @@ async function upsertProduct({
         name,
         category,
         subcategory,
+        subcategory_source: subcategory ? "breadcrumb" : null,
         image_url: imageUrl,
-        brand: brand || null,
+        brand: normalizedBrand,
         barcode: ean || null,
+        unit_type: qty?.unit ?? null,
+        unit_size: qty?.value ?? null,
       })
       .select("id")
       .single();
     if (productError) throw productError;
     productId = product.id;
   } else {
-    const update = { category, subcategory, brand: brand || null };
+    const update = { category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, brand: normalizedBrand, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null };
     if (imageUrl) update.image_url = imageUrl;
     if (ean) update.barcode = ean;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);

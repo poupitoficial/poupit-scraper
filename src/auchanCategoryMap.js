@@ -4,39 +4,60 @@
 // o Lidl (ver lidlCategoryMap.js) - primeira regra que der match no breadcrumb
 // completo (4 niveis concatenados) vence.
 
+// pluralForms/wordForm/altForms movidos para src/pluralMatch.js (partilhado
+// com Aldi e Continente) - ver esse ficheiro para o racional.
+import { wordForm, altForms } from "./pluralMatch.js";
+
 const RULES = [
   // laticinios_ovos
-  { test: /\bleite\b/i, category: "laticinios_ovos", subcategory: "leite" },
+  { test: wordForm("leite"), category: "laticinios_ovos", subcategory: "leite" },
   { test: /iogurte/i, category: "laticinios_ovos", subcategory: "iogurtes" },
   { test: /queijo/i, category: "laticinios_ovos", subcategory: "queijos" },
   { test: /manteiga|natas/i, category: "laticinios_ovos", subcategory: "manteiga_natas" },
   { test: /\bovos?\b/i, category: "laticinios_ovos", subcategory: "ovos" },
   { test: /sobremesa.*lacte|lacte.*sobremesa/i, category: "laticinios_ovos", subcategory: "sobremesas_lacteas" },
-  { test: /bebida.*vegetal|vegegurte/i, category: "laticinios_ovos", subcategory: "bebidas_iogurtes_vegetais" },
+  { test: new RegExp(`bebida.*(${altForms("vegetal")})|vegegurte`, "i"), category: "laticinios_ovos", subcategory: "bebidas_iogurtes_vegetais" },
+
+  // "Caldo Carne, Peixe e Legumes" e uma categoria-mae generica do Auchan que
+  // agrupa caldos de todos os sabores (carne, galinha, peixe, legumes) - a
+  // palavra "peixe" aparece no breadcrumb mesmo para caldos de carne/galinha.
+  // Tem de ser verificado antes da regra generica de peixe.
+  { test: /\bcaldo\b/i, category: "mercearia_doce_salgada", subcategory: "molhos_temperos" },
 
   // talho_peixaria
   { test: /vaca|bovino|novilho|vitela/i, category: "talho_peixaria", subcategory: "carne_vaca" },
   { test: /porco|suino/i, category: "talho_peixaria", subcategory: "carne_porco" },
   { test: /frango|aves|peru|pato|coelho/i, category: "talho_peixaria", subcategory: "aves" },
-  { test: /marisco|camarao|lulas|polvo|choco/i, category: "talho_peixaria", subcategory: "marisco" },
+  // \b em "choco" evita apanhar "achocolatados" (achoCOLATados nao tem fronteira
+  // de palavra ali, mas sem \b tambem apanhava por engano nomes como
+  // "Chocolate" combinados de forma inesperada nalguns breadcrumbs)
+  { test: /marisco|camarao|lulas|polvo|\bchocos?\b/i, category: "talho_peixaria", subcategory: "marisco" },
   { test: /charcutaria|fiambre|salame|chourico|presunto|salsicha|linguica/i, category: "talho_peixaria", subcategory: "charcutaria_enchidos" },
   { test: /peixaria|peixe|bacalhau|salmao/i, category: "talho_peixaria", subcategory: "peixe_fresco" },
 
   // frutas_legumes
+  // "Chocolates e Achocolatados / Tablete Chocolate com Cereais e Frutos
+  // Secos" e "Fruta / Sumos de Fruta" sao secoes reais do site do Auchan
+  // (frutos secos so aparecem no nome do produto, mas "chocolate" e "sumo"
+  // ja estao no proprio breadcrumb) - tem de vencer antes das regras
+  // genericas de frutos_secos/fruta abaixo, senao 159 produtos (chocolates
+  // e sumos embalados) ficam classificados como fruta/frutos secos.
+  { test: /chocolate/i, category: "mercearia_doce_salgada", subcategory: "chocolates_doces" },
+  { test: /\bsumo\b|nectar/i, category: "bebidas", subcategory: "refrigerantes_sumos" },
   { test: /frutos secos|desidratad/i, category: "frutas_legumes", subcategory: "frutos_secos" },
   { test: /ervas aromaticas|especiarias/i, category: "frutas_legumes", subcategory: "ervas_aromaticas" },
   { test: /salada.*pronta|4a gama/i, category: "frutas_legumes", subcategory: "saladas_prontas" },
-  { test: /\bfruta\b/i, category: "frutas_legumes", subcategory: "fruta" },
+  { test: wordForm("fruta"), category: "frutas_legumes", subcategory: "fruta" },
   { test: /legum|hortalic/i, category: "frutas_legumes", subcategory: "legumes" },
 
   // mercearia_doce_salgada (antes de padaria_pastelaria: "Bolachas e Bolos" e o
   // nome real de uma categoria de mercearia no site do Auchan e contem "bolo",
   // por isso "bolacha" tem de ser verificado primeiro)
   { test: /bolacha|biscoito|cereal|barra/i, category: "mercearia_doce_salgada", subcategory: "bolachas_cereais" },
-  { test: /massa|arroz|leguminosa/i, category: "mercearia_doce_salgada", subcategory: "massas_arroz" },
+  { test: /massa|arroz|leguminosa|farinha/i, category: "mercearia_doce_salgada", subcategory: "massas_arroz" },
   { test: /conserva/i, category: "mercearia_doce_salgada", subcategory: "conservas" },
   { test: /azeite|oleo aliment/i, category: "mercearia_doce_salgada", subcategory: "azeite_oleos" },
-  { test: /molho|tempero|especiaria|sal\b/i, category: "mercearia_doce_salgada", subcategory: "molhos_temperos" },
+  { test: /molho|tempero|especiaria|sal\b|maionese|ketchup|mostarda/i, category: "mercearia_doce_salgada", subcategory: "molhos_temperos" },
   { test: /snack|aperitivo|batata frita/i, category: "mercearia_doce_salgada", subcategory: "snacks_aperitivos" },
   { test: /chocolate|rebucado|goma/i, category: "mercearia_doce_salgada", subcategory: "chocolates_doces" },
   { test: /compota|doce|mel\b|marmelada/i, category: "mercearia_doce_salgada", subcategory: "compotas_mel" },
@@ -45,7 +66,7 @@ const RULES = [
   { test: /croissant|folhado/i, category: "padaria_pastelaria", subcategory: "croissants_folhados" },
   { test: /torrada|tosta/i, category: "padaria_pastelaria", subcategory: "torradas_tostas" },
   { test: /bolo|pastelaria|pasteis/i, category: "padaria_pastelaria", subcategory: "bolos_pastelaria" },
-  { test: /\bpao\b|padaria/i, category: "padaria_pastelaria", subcategory: "pao" },
+  { test: new RegExp(`\\b(${altForms("pao")})\\b|padaria`, "i"), category: "padaria_pastelaria", subcategory: "pao" },
 
   // congelados
   { test: /gelado/i, category: "congelados", subcategory: "gelados" },
@@ -59,7 +80,7 @@ const RULES = [
   { test: /cerveja|sidra/i, category: "bebidas", subcategory: "cerveja" },
   { test: /vinho|champanhe|espumante/i, category: "bebidas", subcategory: "vinho" },
   { test: /espirituos|licor|whisky|vodka|gin\b|rum\b/i, category: "bebidas", subcategory: "bebidas_espirituosas" },
-  { test: /\bagua\b/i, category: "bebidas", subcategory: "agua" },
+  { test: wordForm("agua"), category: "bebidas", subcategory: "agua" },
   { test: /sumo|refrigerante|nectar/i, category: "bebidas", subcategory: "refrigerantes_sumos" },
   { test: /cafe|cha\b|infus/i, category: "bebidas", subcategory: "cafe_cha" },
 
@@ -85,8 +106,8 @@ const RULES = [
   { test: /limpeza|cuidados do lar/i, category: "casa_limpeza", subcategory: "limpeza_casa" },
 
   // animais_estimacao
-  { test: /racao.*cao|comida.*cao\b|\bcao\b/i, category: "animais_estimacao", subcategory: "racao_cao" },
-  { test: /racao.*gato|comida.*gato|\bgato\b/i, category: "animais_estimacao", subcategory: "racao_gato" },
+  { test: new RegExp(`racao.*(${altForms("cao")})|comida.*(${altForms("cao")})|\\b(${altForms("cao")})\\b`, "i"), category: "animais_estimacao", subcategory: "racao_cao" },
+  { test: new RegExp(`racao.*(${altForms("gato")})|comida.*(${altForms("gato")})|\\b(${altForms("gato")})\\b`, "i"), category: "animais_estimacao", subcategory: "racao_gato" },
   { test: /areia.*gato/i, category: "animais_estimacao", subcategory: "areia_gatos" },
   { test: /animais|animal/i, category: "animais_estimacao", subcategory: "acessorios_petiscos" },
 ];
