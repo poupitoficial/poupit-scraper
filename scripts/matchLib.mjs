@@ -126,14 +126,71 @@ function prep(list, ownBrandRe) {
 }
 
 const QTY_TOLERANCE = 0.05;
+
+// "proxy" (price/pricePerUnit) sai sempre na unidade que pricePerUnit usa -
+// kg ou L - porque e assim que as lojas anunciam preco/unidade. Uma
+// quantidade real extraida do nome do produto (extractQuantity) esta sempre
+// em g/ml (toBaseUnit converte kg->g e L->ml). Comparar os dois em bruto da
+// sempre ~99% de diferenca mesmo quando o produto e identico (ex. proxy=1
+// kg-equivalente vs real=1000 g). Escala o proxy para g/ml antes de comparar.
+function scaleProxyToBaseUnit(qty, otherKind) {
+  if (qty.kind === "proxy" && (otherKind === "weight" || otherKind === "volume")) {
+    return { ...qty, qty: qty.qty * 1000 };
+  }
+  return qty;
+}
+
 function qtyMatches(a, b) {
   if (!a && !b) return true;
   if (!a || !b) return false;
   if (a.kind !== b.kind && a.kind !== "proxy" && b.kind !== "proxy") return false;
-  return Math.abs(a.qty - b.qty) / Math.max(a.qty, b.qty) <= QTY_TOLERANCE;
+  const scaledA = scaleProxyToBaseUnit(a, b.kind);
+  const scaledB = scaleProxyToBaseUnit(b, a.kind);
+  return Math.abs(scaledA.qty - scaledB.qty) / Math.max(scaledA.qty, scaledB.qty) <= QTY_TOLERANCE;
 }
 
 const NAME_THRESHOLD = 0.45;
+
+// Categorias onde a marca (propria ou de fabricante) nao e um bom sinal de
+// "mesmo produto" - fruta/legumes sao maioritariamente vendidos a peso, sem
+// marca ou com a marca da propria loja, e "Banana" da Continente e "Banana"
+// do Pingo Doce sao efetivamente equivalentes para efeitos de comparacao de
+// preco, mesmo sem bater a marca. Para estas, ignora-se o balde de marca por
+// completo (compara-se contra toda a lista do outro lado) - nome+quantidade
+// continuam a ser o criterio real (qtyMatches + jaccard + divergencia de
+// sabor/variante), a marca so deixa de ser um pre-filtro obrigatorio.
+// Nao alterar para outras categorias (talho/peixaria, padaria, congelados):
+// a diferenca de origem/qualidade entre lojas e real e a comparacao seria
+// enganadora sem o sinal de marca.
+const IGNORE_BRAND_BUCKET_CATEGORIES = new Set(["frutas_legumes"]);
+const PPU_TOLERANCE_CATEGORIES = IGNORE_BRAND_BUCKET_CATEGORIES;
+const PPU_TOLERANCE = 0.15;
+
+// Verificado com dados reais (107 matches novos de frutas_legumes): 0/107
+// tinham peso confirmado dos dois lados, e o score de nome deixou passar
+// pares com preco/unidade a divergir >100% (produtos claramente diferentes,
+// ex. "Pessego Vermelho" vs "Pessego Vermelho BIO 500G"). Quando o
+// preco/unidade esta disponivel dos dois lados, e um sinal mais fiavel que o
+// score de nome para esta categoria - rejeita o par aqui, antes de gastar
+// tempo a calcular jaccard. Quando falta de um dos lados, nao rejeita (nao
+// ha como confirmar nem desmentir) - fica para revisao manual a jusante.
+function ppuDivergesTooMuch(a, b) {
+  const ppuA = a?.pricePerUnit;
+  const ppuB = b?.pricePerUnit;
+  if (ppuA == null || ppuB == null || ppuA <= 0 || ppuB <= 0) return false;
+  return Math.max(ppuA, ppuB) / Math.min(ppuA, ppuB) - 1 > PPU_TOLERANCE;
+}
+
+// Usado por insertMatchesAll.mjs para decidir se um match de
+// frutas_legumes/ownBrand que sobreviveu ao gate acima (ou seja, ou tem
+// preco/unidade proximo, ou falta de um dos lados) vai para matched_products
+// direto ou para revisao manual.
+export function isSafeFrutasLegumesOwnBrand(m) {
+  const ppuA = m.a.pricePerUnit;
+  const ppuB = m.b.pricePerUnit;
+  if (ppuA == null || ppuB == null || ppuA <= 0 || ppuB <= 0) return false;
+  return Math.max(ppuA, ppuB) / Math.min(ppuA, ppuB) - 1 <= PPU_TOLERANCE;
+}
 
 // Compara duas listas de produtos (fonte A x fonte B) e devolve os pares que
 // parecem ser o mesmo produto. ownBrandReA/B identifica marca propria de cada
@@ -143,22 +200,59 @@ export function matchTwoSources(listA, ownBrandReA, listB, ownBrandReB) {
   const b = prep(listB, ownBrandReB);
 
   const buckets = new Map();
+  const byCategory = new Map();
   for (const p of b) {
     const key = p.ownBrand ? "OWN" : p.brandNorm;
     if (!buckets.has(key)) buckets.set(key, []);
     buckets.get(key).push(p);
+    if (!byCategory.has(p.category)) byCategory.set(p.category, []);
+    byCategory.get(p.category).push(p);
+  }
+
+  // Para frutas_legumes, o candidato certo pode estar em 2 sitios diferentes
+  // consoante o caso real encontrado (e podem ser assimetricos - qualquer
+  // combinacao de marca real/marca-propria/sem-marca de cada lado):
+  //  - mesma marca real dos dois lados, categoria diferente entre lojas (ex.
+  //    "Sementes de Sesamo Cem Porcento" - Continente poe em frutas_legumes,
+  //    Pingo Doce em mercearia_doce_salgada) -> so o balde normal por texto
+  //    de marca (buckets.get(brandNorm)) encontra isto, porque da
+  //    cross-categoria de graca (o balde e por marca, nao por categoria).
+  //  - qualquer combinacao envolvendo marca-propria/sem-marca de um ou dos
+  //    dois lados, mesma categoria (ex. "Banana" sem marca x "Banana"
+  //    marca-propria; "Physalis Nativa" marca real x "Physalis" marca
+  //    generica do Pingo Doce; "Beterraba Cozida Continente" marca-propria x
+  //    "Beterraba Cozida" da Huercasa, marca real) -> so aparece com todos
+  //    os produtos da mesma categoria do outro lado, independente da marca
+  //    de cada um (o jaccard de nome e que decide se sao mesmo o mesmo
+  //    produto, a marca deixa de pre-filtrar).
+  // Junta os dois - o resultado e a uniao, nunca so um dos dois.
+  function relaxedCandidates(p) {
+    const set = new Set();
+    if (!p.ownBrand && p.brandNorm) {
+      for (const item of buckets.get(p.brandNorm) || []) set.add(item);
+    }
+    for (const item of byCategory.get(p.category) || []) set.add(item);
+    return set.size ? [...set] : null;
   }
 
   const matches = [];
   for (const p of a) {
     const key = p.ownBrand ? "OWN" : p.brandNorm;
-    const candidates = buckets.get(key);
+    const useRelaxed = IGNORE_BRAND_BUCKET_CATEGORIES.has(p.category);
+    const candidates = useRelaxed ? relaxedCandidates(p) : buckets.get(key);
     if (!candidates) continue;
-
     let best = null;
     let bestScore = 0;
     for (const c of candidates) {
       if (!qtyMatches(p.qty, c.qty)) continue;
+      // O gate de preco/unidade so se aplica quando pelo menos um dos lados
+      // nao tem marca real a confirmar o par (marca-propria ou sem-marca) -
+      // um par onde os dois lados batem na mesma marca real (ex. "Cem
+      // Porcento" nos dois, "Vitacress" nos dois) ja tem esse sinal forte e
+      // nao precisa do preco/unidade como criterio extra.
+      const sameRealBrand = key !== "OWN" && key !== "" && key === (c.ownBrand ? "OWN" : c.brandNorm);
+      const gateApplies = (useRelaxed || PPU_TOLERANCE_CATEGORIES.has(c.category)) && !sameRealBrand;
+      if (gateApplies && ppuDivergesTooMuch(p, c)) continue;
       if (diverges(p.tokens, c.tokens, FLAVOR_WORDS)) continue;
       if (diverges(p.tokens, c.tokens, VARIANT_WORDS)) continue;
       if (polarityDiverges(p.polarity, c.polarity)) continue;
@@ -172,8 +266,8 @@ export function matchTwoSources(listA, ownBrandReA, listB, ownBrandReB) {
       matches.push({
         score: Number(bestScore.toFixed(3)),
         ownBrand: p.ownBrand,
-        a: { name: p.name, brand: p.brand, price: p.price, qty: p.qty, url: p.url, imageUrl: p.imageUrl ?? null, category: p.category, subcategory: p.subcategory ?? null },
-        b: { name: best.name, brand: best.brand, price: best.price, qty: best.qty, url: best.url, imageUrl: best.imageUrl ?? null, category: best.category, subcategory: best.subcategory ?? null },
+        a: { name: p.name, brand: p.brand, price: p.price, pricePerUnit: p.pricePerUnit ?? null, qty: p.qty, url: p.url, imageUrl: p.imageUrl ?? null, category: p.category, subcategory: p.subcategory ?? null },
+        b: { name: best.name, brand: best.brand, price: best.price, pricePerUnit: best.pricePerUnit ?? null, qty: best.qty, url: best.url, imageUrl: best.imageUrl ?? null, category: best.category, subcategory: best.subcategory ?? null },
       });
     }
   }
