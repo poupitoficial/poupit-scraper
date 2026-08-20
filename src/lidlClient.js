@@ -8,6 +8,14 @@ const ID_RE = /\/p\/[^/]+\/p(\d+)</g;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Afinavel por env var (ex. LIDL_DELAY_MS=1000). Ja sequencial e catalogo
+// pequeno (137-276 produtos), risco baixo, mas fica configuravel por
+// consistencia com os restantes clientes.
+function envInt(name, fallback) {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
 async function fetchJson(url) {
   const res = await fetch(url, {
     headers: {
@@ -67,7 +75,7 @@ function parseDetail(detail) {
 // So usa a API JSON escondida (/p/api/detail/...), nunca faz scraping de HTML.
 // Nao esta bloqueada pelo robots.txt do Lidl (que so bloqueia paths comecados
 // por digito, /q/search e alguns assets tecnicos).
-export async function* fetchLidlProducts({ onProductError, delayMs = 200 } = {}) {
+export async function* fetchLidlProducts({ onProductError, delayMs = envInt("LIDL_DELAY_MS", 750) } = {}) {
   const ids = await collectProductIds();
 
   for (const id of ids) {

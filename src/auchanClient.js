@@ -4,26 +4,34 @@ import { classifyAuchanBreadcrumb } from "./auchanCategoryMap.js";
 
 export const MAX_PRODUCT_PRICE = 100;
 
-const PRODUCT_BLOCK_SPLIT_RE = /(?=<div class="product" data-pid="\d+">)/;
-const GTM_NEW_RE = /data-gtm-new="([^"]+)"/;
-const PRODUCT_URL_RE = /class="pdp-link">[\s\S]{0,60}<h3><a class="link" href="([^"]+)"/;
-const IMAGE_URL_RE = /<img\s+src="[^"]*"\s+data-src="([^"]+)"/;
-const PRICE_VALUE_RE = /class="value" content="([\d.]+)"/;
+// Paginas de categoria "folha" (usadas ate agora) so mostram ate ~24 produtos;
+// o resto fica atras de um botao "mostrar mais" que chama um endpoint ajax
+// bloqueado por robots.txt (prefn1/prefv1). 380 das 752 categorias (50%) tem
+// mais de 24 produtos - o scraper anterior nunca via esses. O robots.txt do
+// Auchan expoe um sitemap de produto (Sitemap: /sitemap_index.xml), sem
+// paginacao nenhuma bloqueada - por isso passamos a descobrir produtos por ai
+// e a ler cada pagina de produto individual (mesmo padrao do Pingo Doce).
+const SITEMAP_INDEX_URL = "https://www.auchan.pt/sitemap_index.xml";
+const LOC_RE = /<loc>([^<]+)<\/loc>/g;
+const LD_JSON_RE = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
 const PRICE_PER_UNIT_RE = /class="auc-measures--price-per-unit">([^<]*)</;
 const PRICE_PER_UNIT_NUM_RE = /(\d+[.,]\d+)\s*€/;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Pagina de categoria normal (HTML tal como um browser/crawler a veria), nao o
-// endpoint ajax Search-UpdateGrid. O robots.txt do Auchan bloqueia os parametros
-// que esse endpoint exige por omissao (prefn1/prefv1/srule), tal como acontece
-// no Continente - por isso usamos a mesma abordagem de paginas de categoria
-// "folha" (sem paginacao, ate ~24 produtos por pagina).
-async function fetchCategoryPage(url) {
+// Afinavel por env var sem reescrever codigo (ex. AUCHAN_DELAY_MS=2000) - o
+// Auchan usava os mesmos defaults (concurrency=10/delayMs=150, ~3 req/s) que
+// bloquearam o Continente, com catalogo ainda maior (30000+ URLs).
+function envInt(name, fallback) {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
+async function fetchText(url) {
   const res = await fetch(url, {
     headers: {
       "User-Agent": "Mozilla/5.0 (compatible; poupit-scraper/1.0; +https://github.com/)",
-      Accept: "text/html",
+      Accept: "text/html,application/xml",
     },
     signal: AbortSignal.timeout(20000),
   });
@@ -31,80 +39,129 @@ async function fetchCategoryPage(url) {
   return res.text();
 }
 
-function parsePricePerUnit(block) {
-  const match = block.match(PRICE_PER_UNIT_RE);
+function extractLocs(xml) {
+  const locs = [];
+  let m;
+  LOC_RE.lastIndex = 0;
+  while ((m = LOC_RE.exec(xml))) locs.push(m[1]);
+  return locs;
+}
+
+// So os produtos cujo URL comeca por uma das 752 categorias-folha ja
+// mapeadas (as mesmas usadas na abordagem anterior) - mantem o mesmo scope
+// de "categorias alimentares/relevantes" sem ter de reclassificar do zero
+// que paginas interessam.
+function isRelevantProductUrl(url) {
+  return CATEGORY_URLS.some((prefix) => url.startsWith(prefix));
+}
+
+export async function collectRelevantProductUrls() {
+  const indexXml = await fetchText(SITEMAP_INDEX_URL);
+  const sitemapUrls = extractLocs(indexXml).filter((u) => u.includes("-product.xml"));
+
+  const urls = new Set();
+  for (const sitemapUrl of sitemapUrls) {
+    const xml = await fetchText(sitemapUrl);
+    for (const productUrl of extractLocs(xml)) {
+      if (isRelevantProductUrl(productUrl)) urls.add(productUrl);
+    }
+  }
+  return [...urls];
+}
+
+function parsePricePerUnit(html) {
+  const match = html.match(PRICE_PER_UNIT_RE);
   if (!match) return null;
   const value = he.decode(match[1]).match(PRICE_PER_UNIT_NUM_RE);
   return value ? Number(value[1].replace(",", ".")) : null;
 }
 
-// Cada tile traz um atributo data-gtm-new com um JSON (item_id, item_name,
-// item_brand, item_category..4, price) usado pelo Auchan para analytics - inclui
-// o breadcrumb completo de 4 niveis, por isso nao precisamos de abrir a pagina do
-// produto para saber a categoria.
-function parseTiles(html) {
-  const blocks = html.split(PRODUCT_BLOCK_SPLIT_RE);
-  const tiles = [];
-
-  for (const block of blocks) {
-    const gtmMatch = block.match(GTM_NEW_RE);
-    if (!gtmMatch) continue;
-
-    let gtm;
+// A pagina de produto traz 3 blocos <script type="application/ld+json">:
+// Organization, BreadcrumbList (nome da categoria em 2-4 niveis) e Product
+// (nome, marca, sku, gtin, imagens, preco, disponibilidade). Ao contrario do
+// tile da pagina de categoria (data-gtm-new, sempre 4 niveis), o breadcrumb
+// aqui pode ter menos niveis - classifyAuchanBreadcrumb ja tolera isso
+// (ignora argumentos undefined).
+function parseLdJsonBlocks(html) {
+  const blocks = [];
+  let m;
+  LD_JSON_RE.lastIndex = 0;
+  while ((m = LD_JSON_RE.exec(html))) {
     try {
-      gtm = JSON.parse(he.decode(gtmMatch[1]));
+      blocks.push(JSON.parse(m[1]));
     } catch {
-      continue;
+      // ignora blocos invalidos
     }
-    if (!gtm.item_id) continue;
-
-    const classification = classifyAuchanBreadcrumb(
-      gtm.item_category,
-      gtm.item_category2,
-      gtm.item_category3,
-      gtm.item_category4
-    );
-    if (!classification) continue;
-
-    const priceMatch = block.match(PRICE_VALUE_RE);
-    const price = priceMatch ? Number(priceMatch[1]) : Number(gtm.price);
-    if (!Number.isFinite(price)) continue; // produto sem preco publicado (ex. so em loja)
-
-    const urlMatch = block.match(PRODUCT_URL_RE);
-    const imageMatch = block.match(IMAGE_URL_RE);
-
-    tiles.push({
-      id: String(gtm.item_id),
-      name: gtm.item_name,
-      brand: gtm.item_brand || null,
-      price,
-      pricePerUnit: parsePricePerUnit(block),
-      url: urlMatch ? `https://www.auchan.pt${he.decode(urlMatch[1])}` : null,
-      imageUrl: imageMatch ? he.decode(imageMatch[1]) : null,
-      category: classification.category,
-      subcategory: classification.subcategory,
-    });
   }
-
-  return tiles;
+  return blocks;
 }
 
-// Percorre todas as paginas de categoria "folha" mapeadas e devolve cada produto
-// encontrado, ja classificado nas nossas 11 categorias a partir do breadcrumb
-// real do proprio tile (nunca por palavra-chave no nome do produto).
-export async function* fetchAuchanProducts({ onCategoryError } = {}) {
-  for (const url of CATEGORY_URLS) {
-    let html;
-    try {
-      html = await fetchCategoryPage(url);
-    } catch (err) {
-      onCategoryError?.(url, err);
-      continue;
-    }
+function parseProductPage(html, url) {
+  const blocks = parseLdJsonBlocks(html);
+  const product = blocks.find((b) => b["@type"] === "Product");
+  if (!product?.sku || !product?.offers) return null;
 
-    const tiles = parseTiles(html);
-    for (const tile of tiles) yield { ...tile, sourceUrl: url };
+  const breadcrumbList = blocks.find((b) => b["@type"] === "BreadcrumbList");
+  const crumbs = (breadcrumbList?.itemListElement || [])
+    .sort((a, b) => a.position - b.position)
+    .map((c) => c.item?.name)
+    .filter(Boolean);
 
-    await sleep(300);
+  const classification = classifyAuchanBreadcrumb(crumbs[0], crumbs[1], crumbs[2], crumbs[3]);
+  if (!classification) return null;
+
+  if (product.offers.availability && !/InStock/i.test(product.offers.availability)) return null;
+
+  const price = Number(product.offers.price);
+  if (!Number.isFinite(price)) return null;
+
+  const image = Array.isArray(product.image) ? product.image[0] : product.image;
+
+  const barcode = product.gtin13 || product.gtin || product.gtin12 || product.gtin8 || product.gtin14 || null;
+
+  return {
+    id: String(product.sku),
+    name: product.name,
+    brand: product.brand?.name || null,
+    price,
+    pricePerUnit: parsePricePerUnit(html),
+    url,
+    imageUrl: image || null,
+    category: classification.category,
+    subcategory: classification.subcategory,
+    barcode,
+  };
+}
+
+// Descobre produtos pelo sitemap (nao pela pagina de categoria) e le cada
+// pagina de produto individual em paralelo controlado - o salto de ~752
+// pedidos (uma por categoria) para dezenas de milhares (uma por produto) exige
+// concorrencia, senao a corrida demora horas.
+export async function* fetchAuchanProducts({
+  onProductError,
+  onProgress,
+  concurrency = envInt("AUCHAN_CONCURRENCY", 2),
+  delayMs = envInt("AUCHAN_DELAY_MS", 1000),
+  urls: urlsOverride,
+} = {}) {
+  const urls = urlsOverride ?? (await collectRelevantProductUrls());
+  onProgress?.({ phase: "urls-collected", total: urls.length });
+
+  for (let i = 0; i < urls.length; i += concurrency) {
+    const batch = urls.slice(i, i + concurrency);
+    const results = await Promise.all(
+      batch.map(async (url) => {
+        try {
+          const html = await fetchText(url);
+          return parseProductPage(html, url);
+        } catch (err) {
+          onProductError?.(url, err);
+          return null;
+        }
+      })
+    );
+    for (const p of results) if (p) yield p;
+    onProgress?.({ phase: "batch-done", processed: Math.min(i + concurrency, urls.length), total: urls.length });
+    await sleep(delayMs);
   }
 }

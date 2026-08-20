@@ -14,6 +14,13 @@ const LD_JSON_RE = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Afinavel por env var (ex. PINGODOCE_DELAY_MS=1000). Ja sequencial (sem
+// concurrency), por isso so o delay precisa de expor um travao adicional.
+function envInt(name, fallback) {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
 async function fetchText(url) {
   const res = await fetch(url, {
     headers: {
@@ -114,7 +121,7 @@ function parseProductPage(html, url, category, subcategory) {
 
 // Percorre so as paginas de produto individuais relevantes (nao usa nenhum
 // endpoint ajax/Search-*, que o robots.txt do Pingo Doce bloqueia).
-export async function* fetchPingoDoceProducts({ onProductError, delayMs = 350 } = {}) {
+export async function* fetchPingoDoceProducts({ onProductError, delayMs = envInt("PINGODOCE_DELAY_MS", 750) } = {}) {
   const productUrls = await collectRelevantProductUrls();
 
   for (const { url, category, subcategory } of productUrls) {
