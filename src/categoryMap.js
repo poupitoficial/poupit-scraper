@@ -295,6 +295,137 @@ const BEBIDAS_URLS = [
   "https://www.continente.pt/bebidas-e-garrafeira/vinhos/vinho-verde/",
 ];
 
+// Higiene Pessoal e Beleza, Casa e Limpeza, Animais de Estimacao e a expansao
+// de Bebe (fraldas/toalhitas/banho, alem da alimentacao infantil que ja
+// existia) - nunca tinham sido adicionadas desde a versao original do
+// scraper (nao era um filtro deliberado, so nunca foi feito). Exclui
+// deliberadamente maquilhagem, perfumes, preservativos, coffrets e
+// formato-viagem (fora de ambito de mercearia, mesmo padrao ja aplicado no
+// Auchan/Aldi), e equipamento/mobiliario/brinquedos de bebe (cadeiras,
+// carrinhos, banheiras, texteis, chupetas, mobiliario - nao sao produtos de
+// supermercado recorrentes).
+const HIGIENE_PESSOAL_BELEZA_URLS = [
+  "https://www.continente.pt/beleza-e-higiene/cabelo/champos/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/condicionadores/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/mascaras-e-tratamentos/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/coloracoes/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/spray-espuma-creme-e-gel/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/crianca/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/acessorios/",
+  "https://www.continente.pt/beleza-e-higiene/cabelo/secadores-e-modeladores-de-cabelo/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/gel-de-banho/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/desodorizantes/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/cremes-e-locoes/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/depilacao-e-descoloracao/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/sabonetes/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/cuidados-de-maos-e-pes/",
+  "https://www.continente.pt/beleza-e-higiene/corpo/acessorios/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/limpeza-e-desmaquilhantes/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/seruns-e-tonicos/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/cremes/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/mascaras/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/beleza-coreana/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/limpeza/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/acne-e-pele-oleosa/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/hidratacao/",
+  "https://www.continente.pt/beleza-e-higiene/rosto/antirrugas-e-refirmantes/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/pastas-de-dentes/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/escovas-de-dentes/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/elixires-bucais/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/fio-e-fita-dentaria/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/cuidados-para-proteses/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-oral/higiene-oral-infantil/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/pensos-e-cuecas-menstruais/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/tampoes/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/pensos-diarios/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/gel-e-sabonetes-intimos/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/toalhitas-intimas/",
+  "https://www.continente.pt/beleza-e-higiene/higiene-intima/incontinencia/",
+  "https://www.continente.pt/beleza-e-higiene/homem/barba/",
+  "https://www.continente.pt/beleza-e-higiene/homem/rosto/",
+  "https://www.continente.pt/beleza-e-higiene/homem/cabelo/",
+  "https://www.continente.pt/beleza-e-higiene/homem/desodorizantes/",
+  "https://www.continente.pt/beleza-e-higiene/homem/gel-de-banho/",
+  "https://www.continente.pt/beleza-e-higiene/homem/depilatorios/",
+  "https://www.continente.pt/beleza-e-higiene/homem/incontinencia/",
+  "https://www.continente.pt/beleza-e-higiene/solares-e-bronzeadores/protetores-solares-corpo/",
+  "https://www.continente.pt/beleza-e-higiene/solares-e-bronzeadores/protetores-solares-rosto/",
+  "https://www.continente.pt/beleza-e-higiene/solares-e-bronzeadores/protetores-solares-criancas/",
+  "https://www.continente.pt/beleza-e-higiene/solares-e-bronzeadores/after-sun/",
+  "https://www.continente.pt/beleza-e-higiene/solares-e-bronzeadores/bronzeadores-e-autobronzeadores/",
+];
+
+const CASA_LIMPEZA_URLS = [
+  "https://www.continente.pt/limpeza/roupa/detergente-maquina/",
+  "https://www.continente.pt/limpeza/roupa/amaciador-e-intensificador-perfume/",
+  "https://www.continente.pt/limpeza/roupa/aditivos-e-auxiliares/",
+  "https://www.continente.pt/limpeza/roupa/detergente-manual/",
+  "https://www.continente.pt/limpeza/roupa/tratamento-maquina-roupa/",
+  "https://www.continente.pt/limpeza/roupa/limpeza-do-calcado/",
+  "https://www.continente.pt/limpeza/cozinha/detergente-manual-loica/",
+  "https://www.continente.pt/limpeza/cozinha/detergente-maquina-loica/",
+  "https://www.continente.pt/limpeza/cozinha/aditivos-maquina-loica/",
+  "https://www.continente.pt/limpeza/cozinha/multisuperficies/",
+  "https://www.continente.pt/limpeza/cozinha/limpeza-fogao-forno-e-frigorifico/",
+  "https://www.continente.pt/limpeza/cozinha/peliculas-e-sacos-de-conservacao/",
+  "https://www.continente.pt/limpeza/cozinha/desentupidores/",
+  "https://www.continente.pt/limpeza/casa-de-banho/",
+  "https://www.continente.pt/limpeza/chao-e-superficies/",
+  "https://www.continente.pt/limpeza/papel-higienico/",
+  "https://www.continente.pt/limpeza/guardanapos-e-rolos/",
+  "https://www.continente.pt/limpeza/velas-e-ambientadores/",
+  "https://www.continente.pt/limpeza/sacos-e-baldes-do-lixo/",
+  "https://www.continente.pt/limpeza/mopas-esfregonas-e-vassouras/",
+  "https://www.continente.pt/limpeza/panos-esfregoes-e-luvas/",
+  "https://www.continente.pt/limpeza/inseticidas-e-desumidificadores/",
+];
+
+const ANIMAIS_ESTIMACAO_URLS = [
+  "https://www.continente.pt/animais/gato/racao-seca/",
+  "https://www.continente.pt/animais/gato/comida-humida/",
+  "https://www.continente.pt/animais/gato/snacks-leites-e-biscoitos/",
+  "https://www.continente.pt/animais/gato/areias-e-absorventes/",
+  "https://www.continente.pt/animais/gato/caixas-de-areia-e-acessorios/",
+  "https://www.continente.pt/animais/gato/saude-e-higiene/",
+  "https://www.continente.pt/animais/gato/arranhadores-e-brinquedos/",
+  "https://www.continente.pt/animais/gato/comedouros-bebedouros-e-fontes/",
+  "https://www.continente.pt/animais/gato/camas-almofadas-e-colchoes/",
+  "https://www.continente.pt/animais/gato/trelas-peitorais-e-coleiras/",
+  "https://www.continente.pt/animais/gato/transporte-e-viagem/",
+  "https://www.continente.pt/animais/cao/racao-seca/",
+  "https://www.continente.pt/animais/cao/snacks-e-biscoitos/",
+  "https://www.continente.pt/animais/cao/comida-humida/",
+  "https://www.continente.pt/animais/cao/saude-e-higiene/",
+  "https://www.continente.pt/animais/cao/comedouros-e-bebedouros/",
+  "https://www.continente.pt/animais/cao/trelas-e-coleiras/",
+  "https://www.continente.pt/animais/cao/camas-e-almofadas/",
+  "https://www.continente.pt/animais/cao/transporte-e-viagem/",
+  "https://www.continente.pt/animais/cao/brinquedos/",
+  "https://www.continente.pt/animais/cao/casotas/",
+  "https://www.continente.pt/animais/outros-animais/passaros/",
+  "https://www.continente.pt/animais/outros-animais/peixes/",
+  "https://www.continente.pt/animais/outros-animais/roedores/",
+  "https://www.continente.pt/animais/outros-animais/tartarugas/",
+  "https://www.continente.pt/animais/cuidado-de-excelencia/",
+];
+
+const BEBE_EXPANSAO_URLS = [
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/toalhitas/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-t0-t1-e-t2/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-t3-e-t4/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-t5-e-t6/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-t7-e-superior/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-cueca/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/fraldas-de-banho/",
+  "https://www.continente.pt/bebe/fraldas-e-toalhitas/resguardos/",
+  "https://www.continente.pt/bebe/banho-e-higiene/gel-de-banho/",
+  "https://www.continente.pt/bebe/banho-e-higiene/cabelo-e-perfumaria/",
+  "https://www.continente.pt/bebe/banho-e-higiene/protecao-e-hidratacao/",
+  "https://www.continente.pt/bebe/banho-e-higiene/cotonetes-e-soro-fisiologico/",
+  "https://www.continente.pt/bebe/banho-e-higiene/toalhas-de-banho/",
+  "https://www.continente.pt/bebe/banho-e-higiene/saude-e-bem-estar/",
+];
+
 // Subcategoria (e por vezes categoria, ex. cafe/cha e alimentacao infantil) derivada
 // do proprio path da pagina de categoria do Continente - nunca do nome do produto.
 // "mercearia" pura foi descontinuada (ver supabase/002_categories_and_subcategory.sql);
@@ -359,6 +490,41 @@ const URL_RULES = [
   { test: /\/bebidas-e-garrafeira\/(vinhos|champanhe-e-espumante|garrafeira|gama-cave)/, subcategory: "vinho" },
   { test: /\/bebidas-e-garrafeira\/cervejas-e-sidras\//, subcategory: "cerveja" },
   { test: /\/bebidas-e-garrafeira\/(bebidas-espirituosas|0\.0--alcool)\//, subcategory: "bebidas_espirituosas" },
+
+  // higiene_pessoal_beleza
+  { test: /\/beleza-e-higiene\/cabelo\//, subcategory: "cuidado_cabelo" },
+  { test: /\/beleza-e-higiene\/corpo\/desodorizantes\//, subcategory: "desodorizantes" },
+  { test: /\/beleza-e-higiene\/corpo\/depilacao-e-descoloracao\//, subcategory: "depilacao" },
+  { test: /\/beleza-e-higiene\/corpo\//, subcategory: "cuidado_pele" },
+  { test: /\/beleza-e-higiene\/rosto\//, subcategory: "cuidado_pele" },
+  { test: /\/beleza-e-higiene\/higiene-oral\//, subcategory: "higiene_oral" },
+  { test: /\/beleza-e-higiene\/higiene-intima\//, subcategory: "higiene_intima" },
+  { test: /\/beleza-e-higiene\/homem\/desodorizantes\//, subcategory: "desodorizantes" },
+  { test: /\/beleza-e-higiene\/homem\/depilatorios\//, subcategory: "depilacao" },
+  { test: /\/beleza-e-higiene\/homem\//, subcategory: "cuidado_pele" },
+  { test: /\/beleza-e-higiene\/solares-e-bronzeadores\//, subcategory: "cuidado_pele" },
+
+  // casa_limpeza
+  { test: /\/limpeza\/roupa\//, subcategory: "detergente_roupa" },
+  { test: /\/limpeza\/cozinha\/(detergente-manual-loica|detergente-maquina-loica|aditivos-maquina-loica)\//, subcategory: "loica" },
+  { test: /\/limpeza\/cozinha\//, subcategory: "limpeza_casa" },
+  { test: /\/limpeza\/papel-higienico\//, subcategory: "papel_higienico_absorventes" },
+  { test: /\/limpeza\/guardanapos-e-rolos\//, subcategory: "papel_higienico_absorventes" },
+  { test: /\/limpeza\/sacos-e-baldes-do-lixo\//, subcategory: "sacos_lixo" },
+  { test: /\/limpeza\/(casa-de-banho|chao-e-superficies|velas-e-ambientadores|mopas-esfregonas-e-vassouras|panos-esfregoes-e-luvas|inseticidas-e-desumidificadores)\//, subcategory: "limpeza_casa" },
+
+  // animais_estimacao
+  { test: /\/animais\/gato\/(racao-seca|comida-humida)\//, subcategory: "racao_gato" },
+  { test: /\/animais\/gato\/(areias-e-absorventes|caixas-de-areia-e-acessorios)\//, subcategory: "areia_gatos" },
+  { test: /\/animais\/gato\//, subcategory: "acessorios_petiscos" },
+  { test: /\/animais\/cao\/(racao-seca|comida-humida)\//, subcategory: "racao_cao" },
+  { test: /\/animais\/cao\//, subcategory: "acessorios_petiscos" },
+  { test: /\/animais\/(outros-animais|cuidado-de-excelencia)\//, subcategory: "acessorios_petiscos" },
+
+  // bebe (expansao - alimentacao-infantil ja tratada acima, no topo do ficheiro)
+  { test: /\/bebe\/fraldas-e-toalhitas\/toalhitas\//, subcategory: "toalhitas" },
+  { test: /\/bebe\/fraldas-e-toalhitas\//, subcategory: "fraldas" },
+  { test: /\/bebe\/banho-e-higiene\//, subcategory: "cuidado_bebe" },
 ];
 
 function classify(url, defaultCategory) {
@@ -383,4 +549,8 @@ export const CATEGORY_QUERIES = [
   ...build(PADARIA_PASTELARIA_URLS, "padaria_pastelaria"),
   ...build(CONGELADOS_URLS, "congelados"),
   ...build(BEBIDAS_URLS, "bebidas"),
+  ...build(HIGIENE_PESSOAL_BELEZA_URLS, "higiene_pessoal_beleza"),
+  ...build(CASA_LIMPEZA_URLS, "casa_limpeza"),
+  ...build(ANIMAIS_ESTIMACAO_URLS, "animais_estimacao"),
+  ...build(BEBE_EXPANSAO_URLS, "bebe"),
 ];
