@@ -1,0 +1,34 @@
+-- PROPOSTA - NAO APLICAR ainda. Ver nota de coordenacao com o repo da app
+-- no fim deste ficheiro antes de correr.
+--
+-- O lado da app propos uma coluna search_vector em matched_products com
+-- to_tsvector('portuguese', unaccent(name || brand)). Em vez de duas colunas
+-- de pesquisa a fazer quase a mesma coisa (a nossa proposta original
+-- "search_text" + a deles "search_vector"), esta migration ALARGA a
+-- proposta deles: mesmo nome de coluna e tipo (tsvector, gerada, indexada
+-- com GIN), so acrescenta category+subcategory a expressao de origem, para
+-- pesquisas por categoria tambem funcionarem (ex. "limpeza casa de banho").
+--
+-- Resultado: fica so 1 coluna de pesquisa, nao duas.
+
+create extension if not exists unaccent;
+
+alter table public.matched_products add column if not exists search_vector tsvector
+  generated always as (
+    to_tsvector(
+      'portuguese',
+      unaccent(coalesce(name, '') || ' ' || coalesce(brand, '') || ' ' || coalesce(category, '') || ' ' || coalesce(subcategory, ''))
+    )
+  ) stored;
+
+create index if not exists matched_products_search_vector_idx
+  on public.matched_products using gin (search_vector);
+
+-- NOTA DE COORDENACAO: nao consigo ver o repo da app a partir daqui, por
+-- isso nao consigo confirmar se o numero 016 colide com uma migration deles.
+-- Ja hoje neste proprio repo os numeros 012/013/014 tem 2 ficheiros cada
+-- (um meu, um da app) - sinal de que os dois lados numeram migrations
+-- independentemente. Antes de correr esta, confirma no repo da app: (1) se
+-- eles ja aplicaram a versao deles (so name+brand) - se sim, esta migration
+-- so precisa de fazer DROP dessa coluna/indice e recriar com a expressao
+-- alargada; (2) qual numero de migration usar para nao colidir com o deles.
