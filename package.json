@@ -10,6 +10,7 @@
     "scrape:pingodoce": "node src/pingoDoceIndex.js",
     "scrape:lidl": "node src/lidlIndex.js",
     "scrape:auchan": "node src/auchanIndex.js",
+    "scrape:auchan:full": "AUCHAN_FULL_REFRESH=1 node src/auchanIndex.js",
     "scrape:aldi": "node src/aldiIndex.js",
     "notify:alerts": "node src/sendPriceAlertNotifications.js",
     "notify:weekly": "node src/sendWeeklySummary.js"

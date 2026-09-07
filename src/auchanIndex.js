@@ -5,6 +5,11 @@ import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
 
+function envInt(name, fallback) {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
 const SLUG = "auchan";
 // URLs do Auchan sao .../{slug-do-produto}/{sku}.html (sku isolado no seu
 // proprio segmento, ao contrario do Continente que tem "-{id}.html" colado
@@ -119,12 +124,41 @@ async function main() {
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const seen = new Set();
 
+  // AUCHAN_FULL_REFRESH=1 desliga o filtro de retoma e reprocessa tambem os
+  // produtos ja na BD (para atualizar preco) - a corrida normal (sem a env
+  // var) so descobre produtos novos, ver comentario de getExistingExternalIds.
+  // ~8.5h para o catalogo completo (30000+ URLs a 1 req/s) - nao cabe num job
+  // do GitHub Actions (limite fixo de 6h por job mesmo com timeout-minutes
+  // maior), por isso o refresh completo semanal (.github/workflows/
+  // scrape-auchan-full.yml) divide as URLs em AUCHAN_SHARD_COUNT bocados via
+  // AUCHAN_SHARD_INDEX/AUCHAN_SHARD_COUNT, cada um no seu job em paralelo.
+  const fullRefresh = process.env.AUCHAN_FULL_REFRESH === "1";
+  const shardCount = envInt("AUCHAN_SHARD_COUNT", 1);
+  const shardIndex = envInt("AUCHAN_SHARD_INDEX", 0);
   const [allUrls, existingIds] = await Promise.all([collectRelevantProductUrls(), getExistingExternalIds(supermarketId)]);
-  const remaining = allUrls.filter((u) => {
-    const m = u.match(ID_FROM_URL_RE);
-    return !m || !existingIds.has(m[1]);
-  });
-  console.log(`${allUrls.length} URLs de produto relevantes no sitemap, ${existingIds.size} produtos Auchan ja na BD, ${remaining.length} por processar nesta corrida.`);
+  const afterRefreshFilter = fullRefresh
+    ? allUrls
+    : allUrls.filter((u) => {
+        const m = u.match(ID_FROM_URL_RE);
+        return !m || !existingIds.has(m[1]);
+      });
+  // Sharding por hash do ID (nao por posicao na lista) para o balanco entre
+  // shards nao depender da ordem em que o sitemap devolve os URLs.
+  const remaining =
+    shardCount > 1
+      ? afterRefreshFilter.filter((u) => {
+          const m = u.match(ID_FROM_URL_RE);
+          const id = m ? m[1] : u;
+          let hash = 0;
+          for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+          return hash % shardCount === shardIndex;
+        })
+      : afterRefreshFilter;
+  console.log(
+    `${allUrls.length} URLs de produto relevantes no sitemap, ${existingIds.size} produtos Auchan ja na BD, ` +
+      `${afterRefreshFilter.length} elegiveis${fullRefresh ? " (AUCHAN_FULL_REFRESH=1, sem filtro de retoma)" : ""}, ` +
+      `${remaining.length} nesta corrida${shardCount > 1 ? ` (shard ${shardIndex}/${shardCount})` : ""}.`
+  );
 
   const onProductError = (url, err) => {
     summary.errors += 1;
