@@ -5,6 +5,11 @@ import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
 
+function envInt(name, fallback) {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
 const SLUG = "auchan";
 // URLs do Auchan sao .../{slug-do-produto}/{sku}.html (sku isolado no seu
 // proprio segmento, ao contrario do Continente que tem "-{id}.html" colado
@@ -128,14 +133,28 @@ async function getExistingExternalIds(supermarketId) {
   return ids;
 }
 
-// --refresh: em vez de saltar "ja existe na BD" (esse filtro serve para
-// descoberta de catalogo, nao para refresh - saltaria tudo), salta so o que
-// foi atualizado nos ultimos RECENT_MINUTES. Necessario porque uma corrida
-// completa demora mais do que o limite de duracao de uma tarefa em
-// background desta plataforma (~50-70 min, confirmado empiricamente no
-// Pingo Doce) - sem isto, cada relançamento de --refresh reprocessava tudo
-// outra vez.
-const REFRESH_MODE = process.argv.includes("--refresh");
+// AUCHAN_FULL_REFRESH=1 (ou a flag --refresh, equivalentes) desliga o
+// filtro de retoma e reprocessa tambem os produtos ja na BD (para
+// atualizar preco) - a corrida normal so descobre produtos novos, ver
+// comentario de getExistingExternalIds acima. ~8.5h para o catalogo
+// completo (30000+ URLs a 1 req/s) - nao cabe num job do GitHub Actions
+// (limite fixo de 6h por job mesmo com timeout-minutes maior), por isso o
+// refresh completo semanal (.github/workflows/scrape-auchan-full.yml)
+// divide as URLs em AUCHAN_SHARD_COUNT bocados via
+// AUCHAN_SHARD_INDEX/AUCHAN_SHARD_COUNT, cada um no seu job em paralelo
+// (~4.2h por shard, testado: distribuicao 15238/15239).
+//
+// Mesmo um shard sozinho pode morrer a meio (limite de duracao de tarefa
+// em background, confirmado empiricamente no Pingo Doce - 2 mortes sem
+// erro nenhum antes de chegar ao fim) - por isso, em modo full-refresh,
+// aplica-se TAMBEM a retoma-recente (RECENT_MINUTES): um relançamento do
+// mesmo shard nao repete o que ja fez nos ultimos 90min, so continua o
+// resto. So faz sentido em full-refresh - em modo normal (descoberta),
+// getExistingExternalIds ja exclui muito mais do que isto (tudo o que
+// existe, nao so o recente).
+const fullRefresh = process.env.AUCHAN_FULL_REFRESH === "1" || process.argv.includes("--refresh");
+const shardCount = envInt("AUCHAN_SHARD_COUNT", 1);
+const shardIndex = envInt("AUCHAN_SHARD_INDEX", 0);
 const RECENT_MINUTES = 90;
 async function getRecentlyUpdatedExternalIds(supermarketId) {
   const cutoff = new Date();
@@ -163,18 +182,36 @@ async function main() {
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const seen = new Set();
 
-  const [allUrls, skipIds] = await Promise.all([
+  const [allUrls, existingIds, recentIds] = await Promise.all([
     collectRelevantProductUrls(),
-    REFRESH_MODE ? getRecentlyUpdatedExternalIds(supermarketId) : getExistingExternalIds(supermarketId),
+    getExistingExternalIds(supermarketId),
+    fullRefresh ? getRecentlyUpdatedExternalIds(supermarketId) : Promise.resolve(new Set()),
   ]);
-  const remaining = allUrls.filter((u) => {
-    const m = u.match(ID_FROM_URL_RE);
-    return !m || !skipIds.has(m[1]);
-  });
+  const afterRefreshFilter = fullRefresh
+    ? allUrls.filter((u) => {
+        const m = u.match(ID_FROM_URL_RE);
+        return !m || !recentIds.has(m[1]);
+      })
+    : allUrls.filter((u) => {
+        const m = u.match(ID_FROM_URL_RE);
+        return !m || !existingIds.has(m[1]);
+      });
+  // Sharding por hash do ID (nao por posicao na lista) para o balanco entre
+  // shards nao depender da ordem em que o sitemap devolve os URLs.
+  const remaining =
+    shardCount > 1
+      ? afterRefreshFilter.filter((u) => {
+          const m = u.match(ID_FROM_URL_RE);
+          const id = m ? m[1] : u;
+          let hash = 0;
+          for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+          return hash % shardCount === shardIndex;
+        })
+      : afterRefreshFilter;
   console.log(
-    REFRESH_MODE
-      ? `${allUrls.length} URLs de produto relevantes no sitemap - modo --refresh, ${skipIds.size} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ${remaining.length} por processar nesta corrida.`
-      : `${allUrls.length} URLs de produto relevantes no sitemap, ${skipIds.size} produtos Auchan ja na BD, ${remaining.length} por processar nesta corrida.`
+    `${allUrls.length} URLs de produto relevantes no sitemap, ${existingIds.size} produtos Auchan ja na BD, ` +
+      `${afterRefreshFilter.length} elegiveis${fullRefresh ? ` (full-refresh, ${recentIds.size} atualizados nos ultimos ${RECENT_MINUTES}min saltados)` : ""}, ` +
+      `${remaining.length} nesta corrida${shardCount > 1 ? ` (shard ${shardIndex}/${shardCount})` : ""}.`
   );
 
   const onProductError = (url, err) => {

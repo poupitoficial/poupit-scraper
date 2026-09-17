@@ -1,0 +1,38 @@
+name: Auchan - refresh completo semanal
+
+# Corrida normal (scrape.yml, diaria) so descobre produtos novos do Auchan,
+# nunca atualiza preco de produtos ja na BD (ver comentario em
+# src/auchanIndex.js). Refrescar TODO o catalogo (~30000+ produtos a 1 req/s
+# = ~8.5h) nao cabe num unico job do GitHub Actions (limite fixo de 6h por
+# job, mesmo com timeout-minutes maior) - por isso divide-se em 2 shards em
+# paralelo, cada um com ~metade das URLs (~4.2h).
+on:
+  schedule:
+    # Domingo as 02:00 UTC.
+    - cron: "0 2 * * 0"
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - run: npm run scrape:auchan:full
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          AUCHAN_SHARD_INDEX: ${{ matrix.shard }}
+          AUCHAN_SHARD_COUNT: 2
