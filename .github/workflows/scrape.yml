@@ -6,41 +6,93 @@ on:
     - cron: "0 4 * * *"
   workflow_dispatch: {}
 
+# 4 jobs independentes em vez de 1 job sequencial com os 4 scrapers - o job
+# unico morria a meio com "lost communication with the server" (runner
+# perdeu a ligacao), tipicamente por volta das ~2h30, bem dentro do
+# timeout-minutes declarado (nao era o timeout a disparar). Milhares de
+# pedidos sequenciais ao longo de horas num so processo Node acabam por
+# derrubar o runner, mesmo padrao ja visto em sessoes locais longas desta
+# app. Com jobs separados: cada um so tem de sobreviver ao seu proprio
+# scraper (nao a soma de todos), um crash isolado nao bloqueia os outros 3
+# (antes, "if: always()" corria os passos seguintes mas o runner ja podia
+# estar comprometido), e correm em paralelo em vez de em fila.
 jobs:
-  scrape:
+  continente:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "npm"
-
       - run: npm ci
-
       - run: npm run scrape
-        if: always()
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CONTINENTE_SUPERMARKET_SLUG: continente
 
+  pingodoce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
       - run: npm run scrape:pingodoce
-        if: always()
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
+  lidl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
       - run: npm run scrape:lidl
-        if: always()
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
+  auchan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
       - run: npm run scrape:auchan
-        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+  # Nunca esteve agendado antes (descoberto ao investigar um preco de 9 dias
+  # na app, folheto da semana ja tinha promocao nova - Aldi so era
+  # atualizado quando alguem corria o scraper a mao). Catalogo pequeno
+  # (~384 produtos), corre depressa.
+  aldi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run scrape:aldi
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
