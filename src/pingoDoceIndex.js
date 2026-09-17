@@ -1,11 +1,22 @@
 import "dotenv/config";
 import { supabase } from "./supabase.js";
-import { fetchPingoDoceProducts, MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from "./pingoDoceClient.js";
+import { fetchPingoDoceProducts, collectRelevantProductUrls, MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from "./pingoDoceClient.js";
 import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
 
 const SLUG = "pingo-doce";
+const ID_FROM_URL_RE = /-(\d+)\.html$/;
+// A corrida completa (~9800 produtos, sequencial) demora mais do que o
+// limite de duracao de uma tarefa em background desta plataforma (~50-70
+// min, confirmado empiricamente - morreu 2x sem erro nenhum do scraper,
+// uma vez com exit 4 aos 3600, outra com exit 0 aos ~4800 sem chegar ao
+// resumo final). Sem isto, cada relançamento reprocessava tudo do zero e
+// nunca se chegava ao fim. So salta o que foi tocado MUITO recentemente
+// (esta corrida ou a anterior, ainda a "quente") - nao e o mesmo filtro
+// "ja existe na BD" do Auchan/Continente (esse serve para descoberta de
+// catalogo, nao para refresh - iria saltar tudo e nao atualizava nada).
+const RECENT_MINUTES = 90;
 
 async function getSupermarketId() {
   const { data, error } = await supabase.from("supermarkets").select("id").eq("slug", SLUG).maybeSingle();
@@ -86,17 +97,45 @@ async function upsertProduct({
   }
 }
 
+async function getRecentlyUpdatedExternalIds(supermarketId) {
+  const cutoff = new Date();
+  cutoff.setMinutes(cutoff.getMinutes() - RECENT_MINUTES);
+  const ids = new Set();
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from("supermarket_products")
+      .select("external_id")
+      .eq("supermarket_id", supermarketId)
+      .gte("updated_at", cutoff.toISOString())
+      .range(from, from + 999);
+    if (error) throw error;
+    if (!data.length) break;
+    for (const r of data) ids.add(r.external_id);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return ids;
+}
+
 async function main() {
   const supermarketId = await getSupermarketId();
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const seen = new Set();
+
+  const [allUrls, recentIds] = await Promise.all([collectRelevantProductUrls(), getRecentlyUpdatedExternalIds(supermarketId)]);
+  const remaining = allUrls.filter((u) => {
+    const m = u.url.match(ID_FROM_URL_RE);
+    return !m || !recentIds.has(m[1]);
+  });
+  console.log(`${allUrls.length} URLs relevantes, ${recentIds.size} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ${remaining.length} por processar nesta corrida.`);
 
   const onProductError = (url, err) => {
     summary.errors += 1;
     console.error(`Erro em ${url}: ${err.message}`);
   };
 
-  for await (const p of fetchPingoDoceProducts({ onProductError })) {
+  for await (const p of fetchPingoDoceProducts({ onProductError, urls: remaining })) {
     summary.found += 1;
     if (typeof p.price !== "number" || p.price >= MAX_PRODUCT_PRICE || p.price < MIN_PRODUCT_PRICE) {
       summary.ignoredPrice += 1;

@@ -36,6 +36,39 @@ async function getExistingExternalIds(supermarketId) {
   return ids;
 }
 
+// Usado so no modo --refresh (ver REFRESH_MODE abaixo) - uma corrida de
+// refresh completa demora mais do que o limite de duracao de uma tarefa em
+// background desta plataforma (~50-70 min, confirmado empiricamente no
+// Pingo Doce: 2 mortes sem erro nenhum do scraper antes de chegar ao fim).
+// Sem isto, cada relançamento de --refresh reprocessava tudo outra vez (o
+// proprio --refresh ignora deliberadamente "ja existe na BD", que e o
+// filtro certo para descoberta de catalogo mas nao para refresh - por isso
+// nao pode reusar getExistingExternalIds). Isto salta so o que foi
+// atualizado nos ultimos RECENT_MINUTES, para nao repetir o que a corrida
+// anterior ja tinha acabado de fazer antes de morrer, sem deixar de
+// revisitar o resto que continua genuinamente obsoleto.
+const RECENT_MINUTES = 90;
+async function getRecentlyUpdatedExternalIds(supermarketId) {
+  const cutoff = new Date();
+  cutoff.setMinutes(cutoff.getMinutes() - RECENT_MINUTES);
+  const ids = new Set();
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from("supermarket_products")
+      .select("external_id")
+      .eq("supermarket_id", supermarketId)
+      .gte("updated_at", cutoff.toISOString())
+      .range(from, from + 999);
+    if (error) throw error;
+    if (!data.length) break;
+    for (const r of data) ids.add(r.external_id);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return ids;
+}
+
 async function upsertProduct({ externalId, name, brand, category, subcategory, price, pricePerUnit, url, imageUrl, supermarketId }) {
   const { data: existing, error: findError } = await supabase
     .from("supermarket_products")
@@ -80,16 +113,29 @@ async function upsertProduct({ externalId, name, brand, category, subcategory, p
   }
 }
 
+// --refresh: revisita TUDO, sem filtrar por ja-existente-na-BD - usar para
+// atualizar precos do dia a dia (o modo por defeito serve para retomar uma
+// descoberta de catalogo interrompida, nao para refrescar preco de produtos
+// ja conhecidos).
+const REFRESH_MODE = process.argv.includes("--refresh");
+
 async function main() {
   const t0 = Date.now();
   const supermarketId = await getSupermarketId();
 
-  const [allUrls, existingIds] = await Promise.all([collectSitemapProductUrls(), getExistingExternalIds(supermarketId)]);
+  const [allUrls, skipIds] = await Promise.all([
+    collectSitemapProductUrls(),
+    REFRESH_MODE ? getRecentlyUpdatedExternalIds(supermarketId) : getExistingExternalIds(supermarketId),
+  ]);
   const remaining = allUrls.filter((u) => {
     const m = u.match(ID_FROM_URL_RE);
-    return !m || !existingIds.has(m[1]);
+    return !m || !skipIds.has(m[1]);
   });
-  console.log(`${allUrls.length} URLs no sitemap_1, ${existingIds.size} produtos Continente ja na BD, ${remaining.length} por processar nesta corrida.`);
+  console.log(
+    REFRESH_MODE
+      ? `${allUrls.length} URLs no sitemap_1 - modo --refresh, ${skipIds.size} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ${remaining.length} por processar nesta corrida.`
+      : `${allUrls.length} URLs no sitemap_1, ${skipIds.size} produtos Continente ja na BD, ${remaining.length} por processar nesta corrida.`
+  );
 
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const exclusionReasons = {};

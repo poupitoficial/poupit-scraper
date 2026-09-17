@@ -128,8 +128,8 @@ function parseProductPage(html, url, category, subcategory) {
 
 // Percorre so as paginas de produto individuais relevantes (nao usa nenhum
 // endpoint ajax/Search-*, que o robots.txt do Pingo Doce bloqueia).
-export async function* fetchPingoDoceProducts({ onProductError, delayMs = envInt("PINGODOCE_DELAY_MS", 750) } = {}) {
-  const productUrls = await collectRelevantProductUrls();
+export async function* fetchPingoDoceProducts({ onProductError, delayMs = envInt("PINGODOCE_DELAY_MS", 750), urls: urlsOverride } = {}) {
+  const productUrls = urlsOverride ?? (await collectRelevantProductUrls());
 
   for (const { url, category, subcategory } of productUrls) {
     try {

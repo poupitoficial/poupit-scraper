@@ -62,7 +62,21 @@ async function upsertProduct({
     if (imageUrl) update.image_url = imageUrl;
     if (barcode) update.barcode = barcode;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);
-    if (updateError) throw updateError;
+    if (updateError) {
+      // GTIN raro repetido entre duas linhas de produto diferentes (visto ao
+      // vivo: Auchan re-lista o mesmo produto com SKU novo, mantem o mesmo
+      // codigo de barras de uma linha antiga ja na BD) - a constraint unica
+      // em products.barcode bloqueia o update inteiro por causa so deste
+      // campo, deixando preco/categoria tambem por atualizar. Tenta outra
+      // vez sem o barcode, para o resto da atualizacao nao ficar refem disto.
+      if (updateError.message.includes("products_barcode_key") && update.barcode) {
+        const { barcode: _drop, ...updateWithoutBarcode } = update;
+        const { error: retryError } = await supabase.from("products").update(updateWithoutBarcode).eq("id", productId);
+        if (retryError) throw retryError;
+      } else {
+        throw updateError;
+      }
+    }
   }
 
   const { data: sp, error: upsertError } = await supabase
@@ -114,17 +128,54 @@ async function getExistingExternalIds(supermarketId) {
   return ids;
 }
 
+// --refresh: em vez de saltar "ja existe na BD" (esse filtro serve para
+// descoberta de catalogo, nao para refresh - saltaria tudo), salta so o que
+// foi atualizado nos ultimos RECENT_MINUTES. Necessario porque uma corrida
+// completa demora mais do que o limite de duracao de uma tarefa em
+// background desta plataforma (~50-70 min, confirmado empiricamente no
+// Pingo Doce) - sem isto, cada relançamento de --refresh reprocessava tudo
+// outra vez.
+const REFRESH_MODE = process.argv.includes("--refresh");
+const RECENT_MINUTES = 90;
+async function getRecentlyUpdatedExternalIds(supermarketId) {
+  const cutoff = new Date();
+  cutoff.setMinutes(cutoff.getMinutes() - RECENT_MINUTES);
+  const ids = new Set();
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from("supermarket_products")
+      .select("external_id")
+      .eq("supermarket_id", supermarketId)
+      .gte("updated_at", cutoff.toISOString())
+      .range(from, from + 999);
+    if (error) throw error;
+    if (!data.length) break;
+    for (const r of data) ids.add(r.external_id);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return ids;
+}
+
 async function main() {
   const supermarketId = await getSupermarketId();
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const seen = new Set();
 
-  const [allUrls, existingIds] = await Promise.all([collectRelevantProductUrls(), getExistingExternalIds(supermarketId)]);
+  const [allUrls, skipIds] = await Promise.all([
+    collectRelevantProductUrls(),
+    REFRESH_MODE ? getRecentlyUpdatedExternalIds(supermarketId) : getExistingExternalIds(supermarketId),
+  ]);
   const remaining = allUrls.filter((u) => {
     const m = u.match(ID_FROM_URL_RE);
-    return !m || !existingIds.has(m[1]);
+    return !m || !skipIds.has(m[1]);
   });
-  console.log(`${allUrls.length} URLs de produto relevantes no sitemap, ${existingIds.size} produtos Auchan ja na BD, ${remaining.length} por processar nesta corrida.`);
+  console.log(
+    REFRESH_MODE
+      ? `${allUrls.length} URLs de produto relevantes no sitemap - modo --refresh, ${skipIds.size} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ${remaining.length} por processar nesta corrida.`
+      : `${allUrls.length} URLs de produto relevantes no sitemap, ${skipIds.size} produtos Auchan ja na BD, ${remaining.length} por processar nesta corrida.`
+  );
 
   const onProductError = (url, err) => {
     summary.errors += 1;

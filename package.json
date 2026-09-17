@@ -10,7 +10,10 @@
     "scrape:pingodoce": "node src/pingoDoceIndex.js",
     "scrape:lidl": "node src/lidlIndex.js",
     "scrape:auchan": "node src/auchanIndex.js",
+    "scrape:auchan:refresh": "node src/auchanIndex.js --refresh",
     "scrape:aldi": "node src/aldiIndex.js",
+    "scrape:continente:sitemap": "node src/continenteSitemapIndex.js",
+    "scrape:continente:refresh": "node src/continenteSitemapIndex.js --refresh",
     "notify:alerts": "node src/sendPriceAlertNotifications.js",
     "notify:weekly": "node src/sendWeeklySummary.js"
   },
