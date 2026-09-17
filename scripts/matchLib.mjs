@@ -2,6 +2,7 @@
 // para poder ser reutilizado nos 3 pares Continente/Pingo Doce/Lidl sem duplicar
 // a logica). Ver matchProducts.mjs (o par original Pingo Doce x Continente) para
 // o historico/racional de cada heuristica.
+import { pluralForms } from "../src/pluralMatch.js";
 
 const PACK_WORDS = new Set([
   "pack", "un", "uni", "unid", "unidade", "unidades", "embalagem", "emb",
@@ -48,13 +49,46 @@ function extractQuantity(name) {
   return null;
 }
 
+// Apostrofo removido (nao virado espaco) - "D'Or" -> "dor", junta as letras
+// tal como uma loja que escreve "DOr" sem apostrofo nenhum. Se virasse
+// espaco ("d or") nunca bateria certo com "dor" (uma palavra so).
+function dropApostrophes(s) {
+  return s.replace(/['’]/g, "");
+}
+
 function normalizeName(name, brand) {
-  let s = stripAccents(name.toLowerCase());
+  let s = dropApostrophes(stripAccents(name.toLowerCase()));
   s = s.replace(QTY_RE, " ");
-  if (brand) s = s.replace(stripAccents(brand.toLowerCase()), " ");
+  // Resto da pontuacao removida ANTES de tentar tirar a marca do nome -
+  // senao "Carte D'Or" (marca) nunca apanhava "Carte DOr" (repetido no nome
+  // de uma loja sem apostrofo), sobrava como ruido nos tokens e baixava o
+  // score de nomes identicos (ex. "Gelado Tiramisu Les Desserts Carte DOr"
+  // vs "Gelado Tiramisu Les Desserts" - mesmo produto, ficava preso na fila
+  // de revisao com score 0.667 em vez de aparecer direto na app).
   s = s.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  if (brand) {
+    const brandClean = dropApostrophes(stripAccents(brand.toLowerCase())).replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    if (brandClean) s = s.replace(brandClean, " ");
+  }
+  s = s.replace(/\s+/g, " ").trim();
   const tokens = s.split(/\s+/).filter((t) => t && !PACK_WORDS.has(t) && !/^\d+$/.test(t));
   return { tokens, normalizedText: s };
+}
+
+// Palavras que uma so das duas pontas pode ter, e que tornam o produto
+// DIFERENTE (nao um simples sinonimo) - ver src/searchSynonyms.js para o
+// mecanismo irmao/oposto (SEARCH_SYNONYM_GROUPS agrupa palavras
+// EQUIVALENTES para a pesquisa; aqui e o contrario, palavras que
+// desqualificam um match quando so aparecem de um lado). diverges() ja
+// aplicava esta logica a FLAVOR_WORDS/VARIANT_WORDS - as adicoes abaixo
+// (auditoria de precos: "Alpro Soja Sem Acucar" a emparelhar com "Alpro
+// Soja" normal, informacao de saude errada, nao so erro de preco) reusam o
+// mesmo pluralForms() ja usado nos classificadores de breadcrumb, para nao
+// escrever regex novo por palavra.
+function wordAndPlurals(...words) {
+  const set = new Set();
+  for (const w of words) for (const form of pluralForms(w)) set.add(form);
+  return set;
 }
 
 const FLAVOR_WORDS = new Set([
@@ -67,6 +101,12 @@ const FLAVOR_WORDS = new Set([
   "alecrim", "oregao", "manjericao", "tomilho", "curcuma", "curry", "caril",
   "wasabi", "soja", "amendoim", "pistachio", "salgado", "salgada", "doce", "acido",
 ]);
+// "suave" e "torrado" ficaram de fora (testados e revertidos - ver
+// SESSAO_RESUMO): "suave" aparece em nomes de escovas de dentes como
+// reforco redundante de "Soft"/"Slim Soft", nao como par oposto de
+// picante fora do contexto alimentar - falso positivo. "torrado":
+// produtos de marcas so-congelados (Iglo/Pescanova/Bonduelle) tem
+// "Torrado"/"Congelados" no nome so de um lado, sem ser diferenca real.
 
 const VARIANT_WORDS = new Set([
   "light", "zero", "integral", "magro", "magra", "gordo", "gorda",
@@ -75,9 +115,25 @@ const VARIANT_WORDS = new Set([
   "reforcado", "reforcada", "extra", "premium",
   "tradicional", "classico", "classica", "original", "artesanal",
   "caseiro", "caseira", "cremoso", "cremosa",
+  // descafeinado/vegetariano/halal: dieta/composicao, mesma familia de
+  // "bio"/"diet" acima - diferenca real de produto, nao so de nome.
+  // cru/cozido: estado de preparacao, critico em peixaria/talho (ex.
+  // "Camarao Cru" vs "Camarao Cozido" nao sao intercambiaveis - risco de
+  // seguranca alimentar, nao so de preco). "congelado"/"fresco"/"vegan"
+  // ficaram de fora (testados e revertidos - ver SESSAO_RESUMO):
+  // "congelado" so aparece de um lado em marcas ja-so-congelados
+  // (Iglo/Pescanova/Bonduelle), sem ser diferenca real; "vegan" apanhou
+  // "Planteiga com Sal" (marca ja vegetal por definicao) - falso positivo
+  // por nao distinguir "descreve o produto" de "produto diferente".
+  ...wordAndPlurals(
+    "descafeinado", "descafeinada", "vegetariano", "vegetariana", "halal",
+    "cru", "crua", "cozido", "cozida"
+  ),
 ]);
 
-const POLARITY_NOUNS = ["gluten", "acucar", "lactose", "sal", "gordura", "cafeina", "conservantes", "corantes"];
+// alcool/pele/espinha seguem o mesmo padrao "sem X"/"com X" das nouns ja
+// existentes (gluten, acucar, lactose, sal...) - ver polarityFlags abaixo.
+const POLARITY_NOUNS = ["gluten", "acucar", "lactose", "sal", "gordura", "cafeina", "conservantes", "corantes", "alcool", "pele", "espinha"];
 
 function polarityFlags(text) {
   const flags = {};
@@ -100,6 +156,42 @@ function polarityDiverges(flagsA, flagsB) {
   const keys = new Set([...Object.keys(flagsA), ...Object.keys(flagsB)]);
   for (const k of keys) if (Boolean(flagsA[k]) !== Boolean(flagsB[k])) return true;
   return false;
+}
+
+// Numero de unidades num pack, extraido do nome - "Pack 6", "Pack de 6",
+// "6UN"/"6 UN"/"6 unidades", ou "6x250ml" (reaproveita o multiplicador que
+// QTY_RE ja captura). Null quando nao ha nenhum sinal de pack - tratado
+// como 1 unidade (compra avulsa) pelo chamador, nunca aqui.
+const PACK_COUNT_RE = /\bpack\s*(?:de\s*)?(\d+)\b|\b(\d+)\s*un(?:idades?)?\b/i;
+
+function extractPackCount(name) {
+  const multi = name.match(QTY_RE);
+  if (multi && multi[1]) return Number(multi[1]);
+  const m = name.match(PACK_COUNT_RE);
+  if (m) return Number(m[1] || m[2]);
+  return null;
+}
+
+// Bebidas nao-alcoolicas onde o consumidor tipicamente compra a unidade (1
+// lata, 1L, 2L) - ao contrario de cerveja/vinho (caixas/packs sao compra
+// normal) ou laticinios como iogurtes (packs de 4/6 sao a forma habitual).
+// Motivado por um caso real reportado pelo utilizador: "Ice Tea Pessego
+// Pack 6" (Lipton) emparelhado com "Ice Tea Pessego" sem pack - Continente
+// 1,79e vs Pingo Doce 5,34e, estavel ha 2 semanas (nao e staleness, e
+// embalagens diferentes). QTY_RE/PACK_WORDS ja removem "pack"/numeros dos
+// tokens do nome antes do jaccard - a diferenca de pack fica invisivel ao
+// score de nome, por isso precisa de um gate a parte, como o de sabor/
+// variante. cafe_cha ficou de fora deliberadamente - capsulas de cafe
+// compram-se tipicamente em caixa (pack e a norma, nao a excecao), mesmo
+// padrao dos iogurtes.
+const PACK_SENSITIVE_SUBCATEGORIES = new Set(["refrigerantes_sumos", "agua"]);
+
+function packCountDiverges(a, b) {
+  const subcat = a.subcategory || b.subcategory;
+  if (!PACK_SENSITIVE_SUBCATEGORIES.has(subcat)) return false;
+  const countA = extractPackCount(a.name) ?? 1;
+  const countB = extractPackCount(b.name) ?? 1;
+  return countA !== countB;
 }
 
 function jaccard(a, b) {
@@ -261,6 +353,7 @@ export function matchTwoSources(listA, ownBrandReA, listB, ownBrandReB) {
       if (diverges(p.tokens, c.tokens, FLAVOR_WORDS)) continue;
       if (diverges(p.tokens, c.tokens, VARIANT_WORDS)) continue;
       if (polarityDiverges(p.polarity, c.polarity)) continue;
+      if (packCountDiverges(p, c)) continue;
       const score = jaccard(p.tokens, c.tokens);
       if (score > bestScore) {
         bestScore = score;
