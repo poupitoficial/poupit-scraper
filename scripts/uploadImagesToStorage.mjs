@@ -67,9 +67,15 @@ async function uploadOne(sourceStore, name, imageUrl) {
     .slice(0, 80);
   const storagePath = `${sourceStore}/${safeName}-${Buffer.from(imageUrl).toString("base64url").slice(0, 12)}.${extFromUrl(imageUrl)}`;
 
+  // cacheControl explicito (1 semana) - sem isto o SDK usa o default de
+  // 3600s (1h), fazendo cada dispositivo voltar a pedir a mesma imagem ao
+  // CDN a cada hora em vez de servir da cache local. Foi a causa da
+  // emergencia de cached egress (ver scripts/fixStorageCacheControl.mjs) -
+  // aquele script corrige as imagens ja enviadas, isto evita que volte a
+  // acontecer com uploads novos.
   const { error: uploadError } = await supabase.storage
     .from(BUCKET)
-    .upload(storagePath, buffer, { contentType, upsert: true });
+    .upload(storagePath, buffer, { contentType, upsert: true, cacheControl: "604800" });
   if (uploadError) throw uploadError;
 
   const { data: publicUrl } = supabase.storage.from(BUCKET).getPublicUrl(storagePath);
