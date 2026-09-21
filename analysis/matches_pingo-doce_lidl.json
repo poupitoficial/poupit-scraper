@@ -3,16 +3,493 @@
     "score": 1,
     "ownBrand": false,
     "a": {
+      "name": "Postas de Pescada nº5 do Chile",
+      "brand": "Pescanova",
+      "price": 13.99,
+      "pricePerUnit": 17.49,
+      "qty": {
+        "qty": 0.7999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/peixe/pescada/postas-de-pescada-n%C2%BA5-do-chile-pescanova-19204.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/19204_af89202adbe7fe9ec165c64d150a959c.png",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Pescanova Postas de Pescada Nº5 do Chile",
+      "brand": "Pescanova",
+      "price": 13.99,
+      "pricePerUnit": 17.49,
+      "qty": {
+        "qty": 0.7999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pescanova-postas-de-pescada-no5-do-chile/p11523580",
+      "imageUrl": "https://www.lidl.pt/assets/gcpa4640de4b7d7437981f5382edf90f65c.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Óleo Alimentar",
+      "brand": "Fula",
+      "price": 6.39,
+      "pricePerUnit": 2.13,
+      "qty": {
+        "qty": 3,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/azeite-oleo-e-vinagre/oleo/oleo-alimentar-fula-101673.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/101673_12ba2b07384934262cf77acca1884491.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
+    },
+    "b": {
+      "name": "Fula Óleo Alimentar",
+      "brand": "Fula",
+      "price": 6.39,
+      "pricePerUnit": 2.13,
+      "qty": {
+        "qty": 3,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/fula-oleo-alimentar/p10053637",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/H-60QkLOYQhpZNInPW_CI4SqB-JPpfbscx5LBnBs1K0/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzExNTc0QzYxRDU0MDM4NEExRkFFQjVGNk/E0RjA2REUyM0FFRjE3RENDQkJDNkNBMzg0MTE5M0FFRjhCMEE0QzUucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Manteiga com Sal",
+      "brand": "Milhafre",
+      "price": 2.49,
+      "pricePerUnit": 9.96,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/manteiga-margarina-e-natas/manteiga-e-margarina/manteiga-com-sal-milhafre-335310.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/335310_ead8e1d670659a18f3b9c7343f2128d2.png",
+      "category": "laticinios_ovos",
+      "subcategory": "manteiga_natas"
+    },
+    "b": {
+      "name": "Milhafre Manteiga com Sal",
+      "brand": "Milhafre",
+      "price": 2.19,
+      "pricePerUnit": 8.76,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/milhafre-manteiga-com-sal/p10053779",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/TCTyJRr7FcQj22c-syHvLNdN0x6iGBxVc2XUCP0r3sY/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzg3OUNENUJGMDBFOTNBOTdDNTY2MzMwRT/BGRTA3NUEwMDYxRURFRjMzMTdBMzY3M0JCMkRBMDY4RjJDN0JBMjAucG5n.png",
+      "category": "laticinios_ovos",
+      "subcategory": "ovos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Miolo de Camarão Gigante 15/30",
+      "brand": "Pescanova",
+      "price": 6.99,
+      "pricePerUnit": 27.96,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/marisco/marisco-congelado/miolo-de-camarao-gigante-15%2F30-pescanova-669374.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/669374_1_b00fa315311d1584169eb93d2ed61042.png",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Miolo de Camarão Gigante",
+      "brand": "Pescanova",
+      "price": 6.99,
+      "pricePerUnit": 27.96,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/miolo-de-camarao-gigante/p11519507",
+      "imageUrl": "https://www.lidl.pt/assets/gcpb7adffff5fe1478db34e3a18b135d89d.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Snack de Chocolate Kinder Délice",
+      "brand": "Kinder",
+      "price": 6.79,
+      "pricePerUnit": 17.41,
+      "qty": {
+        "qty": 0.39,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/pao-e-bolos-embalados/bolos-e-tortas/snack-de-chocolate-kinder-delice-kinder-850500.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/850500_14dad40957e66874ab0b7dec455f04d3.jpg",
+      "category": "padaria_pastelaria",
+      "subcategory": "pao"
+    },
+    "b": {
+      "name": "Kinder Délice Snack de Chocolate",
+      "brand": "Kinder",
+      "price": 4.79,
+      "pricePerUnit": 12.28,
+      "qty": {
+        "qty": 0.3901,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/kinder-delice-snack-de-chocolate/p10053791",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/vSe-a6i7fHFAFahvmO54LxuBJpv79XI1RNBBX0ZBVqQ/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0M3QTI5NzNDRTY5MzYxREI3MjZFOEIwQT/czODE1NDRGN0I4REEzQTM1QTIwRjAxMjNEQTU2QjUyNjA2RjQxRTQucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "chocolates_doces"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Queijo Fundido Light Palitos",
+      "brand": "A Vaca que ri",
+      "price": 2.59,
+      "pricePerUnit": 18.5,
+      "qty": {
+        "qty": 0.14,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/charcutaria-e-queijos/queijos/snacks-de-queijo%E2%80%8B/queijo-fundido-light-palitos-a-vaca-que-ri-858367.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/858367_08ae1e863ab18ef4cba5bc0ba21b9c5b.jpg",
+      "category": "laticinios_ovos",
+      "subcategory": "queijos"
+    },
+    "b": {
+      "name": "A Vaca que Ri Queijo Fundido Palitos Light",
+      "brand": "A Vaca que Ri",
+      "price": 1.99,
+      "pricePerUnit": 14.21,
+      "qty": {
+        "qty": 0.14,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/a-vaca-que-ri-queijo-fundido-palitos-light/p10053575",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/TKbGuKxFgjIoZ4CJYhXntqUvpRwArQcRDeZsnM9r84s/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzVEMThFNDZEQ0U3N0M4QTUzMzc4MDNCQk/E3NTc4NjM0RTlFNUYxRDBEODUwNTVDNjY3NThENTgzMEFDMkE5QjQucG5n.png",
+      "category": "laticinios_ovos",
+      "subcategory": "ovos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Chocolate Fudge Brownie",
+      "brand": "Ben & Jerry's",
+      "price": 4.99,
+      "pricePerUnit": 10.73,
+      "qty": {
+        "qty": 0.4651,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-estilo-americano/gelado-chocolate-fudge-brownie-ben-%26-jerry%27s-908734.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/908734_c98477e36eb48c7ad34bce74105fdd64.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Ben&Jerry's Gelado Chocolate Fudge Brownie",
+      "brand": "Ben & Jerry's",
+      "price": 4.99,
+      "pricePerUnit": 10.73,
+      "qty": {
+        "qty": 0.4651,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/ben-jerry-s-gelado-chocolate-fudge-brownie/p10052728",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/3h8rHZe2mvHPp4ssiGbX_osNBrvkChhW08S3Pz0_cp0/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0E3Qjg3ODZGQkIwQzY1MzQ5NDlDNDhBNT/A3RTVEOTZBMzA3MzNDRUI3QjMzNjAwQUZGNUU2NDZEMjBDMTA2OTMucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Cookie Dough",
+      "brand": "Ben & Jerry's",
+      "price": 4.99,
+      "pricePerUnit": 10.73,
+      "qty": {
+        "qty": 0.4651,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-estilo-americano/gelado-cookie-dough-ben-%26-jerry%27s-909557.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/909557_5716133596f7df4048c168a1a058571c.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Ben & Jerry's Gelado Cookie Dough",
+      "brand": "Ben & Jerry's",
+      "price": 4.99,
+      "pricePerUnit": 10.73,
+      "qty": {
+        "qty": 0.4651,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/ben-jerry-s-gelado-cookie-dough/p11519591",
+      "imageUrl": "https://www.lidl.pt/assets/gcp1252c60a22a64dffa471813984678e7d.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Solero Exótico",
+      "brand": "Solero",
+      "price": 3.99,
+      "pricePerUnit": 14.78,
+      "qty": {
+        "qty": 0.27,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-de-pauzinho/gelado-solero-exotico-solero-942259.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/942259_97c8638274b75a48b06ac5303a9b27c2.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Solero Gelado Exótico",
+      "brand": "Solero",
+      "price": 1.99,
+      "pricePerUnit": 7.37,
+      "qty": {
+        "qty": 0.27,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/solero-gelado-exotico/p10052722",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/uUBROvDvqsBEYNkxEh727iuYd53nbl29UdWHqMquOYA/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Q3ODVCMUVGMEE3QjJBNUFGOEMzNUE1RT/c4NzVBMzZCRDVCMjk4NTQ4RjRBREM5QTA3MDZGQjk1NDk4MTlBRkMucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Leite com Chocolate Pack 4",
+      "brand": "Mimosa",
+      "price": 1.69,
+      "pricePerUnit": 2.11,
+      "qty": {
+        "qty": 0.8009,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/leite-e-bebidas-vegetais/leite/leite-achocolatado-e-aromatizado%E2%80%8B/leite-com-chocolate-pack-4-mimosa-960354.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/960354_7809ae2dc46294885fd07b725104138f.png",
+      "category": "laticinios_ovos",
+      "subcategory": "leite"
+    },
+    "b": {
+      "name": "Mimosa Leite com Chocolate",
+      "brand": "Mimosa",
+      "price": 1.68,
+      "pricePerUnit": 2.1,
+      "qty": {
+        "qty": 0.8,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/mimosa-leite-com-chocolate/p11515002",
+      "imageUrl": "https://www.lidl.pt/assets/gcp755f39d7382b4ab7a0287489b75a59d7.png",
+      "category": "laticinios_ovos",
+      "subcategory": "ovos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado After Dinner",
+      "brand": "Magnum",
+      "price": 7.49,
+      "pricePerUnit": 26.75,
+      "qty": {
+        "qty": 0.28,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-barra-sandwich-e-bites/gelado-after-dinner-magnum-975275.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/975275_02af60f6d8773858412dcc4dd69a862c.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Magnum Gelado After Dinner",
+      "brand": "Magnum",
+      "price": 4.49,
+      "pricePerUnit": 16.04,
+      "qty": {
+        "qty": 0.2799,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/magnum-gelado-after-dinner/p10053593",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/N0OHDPM-ScTdhBLAR20TGqCxTBWvCBsLIaNA4ZgJg4E/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0I5MzE0NUNDOEYyQzc2OTYzRkQwNjc4NU/UzNThERDQ1Q0M1MzRDRkU0NURDMjhDQTQyODFFMThCNzJGOTBFNkYucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Double Cherry",
+      "brand": "Magnum",
+      "price": 3.99,
+      "pricePerUnit": 15.65,
+      "qty": {
+        "qty": 0.255,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-de-pauzinho/gelado-double-cherry-magnum-986748.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/986748_49fbd87d56ae7fa8a8671935cb65495f.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Magnum Gelado Double Cherry",
+      "brand": "Magnum",
+      "price": 3.99,
+      "pricePerUnit": 15.65,
+      "qty": {
+        "qty": 0.255,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/magnum-gelado-double-cherry/p10053597",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/aSLXDNAuedBlVGJFnl_xe5PLS4stVuoUg4qoBQqRyKo/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE1RTQwN0RDOTU1MjNFODdCNzRDNzBENz/BBOTNBQUQ4MTI1QTlFRUQ0OEU2QjE2MTFBQTAxRUU4NDJEMkY5QjcucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado After Dinner",
+      "brand": "Magnum",
+      "price": 4.49,
+      "pricePerUnit": 16.04,
+      "qty": {
+        "qty": 0.2799,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-barra-sandwich-e-bites/gelado-after-dinner-magnum-988835.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/988835_5060e7d0828a6d2465cb65fb1d75d754.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Magnum Gelado After Dinner",
+      "brand": "Magnum",
+      "price": 4.49,
+      "pricePerUnit": 16.04,
+      "qty": {
+        "qty": 0.2799,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/magnum-gelado-after-dinner/p10053593",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/N0OHDPM-ScTdhBLAR20TGqCxTBWvCBsLIaNA4ZgJg4E/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0I5MzE0NUNDOEYyQzc2OTYzRkQwNjc4NU/UzNThERDQ1Q0M1MzRDRkU0NURDMjhDQTQyODFFMThCNzJGOTBFNkYucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
+      "name": "Creme de Limpeza Spray Limão",
+      "brand": "Cif",
+      "price": 2.99,
+      "pricePerUnit": 3.99,
+      "qty": {
+        "qty": 0.7494,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/abrasivos-casa/creme-de-limpeza-spray-limao-cif-990241.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/990241_0627f8c4d3bcc43d8aee5a29a7e9c753.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    },
+    "b": {
+      "name": "Cif Spray Creme de Limpeza de Limão",
+      "brand": "Cif",
+      "price": 2.79,
+      "pricePerUnit": 3.72,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/cif-spray-creme-de-limpeza-de-limao/p11521004",
+      "imageUrl": "https://www.lidl.pt/assets/gcpd306481e0f024e7ea10e46ac303c41a9.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": false,
+    "a": {
       "name": "Azeite Virgem Delicado",
       "brand": "Gallo",
-      "price": 5.49,
+      "price": 3.99,
+      "pricePerUnit": 5.32,
       "qty": {
         "qty": 0.75,
         "kind": "proxy",
         "multiplier": 1
       },
       "url": "https://www.pingodoce.pt/home/produtos/mercearia/azeite-oleo-e-vinagre/azeite/azeite-virgem-delicado-gallo-755916.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/755916_b70ab969eddb792a2251c3198fe8b68a.jpg",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/755916_657b6f29827d68dd2512984d6e7e15d0.jpg",
       "category": "mercearia_doce_salgada",
       "subcategory": "azeite_oleos"
     },
@@ -20,6 +497,7 @@
       "name": "GALLO Azeite Virgem Delicado",
       "brand": "GALLO",
       "price": 4.69,
+      "pricePerUnit": 6.25,
       "qty": {
         "qty": 0.7504,
         "kind": "proxy",
@@ -35,32 +513,248 @@
     "score": 1,
     "ownBrand": false,
     "a": {
-      "name": "Gelado Solero Exótico",
-      "brand": "Solero",
-      "price": 1.99,
+      "name": "Azeite Subtil",
+      "brand": "Gallo",
+      "price": 3.99,
+      "pricePerUnit": 5.32,
       "qty": {
-        "qty": 0.27,
+        "qty": 0.75,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-de-pauzinho/gelado-solero-exotico-solero-942259.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/942259_97c8638274b75a48b06ac5303a9b27c2.png",
-      "category": "congelados",
-      "subcategory": "pratos_prontos_congelados"
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/azeite-oleo-e-vinagre/azeite/azeite-subtil-gallo-755922.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/755922_83ca3d8c64aa6ae2fa78638effe6ebbe.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
     },
     "b": {
-      "name": "Solero Gelado Exótico",
-      "brand": "Solero",
-      "price": 1.99,
+      "name": "Gallo Azeite Subtil",
+      "brand": "Gallo",
+      "price": 3.99,
+      "pricePerUnit": 5.32,
       "qty": {
-        "qty": 0.27,
+        "qty": 0.75,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.lidl.pt/p/solero-gelado-exotico/p10052722",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/uUBROvDvqsBEYNkxEh727iuYd53nbl29UdWHqMquOYA/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Q3ODVCMUVGMEE3QjJBNUFGOEMzNUE1RT/c4NzVBMzZCRDVCMjk4NTQ4RjRBREM5QTA3MDZGQjk1NDk4MTlBRkMucG5n.png",
-      "category": "congelados",
-      "subcategory": "gelados"
+      "url": "https://www.lidl.pt/p/gallo-azeite-subtil/p11511675",
+      "imageUrl": "https://www.lidl.pt/assets/gcpf7d8810f03224f1db4c657965719ee9c.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "azeite_oleos"
+    }
+  },
+  {
+    "score": 1,
+    "ownBrand": true,
+    "a": {
+      "name": "Pimento Verde",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 1.79,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/tomates-pepinos-e-pimentos/pimento-verde-nossa-fruta-e-legumes-54900.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/54900_493d43f75b2467fbb5185b692fba9dc4.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    },
+    "b": {
+      "name": "Pimento Verde",
+      "brand": null,
+      "price": 1.69,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/pimento-verde/p10053507",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/bB84ilx_6BZYDncJq1fr_qMHzUXof7CbbY_dJL362QQ/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yNkY5RDZEN0Y5NDA4QzVCN0M2NjU4NTg/4NUYxN0VGM0MyRDYxRkFEQUNGNkJDMDM4NzkwNDIyQzRFQTk3MzcwLnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.833,
+    "ownBrand": false,
+    "a": {
+      "name": "Ice Tea Ananás e Manga",
+      "brand": "Fuze Tea",
+      "price": 1.99,
+      "pricePerUnit": 1.33,
+      "qty": {
+        "qty": 1.4962,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/iced-tea-tisanas-e-kombuchas/ice-tea-ananas-e-manga-fuze-tea-1007431.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1007431_e372f9c45c4c1162a4207aae09cff0d6.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "Fuze Tea Ice Tea de Manga e Ananás",
+      "brand": "Fuze Tea",
+      "price": 1.39,
+      "pricePerUnit": 0.93,
+      "qty": {
+        "qty": 1.4946,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/fuze-tea-ice-tea-de-manga-e-ananas/p10052342",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/rzR6cAIL0AYPdDmX4xLHAJIDAynSf0ceWBn9wA2Teqg/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzYxNUREQTJFMUY1RUUyQUVCOThENkNBMk/NCRjY5RjJERjI1RjMyRDU0NTMyQkJBNUM0QjM1NEQ1NDAyNkU3ODkucG5n.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.8,
+    "ownBrand": true,
+    "a": {
+      "name": "Tomate Coração de Boi",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 2.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/tomates-pepinos-e-pimentos/tomate-coracao-de-boi-nossa-fruta-e-legumes-735466.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/735466_5d4ac7c170198a865ff5c5c736cebf94.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    },
+    "b": {
+      "name": "Tomate Coração de Boi Nacional",
+      "brand": null,
+      "price": 2.19,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/tomate-coracao-de-boi-nacional/p10053505",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/jUWQgOFS7V7VeLx0RrHVIZEE8GpbailmV5UfnEQqv4E/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS9DMTNDMjg5NjJCQjdEMkIxODcyMDM1NDg/5MjE4QkVGNkUyREFBRTJBRkM4N0FENTU2RUZCMTU0RTFCOTJFNDMzLnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.8,
+    "ownBrand": false,
+    "a": {
+      "name": "Iogurte Líquido Magro Morango Pack 8",
+      "brand": "Danone",
+      "price": 3.19,
+      "pricePerUnit": 2.57,
+      "qty": {
+        "qty": 1.2412,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/iogurtes-e-sobremesas/iogurtes/iogurtes-liquidos%E2%80%8B/iogurte-liquido-magro-morango-pack-8-danone-928205.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/928205_cd6631ea8ea2192123d5eb42c3dbf986.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
+    },
+    "b": {
+      "name": "Danone Iogurte Líquido de Morango Magro",
+      "brand": "Danone",
+      "price": 2.79,
+      "pricePerUnit": 2.25,
+      "qty": {
+        "qty": 1.24,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/danone-iogurte-liquido-de-morango-magro/p10053573",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/BnIcgD8ZvMbx3IALrHWGNSyvlPj9FCdBjUcGpMRzXTY/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzBDMTQ5MURERjU4REJDN0U0MUVEQ0EwME/M1ODg1M0EyMjNGQUNBNDREQjZBQjc1RTk0NzYwNDE3NTE4MUVCMTYucG5n.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
+    }
+  },
+  {
+    "score": 0.8,
+    "ownBrand": false,
+    "a": {
+      "name": "Cápsulas de Café EpiQ",
+      "brand": "Delta Q",
+      "price": 29.99,
+      "pricePerUnit": 0.3,
+      "qty": {
+        "qty": 99.9667,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/cafe-cha-e-achocolatados/capsulas-de-cafe/capsulas-de-cafe-delta-q-epiq-delta-q-977626.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/977626_381d7eab31580237734c742738e31ed5.jpg",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    },
+    "b": {
+      "name": "Delta Q Cápsulas de Café Epiq Int. 14",
+      "brand": "Delta Q",
+      "price": 27.99,
+      "pricePerUnit": 0.28,
+      "qty": {
+        "qty": 99.9643,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/delta-q-capsulas-de-cafe-epiq-int-14/p11317500",
+      "imageUrl": "https://www.lidl.pt/assets/gcp85f77a6682f04a95a14b20aa61493006.png",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Leite UHT Meio Gordo",
+      "brand": "Mimosa",
+      "price": 1,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/leite-e-bebidas-vegetais/leite/leite-meio-gordo-e-gordo%E2%80%8B/leite-uht-meio-gordo-mimosa-41043.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/41043_bc1ef4d224ea1980aab65f99e5fa9f5a.png",
+      "category": "laticinios_ovos",
+      "subcategory": "leite"
+    },
+    "b": {
+      "name": "Mimosa Leite Meio Gordo",
+      "brand": "Mimosa",
+      "price": 0.89,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/mimosa-leite-meio-gordo/p11038070",
+      "imageUrl": "https://www.lidl.pt/assets/gcp63b74fe324944c1e80c7dcf60c3993f3.png",
+      "category": "laticinios_ovos",
+      "subcategory": "ovos"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Vinho Verde Branco Casal Garcia",
+      "brand": "Casal Garcia",
+      "price": 2.99,
+      "pricePerUnit": 3.99,
+      "qty": {
+        "qty": 0.7494,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/vinhos/vinho-branco/vinho-verde-branco-casal-garcia-casal-garcia-64103.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/64103_f79e2e8d21fad1a1871a1882b662c737.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    },
+    "b": {
+      "name": "Casal Garcia Vinho Verde Branco DOC",
+      "brand": "Casal Garcia",
+      "price": 3.49,
+      "pricePerUnit": 4.65,
+      "qty": {
+        "qty": 0.7505,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/casal-garcia-vinho-verde-branco-doc/p10053667",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/j--zJGLx5f5PiPUQeToZY4oANykB3KwU7Tf9GzSKK5I/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzVEMkRBNENFQUM2MDg5RkJCMTAzRkRBOD/ZCOTgxQjQ4NTA5NUMwNzkxMDI4NEE1NjM2RjA4MDREQzdDOTU2RDEucG5n.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
     }
   },
   {
@@ -69,9 +763,10 @@
     "a": {
       "name": "Iogurte Líquido Morango Pack 8",
       "brand": "Mimosa",
-      "price": 2.59,
+      "price": 2.69,
+      "pricePerUnit": 2.23,
       "qty": {
-        "qty": 1.2103,
+        "qty": 1.2063,
         "kind": "proxy",
         "multiplier": 1
       },
@@ -82,8 +777,9 @@
     },
     "b": {
       "name": "MIMOSA Iogurte Líquido de Morango",
-      "brand": "MIMOSA",
+      "brand": "Mimosa",
       "price": 2.59,
+      "pricePerUnit": 2.14,
       "qty": {
         "qty": 1.2103,
         "kind": "proxy",
@@ -99,11 +795,80 @@
     "score": 0.75,
     "ownBrand": false,
     "a": {
+      "name": "Manteiga com Sal",
+      "brand": "Terra Nostra",
+      "price": 2.45,
+      "pricePerUnit": 9.8,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/manteiga-margarina-e-natas/manteiga-e-margarina/manteiga-com-sal-terra-nostra-762126.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/762126_954075dda700d561d06c629245667723.png",
+      "category": "laticinios_ovos",
+      "subcategory": "manteiga_natas"
+    },
+    "b": {
+      "name": "Terra Nostra Manteiga Açores com Sal",
+      "brand": "Terra Nostra",
+      "price": 2.29,
+      "pricePerUnit": 9.16,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/terra-nostra-manteiga-acores-com-sal/p11511451",
+      "imageUrl": "https://www.lidl.pt/assets/gcp4387d5eedbc94ba49d9dfc2a6c8cab18.png",
+      "category": "laticinios_ovos",
+      "subcategory": "ovos"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
+      "name": "Lombos de Salmão Congelados",
+      "brand": "Pescanova",
+      "price": 7.29,
+      "pricePerUnit": 29.16,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/peixe/atum-e-salmao%E2%80%8B/lombos-de-salmao-congelados-pescanova-910521.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/910521_89eb6b6aac570367e710b693b2555e52.jpg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Pescanova Lombos de Salmão",
+      "brand": "Pescanova",
+      "price": 7.39,
+      "pricePerUnit": 29.56,
+      "qty": {
+        "qty": 0.25,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pescanova-lombos-de-salmao/p10053535",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/olW6cZuEVBwS2i4pmOiA71lFWV4TuFMevkgNNZlokiU/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzhGMkYwNzBBRTk1MkE5QzcwNDdBQTA5OU/U3MUU3MTNEM0NFRjkwQjU5QjA2OEI2MjEyNTAzQUY2MTgwRTkwOUMucG5n.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": false,
+    "a": {
       "name": "Bebida de Frutos Morango",
       "brand": "Sunny Delight",
-      "price": 2.69,
+      "price": 1.99,
+      "pricePerUnit": 1.59,
       "qty": {
-        "qty": 1.2512,
+        "qty": 1.2516,
         "kind": "proxy",
         "multiplier": 1
       },
@@ -114,49 +879,86 @@
     },
     "b": {
       "name": "SUNNY DELIGHT Bebida de Morango",
-      "brand": "SUNNY DELIGHT",
+      "brand": "Sunny Delight",
       "price": 1.99,
+      "pricePerUnit": 1.59,
       "qty": {
         "qty": 1.2516,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.lidl.pt/p/sunny-delight-bebida-de-morango/p10052881",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/98oPeariBdFiLFVQmq08cC5NVWr9r9CdVQLl_d4_20Y/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VFQzIxNDMwQzAwMDI3OTI2NzdGRDg3Qj/kzQzQ4RTA5QUQyMEM5QTMwREQ5NzYxNTMyMEI4REFCQUI5MTk5OUMucG5n.png",
+      "url": "https://www.lidl.pt/p/sunny-delight-refrigerante-de-morango/p10052881",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/ywebn_A1UVGEKGcojGHujLkE1Is-NsgC9Y1DYPx_EVg/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VFQzIxNDMwQzAwMDI3OTI2NzdGRDg3Qj/kzQzQ4RTA5QUQyMEM5QTMwREQ5NzYxNTMyMEI4REFCQUI5MTk5OUMucG5n.png",
       "category": "bebidas",
       "subcategory": "refrigerantes_sumos"
     }
   },
   {
     "score": 0.75,
-    "ownBrand": false,
+    "ownBrand": true,
     "a": {
-      "name": "Água com Gás Pedras Pack 6",
-      "brand": "Pedras Salgadas",
-      "price": 5.39,
+      "name": "Ice Tea Manga",
+      "brand": "Pingo Doce",
+      "price": 1.19,
+      "pricePerUnit": 0.6,
       "qty": {
-        "qty": 5.9889,
+        "qty": 1.9833,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/aguas/aguas-com-gas/agua-com-gas-pedras-pack-6-pedras-salgadas-1007355.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1007355_a84cf870a8597868095fd25ac4018689.jpg",
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/iced-tea-tisanas-e-kombuchas/ice-tea-manga-pingo-doce-1008129.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1008129_0e22fe26f47e47dbb86c3c8c9b9ffe54.png",
       "category": "bebidas",
       "subcategory": "refrigerantes_sumos"
     },
     "b": {
-      "name": "PEDRAS SALGADAS Água com Gás",
-      "brand": "PEDRAS SALGADAS",
-      "price": 5.39,
+      "name": "Freeway Ice Tea Manga",
+      "brand": "Freeway",
+      "price": 0.99,
+      "pricePerUnit": 0.5,
       "qty": {
-        "qty": 5.9889,
+        "qty": 1.98,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.lidl.pt/p/pedras-salgadas-agua-com-gas/p10052807",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/V14ecxCkP2UC4UrBo3sy_ZRojgnaGkdEmUjAe9CtL2k/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0UzMUQwMzQ3NTYzRTZBNTE3NjUxNjc4Qj/BERkREMTA4MUNCN0JCQTFGNjhBRDA5QzkwNUM2QzFFMUFENjI4QzAucG5n.png",
+      "url": "https://www.lidl.pt/p/freeway-ice-tea-manga/p11522930",
+      "imageUrl": "https://www.lidl.pt/assets/gcp2755012aa1ea40cdaada5c237df0c1f1.png",
       "category": "bebidas",
-      "subcategory": "agua"
+      "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.75,
+    "ownBrand": true,
+    "a": {
+      "name": "Ice Tea Manga",
+      "brand": "Pingo Doce",
+      "price": 1.19,
+      "pricePerUnit": 0.6,
+      "qty": {
+        "qty": 1.9833,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/iced-tea-tisanas-e-kombuchas/ice-tea-manga-pingo-doce-740861.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/740861_1ef0c2c48deba1e74880c84a9557105f.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
+    },
+    "b": {
+      "name": "Freeway Ice Tea Manga",
+      "brand": "Freeway",
+      "price": 0.99,
+      "pricePerUnit": 0.5,
+      "qty": {
+        "qty": 1.98,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/freeway-ice-tea-manga/p11522930",
+      "imageUrl": "https://www.lidl.pt/assets/gcp2755012aa1ea40cdaada5c237df0c1f1.png",
+      "category": "bebidas",
+      "subcategory": "refrigerantes_sumos"
     }
   },
   {
@@ -166,6 +968,7 @@
       "name": "Refrigerante Fanta Laranja",
       "brand": "Fanta",
       "price": 1.49,
+      "pricePerUnit": 0.75,
       "qty": {
         "qty": 1.9867,
         "kind": "proxy",
@@ -180,6 +983,7 @@
       "name": "FANTA Refrigerante de Laranja",
       "brand": "FANTA",
       "price": 1.29,
+      "pricePerUnit": 0.65,
       "qty": {
         "qty": 1.9846,
         "kind": "proxy",
@@ -193,66 +997,80 @@
   },
   {
     "score": 0.667,
-    "ownBrand": false,
+    "ownBrand": true,
     "a": {
-      "name": "Bolachas Mini com Cereais Dinosaurus Pack 3",
-      "brand": "Artiach",
+      "name": "Meloa Cantaloupe",
+      "brand": "Nossa Fruta e Legumes",
       "price": 1.99,
-      "qty": {
-        "qty": 0.12,
-        "kind": "proxy",
-        "multiplier": 1
-      },
-      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/bolachas-infantis/bolachas-mini-com-cereais-dinosaurus-pack-3-artiach-701840.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/701840_a465f083ff94d4def37cf6e13bb0337f.jpg",
-      "category": "mercearia_doce_salgada",
-      "subcategory": "bolachas_cereais"
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/frutas/fruta-da-epoca/meloa-cantaloupe-nossa-fruta-e-legumes-322029.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/322029_97dcb77cf635c4649f42f8647eecf9e6.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
     },
     "b": {
-      "name": "ARTIACH Mini Dinosaurus Bolachas de Cereais",
-      "brand": "ARTIACH",
-      "price": 1.09,
-      "qty": {
-        "qty": 0.12,
-        "kind": "proxy",
-        "multiplier": 1
-      },
-      "url": "https://www.lidl.pt/p/artiach-mini-dinosaurus-bolachas-de-cereais/p10052899",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5QdyDHnBoeh3OW-tX-ift1DtYl1CJ_t0onBLhECuCi4/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE2M0M1N0M0QjY1OTE5QzkyRkJEQTczRE/I1NzJENzA5RTA1RjQzOUU5MzBFMzFDNEU0MzE3ODY4QTg0M0QxRjYucG5n.png",
-      "category": "mercearia_doce_salgada",
-      "subcategory": "bolachas_cereais"
+      "name": "Meloa Cantaloupe Nacional",
+      "brand": null,
+      "price": 0.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/meloa-cantaloupe-nacional/p10050919",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/Bj6GsRHVS5zq_OBELtRlekiauhiQKjC1-1TUkHnRTnU/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS83NzNGRDY3RkIxRDk4QkUwRDVFMUY0RDN/BRDM4RTc1MjhCRERGRDYxNjlFMTQ1RkU5RDYzRkVEMjMxMjU3QjM2LnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "fruta"
     }
   },
   {
     "score": 0.667,
-    "ownBrand": false,
+    "ownBrand": true,
     "a": {
-      "name": "Espumante Rosé Bruto Mateus",
-      "brand": "Mateus",
-      "price": 4.99,
-      "qty": {
-        "qty": 0.7504,
-        "kind": "proxy",
-        "multiplier": 1
-      },
-      "url": "https://www.pingodoce.pt/home/produtos/vinhos/champanhe-espumante-e-frisante/espumante-rose-bruto-mateus-mateus-613951.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/613951_48b2120f2e3f72c971e54882995f8009.png",
-      "category": "bebidas",
-      "subcategory": "vinho"
+      "name": "Batata Vermelha",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 1.19,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/batatas-cebolas-e-alhos/batata-vermelha-nossa-fruta-e-legumes-690987.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/690987_f35796b5806c0ccc546a92cde6bcfda1.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
     },
     "b": {
-      "name": "MATEUS Espumante Rosé",
-      "brand": "MATEUS",
-      "price": 4.89,
-      "qty": {
-        "qty": 0.75,
-        "kind": "proxy",
-        "multiplier": 1
-      },
-      "url": "https://www.lidl.pt/p/mateus-espumante-rose/p10052921",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/q2881wM2vzFxdLXPURhIEzzh8bj8Uz0f4v_O744dJcc/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS85RTYyRkVFRDc5NTlGMDk3QUQ2MDY5N0U/zOTgwQ0JGOTdDOTQwQjJCNUM2RkMwMkZCMzY1OUYwRjU1Nzg2QzI0LmpwZw.jpg",
-      "category": "bebidas",
-      "subcategory": "vinho"
+      "name": "Batata Vermelha Nacional",
+      "brand": null,
+      "price": 0.89,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/batata-vermelha-nacional/p10053513",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/gSdw494IQMDECWhdaVU9EH6CAsBTQ8zQMGQiamCx944/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS9ERDZEODU1ODQ1NzZEMjVBMkZEODI5Rjc/5RTNCNzMzMDRERDFBNTlFM0JCOUQ0QzI1NkMwRjZCQjVDNUE3NzcwLnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": true,
+    "a": {
+      "name": "Melão Branco",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 1.19,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/frutas/fruta-da-epoca/melao-branco-nossa-fruta-e-legumes-53371.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/53371_55c0e583693060f8bf0820f0506c7701.jpg",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    },
+    "b": {
+      "name": "Melão Branco Nacional",
+      "brand": null,
+      "price": 0.79,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/melao-branco-nacional/p10051285",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/tpYpgC2V_plFI4vHrJuW5blzNeMkF4YXf_EJsUpBhMk/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS80M0VGMDJBRDVBQTJBRDdDQzgwRTFENzk/5Q0U1RjVDM0YyM0ZGRDdBMDI5QTIyQTlBMzU3RTEwQUI3ODk5QTk0LnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "fruta"
     }
   },
   {
@@ -262,13 +1080,14 @@
       "name": "Spray Anti Bolores Perfect Finish",
       "brand": "Cif",
       "price": 2.49,
+      "pricePerUnit": 5.72,
       "qty": {
         "qty": 0.4353,
         "kind": "proxy",
         "multiplier": 1
       },
       "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/abrasivos-casa/spray-anti-bolores-perfect-finish-cif-859408.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/859408_e0184bfb0269cb6eacde047f78cf83b9.png",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/859408_1_c659ac7adc9c899c0fc68fa75a2376aa.png",
       "category": "casa_limpeza",
       "subcategory": "limpeza_casa"
     },
@@ -276,6 +1095,7 @@
       "name": "CIF Perfect Finish Spray Anti-Bolor",
       "brand": "CIF",
       "price": 2.49,
+      "pricePerUnit": 5.72,
       "qty": {
         "qty": 0.4353,
         "kind": "proxy",
@@ -291,9 +1111,44 @@
     "score": 0.667,
     "ownBrand": false,
     "a": {
+      "name": "Bacalhau Desfiado Congelado",
+      "brand": "Pescanova",
+      "price": 14.79,
+      "pricePerUnit": 17.4,
+      "qty": {
+        "qty": 0.85,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/bacalhau/bacalhau-congelado/bacalhau-desfiado-congelado-pescanova-952408.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/952408_5f5540cadad82c541b03ac2cd0ab351a.jpg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Pescanova Bacalhau Desfiado",
+      "brand": "Pescanova",
+      "price": 14.79,
+      "pricePerUnit": 17.4,
+      "qty": {
+        "qty": 0.85,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pescanova-bacalhau-desfiado/p10053541",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/l_3CkdGMSPRtJay15P6v5eghayO0LHl3RmUSJ3w0HLo/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzc3MThGMDhEN0IzNjk4RkNEMDM1NTU3Nk/Q3MTA1M0Q1RDM2QjY3QkE3MzkwQzg3RDFCRDgxQzlFMUNBRTFDRUUucG5n.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
       "name": "Gel de Banho Aroma Essence Relax",
       "brand": "Palmolive",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -308,6 +1163,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -326,13 +1182,14 @@
       "name": "Gel de Banho Aroma Essence Delight",
       "brand": "Palmolive",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
         "multiplier": 1
       },
       "url": "https://www.pingodoce.pt/home/produtos/higiene-pessoal-e-beleza/corpo/gel-de-banho/gel-de-banho-aroma-essence-delight-palmolive-962157.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/962157_ce0d19fc3d3129f0904cea13d44e9ec1.png",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/962157_1_0dff62b166db494e4188db0a3ba860f1.png",
       "category": "higiene_pessoal_beleza",
       "subcategory": "cuidado_pele"
     },
@@ -340,6 +1197,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -357,7 +1215,8 @@
     "a": {
       "name": "Snacks Doritos Tex-Mex",
       "brand": "Doritos",
-      "price": 3.29,
+      "price": 2.29,
+      "pricePerUnit": 10.18,
       "qty": {
         "qty": 0.225,
         "kind": "proxy",
@@ -372,6 +1231,7 @@
       "name": "DORITOS Tex Mex",
       "brand": "DORITOS",
       "price": 2.25,
+      "pricePerUnit": 10,
       "qty": {
         "qty": 0.225,
         "kind": "proxy",
@@ -387,56 +1247,350 @@
     "score": 0.667,
     "ownBrand": false,
     "a": {
-      "name": "Refrigerante Fanta Laranja Pack 6",
-      "brand": "Fanta",
-      "price": 4.29,
+      "name": "Filetes de Escamudo-do-Alasca",
+      "brand": "Iglo",
+      "price": 3.99,
+      "pricePerUnit": 9.98,
       "qty": {
-        "qty": 1.977,
+        "qty": 0.3998,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/refrigerantes-com-gas/refrigerante-fanta-laranja-pack-6-fanta-1008061.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1008061_985d57133fa8650079413cb83602b1ef.png",
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/peixe/pescada/filetes-de-escamudo-do-alasca-iglo-997020.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/997020_e3751850cd28af03bda9bbdad863a532.png",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Iglo Filete de Escamudo do Alasca",
+      "brand": "Iglo",
+      "price": 3.99,
+      "pricePerUnit": 9.98,
+      "qty": {
+        "qty": 0.3998,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/iglo-filete-de-escamudo-do-alasca/p11521047",
+      "imageUrl": "https://www.lidl.pt/assets/gcp2287136ce8994656b73a6445d43351d1.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Bolachas Mini com Cereais Dinosaurus Pack 3",
+      "brand": "Artiach",
+      "price": 1.99,
+      "pricePerUnit": 16.58,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/bolachas-cereais-e-guloseimas/bolachas-e-biscoitos/bolachas-infantis/bolachas-mini-com-cereais-dinosaurus-pack-3-artiach-701840.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/701840_a465f083ff94d4def37cf6e13bb0337f.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    },
+    "b": {
+      "name": "ARTIACH Mini Dinosaurus Bolachas de Cereais",
+      "brand": "ARTIACH",
+      "price": 1.09,
+      "pricePerUnit": 9.08,
+      "qty": {
+        "qty": 0.12,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/artiach-mini-dinosaurus-bolachas-de-cereais/p10052899",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5QdyDHnBoeh3OW-tX-ift1DtYl1CJ_t0onBLhECuCi4/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE2M0M1N0M0QjY1OTE5QzkyRkJEQTczRE/I1NzJENzA5RTA1RjQzOUU5MzBFMzFDNEU0MzE3ODY4QTg0M0QxRjYucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "bolachas_cereais"
+    }
+  },
+  {
+    "score": 0.667,
+    "ownBrand": false,
+    "a": {
+      "name": "Espumante Rosé Bruto Mateus",
+      "brand": "Mateus",
+      "price": 4.99,
+      "pricePerUnit": 6.65,
+      "qty": {
+        "qty": 0.7504,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/vinhos/champanhe-espumante-e-frisante/espumante-rose-bruto-mateus-mateus-613951.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/613951_48b2120f2e3f72c971e54882995f8009.png",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    },
+    "b": {
+      "name": "MATEUS Espumante Rosé",
+      "brand": "MATEUS",
+      "price": 4.89,
+      "pricePerUnit": 6.52,
+      "qty": {
+        "qty": 0.75,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/mateus-espumante-rose/p10052921",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/q2881wM2vzFxdLXPURhIEzzh8bj8Uz0f4v_O744dJcc/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS85RTYyRkVFRDc5NTlGMDk3QUQ2MDY5N0U/zOTgwQ0JGOTdDOTQwQjJCNUM2RkMwMkZCMzY1OUYwRjU1Nzg2QzI0LmpwZw.jpg",
+      "category": "bebidas",
+      "subcategory": "vinho"
+    }
+  },
+  {
+    "score": 0.6,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Salted Caramel Les Desserts",
+      "brand": "Carte D'Or",
+      "price": 5.99,
+      "pricePerUnit": 7.26,
+      "qty": {
+        "qty": 0.8251,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-familiares/gelado-salted-caramel-les-desserts-carte-d%27or-971074.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/971074_a2549b2ff2ecb7410902ed0deaae0ebe.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Carte d'Or Gelado Salted Caramel",
+      "brand": "Carte D'Or",
+      "price": 3.29,
+      "pricePerUnit": 3.99,
+      "qty": {
+        "qty": 0.8246,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/carte-d-or-gelado-salted-caramel/p10053595",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/sMv4Hf1yAO1kKvfDG_HkqEInf3BfBNp1sLDWY-X8Cko/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS9CNzg2NDdGRjkxNjhBQzE2QjVBODg0NTQ/2NzY4RTA0OEM2QUQyNzJEQTAyQjE0ODZDQzdEOTA0RDI2QTFFMjBELnBuZw.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 0.6,
+    "ownBrand": true,
+    "a": {
+      "name": "Ice Tea Limão",
+      "brand": "Pingo Doce",
+      "price": 1.19,
+      "pricePerUnit": 0.6,
+      "qty": {
+        "qty": 1.9833,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/aguas-sumos-e-refrigerantes/sumos-e-refrigerantes/iced-tea-tisanas-e-kombuchas/ice-tea-limao-pingo-doce-1008200.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1008200_3071f8784157f5d67e208711c2c4ba84.png",
       "category": "bebidas",
       "subcategory": "refrigerantes_sumos"
     },
     "b": {
-      "name": "FANTA Refrigerante de Laranja",
-      "brand": "FANTA",
-      "price": 1.29,
+      "name": "Freeway Ice Tea de Limão",
+      "brand": "Freeway",
+      "price": 0.99,
+      "pricePerUnit": 0.5,
       "qty": {
-        "qty": 1.9846,
+        "qty": 1.98,
         "kind": "proxy",
         "multiplier": 1
       },
-      "url": "https://www.lidl.pt/p/fanta-refrigerante-de-laranja/p10052817",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/n83a_dhNjzhQ7U9ZDSKGvFELUZ7gHIOR5ARyVEcAoE8/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzU0RDYwOUYzREY2MUZBQTBGMjAyQzJGM0/UxRTIzOThCREUwNUFDMEY1OEI2RjNEQkEwNzY3MzI0NjFDRUM1NTUucG5n.png",
+      "url": "https://www.lidl.pt/p/freeway-ice-tea-de-limao/p10052438",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/znzweKpgzloJoNAQYv79WL-sVcP0pzQ2ZRejeOmIWtg/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS9DRkNCM0NDMjQzNjI5QjU2NTBBNERDQzl/GREU0NjczMzc3OUQzNzM2QTc3QUE5NkNGOTEyNUIyMDQ1OUQ3RkJBLnBuZw.png",
       "category": "bebidas",
       "subcategory": "refrigerantes_sumos"
+    }
+  },
+  {
+    "score": 0.571,
+    "ownBrand": false,
+    "a": {
+      "name": "Filetes de Pescada do Cabo Congelados",
+      "brand": "Pescanova",
+      "price": 5.99,
+      "pricePerUnit": 14.98,
+      "qty": {
+        "qty": 0.3999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/peixe/pescada/filetes-de-pescada-do-cabo-congelados-pescanova-967557.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/967557_9c52f826d739aee0573844ab5bba964a.jpeg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Pescanova Medalhões de Pescada do Cabo",
+      "brand": "Pescanova",
+      "price": 6.99,
+      "pricePerUnit": 17.48,
+      "qty": {
+        "qty": 0.3999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pescanova-medalhoes-de-pescada-do-cabo/p11511600",
+      "imageUrl": "https://www.lidl.pt/assets/gcp1b570359539e4dde97bc8f79c6bd85ae.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
     }
   },
   {
     "score": 0.5,
     "ownBrand": true,
     "a": {
-      "name": "Bolo Rei Desmanchado",
-      "brand": "Nossa Padaria",
-      "price": 9.99,
+      "name": "Cebola Nacional sem Desperdício",
+      "brand": "Pingo Doce",
+      "price": 1.99,
+      "pricePerUnit": null,
       "qty": null,
-      "url": "https://www.pingodoce.pt/home/produtos/padaria-e-pastelaria/pastelaria/bolos-familiares/bolo-rei-desmanchado-nossa-padaria-253101.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/253101_dd4f03290c058e35ccdbc9020e9ec64e.png",
-      "category": "padaria_pastelaria",
-      "subcategory": "pao"
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/batatas-cebolas-e-alhos/cebola-nacional-sem-desperdicio-pingo-doce-1011333.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/1011333_1_2a904f9d1061cb5c0d376d5c63b2712a.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
     },
     "b": {
-      "name": "Deluxe Bolo Rei",
-      "brand": "Deluxe",
-      "price": 5.99,
+      "name": "Cebola Nacional",
+      "brand": null,
+      "price": 0.99,
+      "pricePerUnit": null,
       "qty": null,
-      "url": "https://www.lidl.pt/p/deluxe-bolo-rei/p10036003",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5SAX8_lXvs0ERtgxL_7URYCD7WE1S_6G68s6BDfrh48/sm:1/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VGRDM0Mzc2NjdCRkE0RjdDRTk3RTk0MU/U2NzgwN0YyRDZFQ0I4QUE3MDBDN0VEODU0NDgzNjMzNzk2OEM5MzIucG5n.png",
-      "category": "padaria_pastelaria",
-      "subcategory": "bolos_pastelaria"
+      "url": "https://www.lidl.pt/p/cebola-nacional/p11029637",
+      "imageUrl": "https://www.lidl.pt/assets/gcp494a44c341fc4fbe8264252fc72e638f.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Massa Esparguete",
+      "brand": "Milaneza",
+      "price": 1.29,
+      "pricePerUnit": 2.58,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/arroz-massa-e-leguminosas/massa/massa-esparguete-milaneza-10757.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/10757_d55180c71590eb56a3fd109f5d1d9524.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "massas_arroz"
+    },
+    "b": {
+      "name": "Milaneza Esparguete",
+      "brand": "Milaneza",
+      "price": 0.88,
+      "pricePerUnit": 1.7,
+      "qty": {
+        "qty": 0.5176,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/milaneza-esparguete/p10053631",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/LbZ_EIV6Y2uheNJzJgQWs1D7Gi6P1I02H0nJbLM6k9g/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzcwODkwM0U0NTJBNDgwRjJBMzU3NjkyNE/E3QzY5RjIyOUMwQjgxNDNDMjE4ODczNzVFNEFFOUY5QzQyNTAxRDcucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "massas_arroz"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Pepino",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 1.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/tomates-pepinos-e-pimentos/pepino-nossa-fruta-e-legumes-42854.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/42854_cf7c96623161cc5aa55b885a712ccc5e.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    },
+    "b": {
+      "name": "Pepino Nacional",
+      "brand": null,
+      "price": 1.19,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/pepino-nacional/p10052851",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/8Cd7tSfnvDoFKiGKR7TZz5FHU_dVar_P-Ev_qPZgMFg/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS84MTMxMDlEODVBN0YzRkNDM0QwNUVBN0Z/GODAyRjlFQjM5ODhERDAxNjc3Q0I0RTVERkFFQUY1RDBCRTM4RDQzLmpwZw.jpg",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Couve Coração de Boi",
+      "brand": "Nossa Fruta e Legumes",
+      "price": 1.69,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/frutas-e-vegetais/vegetais/cenouras-couves-e-brocolos/couve-coracao-de-boi-nossa-fruta-e-legumes-587389.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/587389_08e2274fc042bebf1b60c53fd8a9da8d.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    },
+    "b": {
+      "name": "Tomate Coração de Boi Nacional",
+      "brand": null,
+      "price": 2.19,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/tomate-coracao-de-boi-nacional/p10053505",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/jUWQgOFS7V7VeLx0RrHVIZEE8GpbailmV5UfnEQqv4E/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS9DMTNDMjg5NjJCQjdEMkIxODcyMDM1NDg/5MjE4QkVGNkUyREFBRTJBRkM4N0FENTU2RUZCMTU0RTFCOTJFNDMzLnBuZw.png",
+      "category": "frutas_legumes",
+      "subcategory": "legumes"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Medalhões de Pescada Congelados",
+      "brand": "Pescanova",
+      "price": 6.99,
+      "pricePerUnit": 17.47,
+      "qty": {
+        "qty": 0.4001,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/peixe/pescada/medalhoes-de-pescada-congelados-pescanova-670009.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/670009_5a100e241edb10940a79249941e9d1ae.jpeg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Pescanova Medalhões de Pescada do Cabo",
+      "brand": "Pescanova",
+      "price": 6.99,
+      "pricePerUnit": 17.48,
+      "qty": {
+        "qty": 0.3999,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/pescanova-medalhoes-de-pescada-do-cabo/p11511600",
+      "imageUrl": "https://www.lidl.pt/assets/gcp1b570359539e4dde97bc8f79c6bd85ae.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
     }
   },
   {
@@ -445,7 +1599,8 @@
     "a": {
       "name": "Tentáculos de Pota Congelados",
       "brand": "Nossa Peixaria",
-      "price": 4.99,
+      "price": 6.99,
+      "pricePerUnit": null,
       "qty": null,
       "url": "https://www.pingodoce.pt/home/produtos/peixaria/polvo-lula-pota-e-choco/congelado/tentaculos-de-pota-congelados-nossa-peixaria-670789.html",
       "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/670789_1_bc0962a47978f97ea2bec00237f34e0e.png",
@@ -456,6 +1611,7 @@
       "name": "Ocean Sea Tentáculos de Pota",
       "brand": "Ocean Sea",
       "price": 5.99,
+      "pricePerUnit": null,
       "qty": null,
       "url": "https://www.lidl.pt/p/ocean-sea-tentaculos-de-pota/p10052622",
       "imageUrl": "https://imgproxy-retcat.assets.schwarz/CN6piMZfaY8qv_m-Oimpw2Zo8yDpBiiqkLTzZEXProM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzk3MDY5OTBCRTdGODAwMEU0QTc1REI5Qz/Y0NkEzMkJEMjk5OThCM0M1OTc3N0JGMzdGRURDRjQyNjNFNTVDODUucG5n.png",
@@ -470,6 +1626,7 @@
       "name": "Spray Madeiras Perfect Finish",
       "brand": "Cif",
       "price": 2.49,
+      "pricePerUnit": 5.72,
       "qty": {
         "qty": 0.4353,
         "kind": "proxy",
@@ -484,6 +1641,7 @@
       "name": "CIF Perfect Finish Spray Anti-Bolor",
       "brand": "CIF",
       "price": 2.49,
+      "pricePerUnit": 5.72,
       "qty": {
         "qty": 0.4353,
         "kind": "proxy",
@@ -499,24 +1657,102 @@
     "score": 0.5,
     "ownBrand": true,
     "a": {
-      "name": "Tentáculos de Pota Congelados",
-      "brand": "Nossa Peixaria",
-      "price": 8.99,
-      "qty": null,
-      "url": "https://www.pingodoce.pt/home/produtos/peixaria/polvo-lula-pota-e-choco/congelado/tentaculos-de-pota-congelados-nossa-peixaria-941292.html",
-      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/941292_50cb66abfecf6700a2ee278f18c1371d.jpg",
-      "category": "talho_peixaria",
-      "subcategory": "peixe_fresco"
+      "name": "Iogurte Grego Stracciatella Pack 4",
+      "brand": "Pingo Doce",
+      "price": 1.79,
+      "pricePerUnit": 3.58,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/iogurtes-e-sobremesas/iogurtes/iogurtes-gregos%E2%80%8B/iogurte-grego-stracciatella-pack-4-pingo-doce-854871.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/854871_5f26d7d0bd6841ec6612879d729a0cbe.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
     },
     "b": {
-      "name": "Ocean Sea Tentáculos de Pota",
-      "brand": "Ocean Sea",
-      "price": 5.99,
-      "qty": null,
-      "url": "https://www.lidl.pt/p/ocean-sea-tentaculos-de-pota/p10052622",
-      "imageUrl": "https://imgproxy-retcat.assets.schwarz/CN6piMZfaY8qv_m-Oimpw2Zo8yDpBiiqkLTzZEXProM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzk3MDY5OTBCRTdGODAwMEU0QTc1REI5Qz/Y0NkEzMkJEMjk5OThCM0M1OTc3N0JGMzdGRURDRjQyNjNFNTVDODUucG5n.png",
-      "category": "congelados",
-      "subcategory": "peixe_marisco_congelado"
+      "name": "Milbona Iogurte Grego",
+      "brand": "Milbona",
+      "price": 1.39,
+      "pricePerUnit": 2.78,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/milbona-iogurte-grego/p10053615",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/Oj70Xc9EwS9cvxzR6rwDJySR4maQX-ZH7df-VVwdUOQ/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Y1RTEzMjZEQkVGRENBMjc5MTExQUU1Rj/U5NDkzM0FCNDE3OUJCMTdGOUM2NUFDRkFGMTg4RDM3RkMxRDRFREMucG5n.png",
+      "category": "laticinios_ovos",
+      "subcategory": "iogurtes"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Spray de Limpeza Cozinha",
+      "brand": "Ajax",
+      "price": 1.99,
+      "pricePerUnit": 3.98,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/multisuperficies-e-desengordurantes/spray-de-limpeza-cozinha-ajax-912127.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/912127_23fdfc692f6e7065e6ca9b11d6c8571e.jpg",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    },
+    "b": {
+      "name": "Ajax Spray de Limpeza com Lixívia",
+      "brand": "Ajax",
+      "price": 1.99,
+      "pricePerUnit": 3.98,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/ajax-spray-de-limpeza-com-lixivia/p10053817",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/eDtl5xdi6WUL69bQqt4Uvjo01SqITbwkClCekvEAA7Y/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzU5QUExMUZGMzEwNTQ5RDIxMkFERTY1RD/c2MDZGRkY2NTVBMzM5NkUzNUIxODY2RUUxOTZDNjlCRTQzQ0JERTYucG5n.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Spray Multiusos com Lixívia",
+      "brand": "Ajax",
+      "price": 1.99,
+      "pricePerUnit": 3.98,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/limpeza/casa/abrasivos-casa/spray-multiusos-com-lixivia-ajax-912128.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/912128_91ca93c8b04cf6794c5b23189c6fe5b7.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
+    },
+    "b": {
+      "name": "Ajax Spray de Limpeza com Lixívia",
+      "brand": "Ajax",
+      "price": 1.99,
+      "pricePerUnit": 3.98,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/ajax-spray-de-limpeza-com-lixivia/p10053817",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/eDtl5xdi6WUL69bQqt4Uvjo01SqITbwkClCekvEAA7Y/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzU5QUExMUZGMzEwNTQ5RDIxMkFERTY1RD/c2MDZGRkY2NTVBMzM5NkUzNUIxODY2RUUxOTZDNjlCRTQzQ0JERTYucG5n.png",
+      "category": "casa_limpeza",
+      "subcategory": "limpeza_casa"
     }
   },
   {
@@ -526,6 +1762,7 @@
       "name": "Gel de Banho Silky Oil",
       "brand": "Palmolive",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -540,6 +1777,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -557,9 +1795,10 @@
     "a": {
       "name": "Pipocas Doces",
       "brand": "Pingo Doce",
-      "price": 0.85,
+      "price": 0.89,
+      "pricePerUnit": 5.93,
       "qty": {
-        "qty": 0.1499,
+        "qty": 0.1501,
         "kind": "proxy",
         "multiplier": 1
       },
@@ -572,6 +1811,7 @@
       "name": "Snack Day Pipocas Doces",
       "brand": "Snack Day",
       "price": 0.79,
+      "pricePerUnit": 5.27,
       "qty": {
         "qty": 0.1499,
         "kind": "proxy",
@@ -589,9 +1829,10 @@
     "a": {
       "name": "Gelado Tiramisu Les Desserts",
       "brand": "Carte D'Or",
-      "price": 3.29,
+      "price": 5.99,
+      "pricePerUnit": 7.26,
       "qty": {
-        "qty": 0.8246,
+        "qty": 0.8251,
         "kind": "proxy",
         "multiplier": 1
       },
@@ -604,6 +1845,7 @@
       "name": "Carte D'Or Gelado Tiramisu",
       "brand": "Carte D'Or",
       "price": 3.29,
+      "pricePerUnit": 3.99,
       "qty": {
         "qty": 0.8246,
         "kind": "proxy",
@@ -619,9 +1861,112 @@
     "score": 0.5,
     "ownBrand": false,
     "a": {
+      "name": "Cápsulas de Café Qalidus Pack",
+      "brand": "Delta Q",
+      "price": 29.99,
+      "pricePerUnit": 0.3,
+      "qty": {
+        "qty": 99.9667,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/cafe-cha-e-achocolatados/capsulas-de-cafe/capsulas-de-cafe-delta-q-qalidus-pack-delta-q-977692.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/977692_d8cb1c28faced25dd7eaa2a21a4b7b56.jpg",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    },
+    "b": {
+      "name": "Delta Q Cápsulas de Café Epiq Int. 14",
+      "brand": "Delta Q",
+      "price": 27.99,
+      "pricePerUnit": 0.28,
+      "qty": {
+        "qty": 99.9643,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/delta-q-capsulas-de-cafe-epiq-int-14/p11317500",
+      "imageUrl": "https://www.lidl.pt/assets/gcp85f77a6682f04a95a14b20aa61493006.png",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Cápsulas de Café Qharacter Pack",
+      "brand": "Delta Q",
+      "price": 31.99,
+      "pricePerUnit": 0.32,
+      "qty": {
+        "qty": 99.9688,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/cafe-cha-e-achocolatados/capsulas-de-cafe/capsulas-de-cafe-delta-q-qharacter-pack-delta-q-979364.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/979364_c6feae2e2c5cec9ddd04d82a9c7e79b3.jpg",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    },
+    "b": {
+      "name": "Delta Q Cápsulas de Café Epiq Int. 14",
+      "brand": "Delta Q",
+      "price": 27.99,
+      "pricePerUnit": 0.28,
+      "qty": {
+        "qty": 99.9643,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/delta-q-capsulas-de-cafe-epiq-int-14/p11317500",
+      "imageUrl": "https://www.lidl.pt/assets/gcp85f77a6682f04a95a14b20aa61493006.png",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Gelado Double Hazelnut",
+      "brand": "Magnum",
+      "price": 3.99,
+      "pricePerUnit": 15.65,
+      "qty": {
+        "qty": 0.255,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/gelados-e-sobremesas/gelados-de-pauzinho/gelado-double-hazelnut-magnum-988000.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/988000_236ab41c348e817d3fa9e1bf483ab022.png",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Magnum Gelado Double Cherry",
+      "brand": "Magnum",
+      "price": 3.99,
+      "pricePerUnit": 15.65,
+      "qty": {
+        "qty": 0.255,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/magnum-gelado-double-cherry/p10053597",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/aSLXDNAuedBlVGJFnl_xe5PLS4stVuoUg4qoBQqRyKo/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50LzE1RTQwN0RDOTU1MjNFODdCNzRDNzBENz/BBOTNBQUQ4MTI1QTlFRUQ0OEU2QjE2MTFBQTAxRUU4NDJEMkY5QjcucG5n.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
       "name": "Gel de Banho Restful Sleep",
       "brand": "Palmolive",
-      "price": 2.99,
+      "price": 4.99,
+      "pricePerUnit": 9.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -636,6 +1981,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -653,7 +1999,8 @@
     "a": {
       "name": "Gel de Banho Gentle Massage",
       "brand": "Palmolive",
-      "price": 2.99,
+      "price": 4.99,
+      "pricePerUnit": 9.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -668,6 +2015,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -683,9 +2031,44 @@
     "score": 0.5,
     "ownBrand": false,
     "a": {
+      "name": "Cápsulas de Café MythiQ Pack",
+      "brand": "Delta Q",
+      "price": 31.99,
+      "pricePerUnit": 0.32,
+      "qty": {
+        "qty": 99.9688,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/cafe-cha-e-achocolatados/capsulas-de-cafe/capsulas-de-cafe-delta-q-mythiq-pack-delta-q-991639.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/991639_037b3c5ae5619f16ca04eab92f4238e4.png",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    },
+    "b": {
+      "name": "Delta Q Cápsulas de Café Epiq Int. 14",
+      "brand": "Delta Q",
+      "price": 27.99,
+      "pricePerUnit": 0.28,
+      "qty": {
+        "qty": 99.9643,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/delta-q-capsulas-de-cafe-epiq-int-14/p11317500",
+      "imageUrl": "https://www.lidl.pt/assets/gcp85f77a6682f04a95a14b20aa61493006.png",
+      "category": "bebidas",
+      "subcategory": "cafe_cha"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
       "name": "Gel de Banho Blueberry & Lily",
       "brand": "Palmolive",
       "price": 3.29,
+      "pricePerUnit": 6.58,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -700,6 +2083,7 @@
       "name": "PALMOLIVE Gel de Banho Aroma",
       "brand": "PALMOLIVE",
       "price": 2.99,
+      "pricePerUnit": 5.98,
       "qty": {
         "qty": 0.5,
         "kind": "proxy",
@@ -709,6 +2093,126 @@
       "imageUrl": "https://imgproxy-retcat.assets.schwarz/rhOHcpGefSfy3Qemv3GSXqPaI_qqT4Qb_11jfxFoZSU/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvcHQvMS8yMEE0MzNGMEMyODZBNzBGQUI1MDVCM0M/2OUUxNjRBODg0M0RBNzg0RDJCQzE4RTNDRTUxRkM0QkExQTVDNUFBLmpwZw.jpg",
       "category": "higiene_pessoal_beleza",
       "subcategory": "cuidado_pele"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Massa Espirais",
+      "brand": "Milaneza",
+      "price": 1.57,
+      "pricePerUnit": 3.14,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/mercearia/arroz-massa-e-leguminosas/massa/massa-espirais-milaneza-662821.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/662821_5af0faa4e85f463ee5a4c4d316ff99c1.jpg",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "massas_arroz"
+    },
+    "b": {
+      "name": "Milaneza Espirais",
+      "brand": "Milaneza",
+      "price": 0.99,
+      "pricePerUnit": 1.98,
+      "qty": {
+        "qty": 0.5,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/milaneza-espirais/p10053633",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/CZnNaFjt-_TbV4IZ49EA4EVzk1LH6XV1CNG0l_Eh5ko/sm:0/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0Q3MEJEMjQ1MjMwM0MxM0IyQjFEQTAyNz/Q2NjIwQUJEQjBEMDJGRjAwNTM2NDVCRjAyOTc2MDM5NDNBNzFFRTQucG5n.png",
+      "category": "mercearia_doce_salgada",
+      "subcategory": "massas_arroz"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Tentáculos de Pota Congelados",
+      "brand": "Nossa Peixaria",
+      "price": 8.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/peixaria/polvo-lula-pota-e-choco/congelado/tentaculos-de-pota-congelados-nossa-peixaria-941292.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/941292_50cb66abfecf6700a2ee278f18c1371d.jpg",
+      "category": "talho_peixaria",
+      "subcategory": "peixe_fresco"
+    },
+    "b": {
+      "name": "Ocean Sea Tentáculos de Pota",
+      "brand": "Ocean Sea",
+      "price": 5.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/ocean-sea-tentaculos-de-pota/p10052622",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/CN6piMZfaY8qv_m-Oimpw2Zo8yDpBiiqkLTzZEXProM/sm:1/exar:1:ce/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50Lzk3MDY5OTBCRTdGODAwMEU0QTc1REI5Qz/Y0NkEzMkJEMjk5OThCM0M1OTc3N0JGMzdGRURDRjQyNjNFNTVDODUucG5n.png",
+      "category": "congelados",
+      "subcategory": "peixe_marisco_congelado"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": false,
+    "a": {
+      "name": "Ervilhas Congeladas",
+      "brand": "Iglo",
+      "price": 4.29,
+      "pricePerUnit": 6.13,
+      "qty": {
+        "qty": 0.6998,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.pingodoce.pt/home/produtos/congelados/frutas-e-vegetais/vegetais-congelados/ervilhas-congeladas-iglo-767327.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/767327_d0d9e6fefb7979508c0bbe264753cf1d.jpg",
+      "category": "congelados",
+      "subcategory": "pratos_prontos_congelados"
+    },
+    "b": {
+      "name": "Iglo Ervilhas",
+      "brand": "Iglo",
+      "price": 3.59,
+      "pricePerUnit": 5.13,
+      "qty": {
+        "qty": 0.6998,
+        "kind": "proxy",
+        "multiplier": 1
+      },
+      "url": "https://www.lidl.pt/p/iglo-ervilhas/p11514793",
+      "imageUrl": "https://www.lidl.pt/assets/gcp72dbdc01df904a93af59d02952fd3d5f.png",
+      "category": "congelados",
+      "subcategory": "gelados"
+    }
+  },
+  {
+    "score": 0.5,
+    "ownBrand": true,
+    "a": {
+      "name": "Bolo Rei Desmanchado",
+      "brand": "Nossa Padaria",
+      "price": 9.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.pingodoce.pt/home/produtos/padaria-e-pastelaria/pastelaria/bolos-familiares/bolo-rei-desmanchado-nossa-padaria-253101.html",
+      "imageUrl": "https://static.pingodoce.pt/dw/image/v2/BLJJ_PRD/on/demandware.static/-/Sites-pingo-doce-master/default/dw8cff88d2/images/large/253101_dd4f03290c058e35ccdbc9020e9ec64e.png",
+      "category": "padaria_pastelaria",
+      "subcategory": "pao"
+    },
+    "b": {
+      "name": "Deluxe Bolo Rei",
+      "brand": "Deluxe",
+      "price": 5.99,
+      "pricePerUnit": null,
+      "qty": null,
+      "url": "https://www.lidl.pt/p/deluxe-bolo-rei/p10036003",
+      "imageUrl": "https://imgproxy-retcat.assets.schwarz/5SAX8_lXvs0ERtgxL_7URYCD7WE1S_6G68s6BDfrh48/sm:1/w:1500/h:1125/cz/M6Ly9wcm9kLWNhd/GFsb2ctbWVkaWEvaW50L0VGRDM0Mzc2NjdCRkE0RjdDRTk3RTk0MU/U2NzgwN0YyRDZFQ0I4QUE3MDBDN0VEODU0NDgzNjMzNzk2OEM5MzIucG5n.png",
+      "category": "padaria_pastelaria",
+      "subcategory": "bolos_pastelaria"
     }
   }
 ]

@@ -30,6 +30,11 @@ const RULES = [
 
   // padaria_pastelaria
   { test: /padaria\/pastelaria/i, category: "padaria_pastelaria", subcategory: "bolos_pastelaria" },
+  // A regra acima exige a folha "Pastelaria"; o Lidl tem outras folhas dentro de
+  // "Alimentos e quase alimentos/Padaria" (ex. "Paezinhos e bolinhos", onde
+  // estava o "Pao Hogaza Classico") que ficavam de fora do catalogo. Aqui o pai
+  // "Alimentos e quase alimentos" ja garante que e comida, nao bazar.
+  { test: /alimentos e quase alimentos\/padaria/i, category: "padaria_pastelaria", subcategory: "pao" },
   { test: /torradas e produtos de panificacao/i, category: "padaria_pastelaria", subcategory: "torradas_tostas" },
 
   // congelados
