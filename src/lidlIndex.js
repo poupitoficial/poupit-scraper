@@ -46,29 +46,47 @@ async function upsertProduct({
   const normalizedBrand = brand ? normalizeBrand(brand) : null;
 
   if (!productId) {
-    const { data: product, error: productError } = await supabase
-      .from("products")
-      .insert({
-        name,
-        category,
-        subcategory,
-        subcategory_source: subcategory ? "breadcrumb" : null,
-        image_url: imageUrl,
-        brand: normalizedBrand,
-        barcode: ean || null,
-        unit_type: qty?.unit ?? null,
-        unit_size: qty?.value ?? null,
-      })
-      .select("id")
-      .single();
-    if (productError) throw productError;
+    const insertPayload = {
+      name,
+      category,
+      subcategory,
+      subcategory_source: subcategory ? "breadcrumb" : null,
+      image_url: imageUrl,
+      brand: normalizedBrand,
+      barcode: ean || null,
+      unit_type: qty?.unit ?? null,
+      unit_size: qty?.value ?? null,
+    };
+    let { data: product, error: productError } = await supabase.from("products").insert(insertPayload).select("id").single();
+    if (productError) {
+      // O EAN do Lidl e frequentemente o MESMO codigo de barras ja gravado
+      // por outra loja para o mesmo produto fisico (barcode e informacao do
+      // fabricante, nao da loja) - mas products.barcode tem uma constraint
+      // unica GLOBAL, enquanto o modelo e uma linha de produto por loja.
+      // Sem isto, ~44% das insercoes do Lidl falhavam (visto ao vivo: 69/155
+      // numa so corrida) so por partilharem barcode com Continente/Auchan/
+      // Pingo Doce. Insere sem o barcode em vez de perder o produto inteiro.
+      if (productError.message.includes("products_barcode_key") && insertPayload.barcode) {
+        const { barcode: _drop, ...insertWithoutBarcode } = insertPayload;
+        ({ data: product, error: productError } = await supabase.from("products").insert(insertWithoutBarcode).select("id").single());
+      }
+      if (productError) throw productError;
+    }
     productId = product.id;
   } else {
     const update = { category, subcategory, subcategory_source: subcategory ? "breadcrumb" : null, brand: normalizedBrand, unit_type: qty?.unit ?? null, unit_size: qty?.value ?? null };
     if (imageUrl) update.image_url = imageUrl;
     if (ean) update.barcode = ean;
     const { error: updateError } = await supabase.from("products").update(update).eq("id", productId);
-    if (updateError) throw updateError;
+    if (updateError) {
+      if (updateError.message.includes("products_barcode_key") && update.barcode) {
+        const { barcode: _drop, ...updateWithoutBarcode } = update;
+        const { error: retryError } = await supabase.from("products").update(updateWithoutBarcode).eq("id", productId);
+        if (retryError) throw retryError;
+      } else {
+        throw updateError;
+      }
+    }
   }
 
   const { data: sp, error: upsertError } = await supabase
