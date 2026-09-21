@@ -4,6 +4,7 @@ import { fetchAuchanProducts, collectRelevantProductUrls, MAX_PRODUCT_PRICE } fr
 import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
+import { setExitCodeFromErrors } from "./runGuards.js";
 
 function envInt(name, fallback) {
   const v = Number(process.env[name]);
@@ -264,7 +265,7 @@ async function main() {
   console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
   console.log(`Erros: ${summary.errors}`);
 
-  if (summary.errors > 0) process.exitCode = 1;
+  setExitCodeFromErrors(summary.errors, summary.found + summary.errors);
 }
 
 main().catch((err) => {

@@ -17,9 +17,10 @@ on:
 # (antes, "if: always()" corria os passos seguintes mas o runner ja podia
 # estar comprometido), e correm em paralelo em vez de em fila.
 jobs:
+  # Chegou a 1h29 com timeout de 90 - sem margem nenhuma.
   continente:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,6 +34,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CONTINENTE_SUPERMARKET_SLUG: continente
 
+  # O catalogo completo (~10000 produtos) nao cabe em 4h e o job era cortado
+  # pelo timeout todos os dias. Com SCRAPE_TIME_BUDGET_MIN o scraper para
+  # sozinho antes do timeout e termina normalmente; processa os precos mais
+  # antigos primeiro, por isso o catalogo roda inteiro ao longo de dias.
   pingodoce:
     runs-on: ubuntu-latest
     timeout-minutes: 240
@@ -47,6 +52,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SCRAPE_TIME_BUDGET_MIN: "215"
 
   lidl:
     runs-on: ubuntu-latest

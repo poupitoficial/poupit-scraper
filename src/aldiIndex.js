@@ -4,6 +4,7 @@ import { fetchAldiProducts, MAX_PRODUCT_PRICE } from "./aldiClient.js";
 import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
+import { setExitCodeFromErrors } from "./runGuards.js";
 
 const SLUG = "aldi";
 
@@ -112,7 +113,7 @@ async function main() {
   console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
   console.log(`Erros: ${summary.errors}`);
 
-  if (summary.errors > 0) process.exitCode = 1;
+  setExitCodeFromErrors(summary.errors, summary.found + summary.errors);
 }
 
 main().catch((err) => {

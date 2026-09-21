@@ -4,6 +4,7 @@ import { fetchPingoDoceProducts, collectRelevantProductUrls, MAX_PRODUCT_PRICE, 
 import { priceChanged } from "./priceHistory.js";
 import { extractQuantity } from "./quantityExtractor.js";
 import { normalizeBrand } from "./brandAliases.js";
+import { setExitCodeFromErrors, deadlineFromEnv, pastDeadline } from "./runGuards.js";
 
 const SLUG = "pingo-doce";
 const ID_FROM_URL_RE = /-(\d+)\.html$/;
@@ -97,38 +98,48 @@ async function upsertProduct({
   }
 }
 
-async function getRecentlyUpdatedExternalIds(supermarketId) {
-  const cutoff = new Date();
-  cutoff.setMinutes(cutoff.getMinutes() - RECENT_MINUTES);
-  const ids = new Set();
+async function getUpdatedAtByExternalId(supermarketId) {
+  const map = new Map();
   let from = 0;
   while (true) {
     const { data, error } = await supabase
       .from("supermarket_products")
-      .select("external_id")
+      .select("external_id, updated_at")
       .eq("supermarket_id", supermarketId)
-      .gte("updated_at", cutoff.toISOString())
       .range(from, from + 999);
     if (error) throw error;
     if (!data.length) break;
-    for (const r of data) ids.add(r.external_id);
+    for (const r of data) map.set(r.external_id, r.updated_at);
     if (data.length < 1000) break;
     from += 1000;
   }
-  return ids;
+  return map;
 }
 
 async function main() {
   const supermarketId = await getSupermarketId();
   const summary = { found: 0, saved: 0, ignoredPrice: 0, errors: 0 };
   const seen = new Set();
+  const deadline = deadlineFromEnv();
 
-  const [allUrls, recentIds] = await Promise.all([collectRelevantProductUrls(), getRecentlyUpdatedExternalIds(supermarketId)]);
-  const remaining = allUrls.filter((u) => {
-    const m = u.url.match(ID_FROM_URL_RE);
-    return !m || !recentIds.has(m[1]);
-  });
-  console.log(`${allUrls.length} URLs relevantes, ${recentIds.size} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ${remaining.length} por processar nesta corrida.`);
+  const [allUrls, updatedAt] = await Promise.all([collectRelevantProductUrls(), getUpdatedAtByExternalId(supermarketId)]);
+  const recentCutoff = new Date(Date.now() - RECENT_MINUTES * 60_000).toISOString();
+  const idOf = (u) => u.url.match(ID_FROM_URL_RE)?.[1];
+  // Produtos novos primeiro, depois do preco mais antigo para o mais recente.
+  // O catalogo completo nao cabe num job do CI; com esta ordem e o
+  // SCRAPE_TIME_BUDGET_MIN, cada corrida diaria pega no que esta ha mais tempo
+  // sem atualizar e o catalogo inteiro vai rodando ao longo de dias seguidos,
+  // em vez de o job ser morto a meio sempre nos mesmos produtos.
+  const remaining = allUrls
+    .filter((u) => {
+      const t = updatedAt.get(idOf(u));
+      return !t || t < recentCutoff;
+    })
+    .sort((a, b) => (updatedAt.get(idOf(a)) ?? "").localeCompare(updatedAt.get(idOf(b)) ?? ""));
+  console.log(
+    `${allUrls.length} URLs relevantes, ${allUrls.length - remaining.length} atualizados nos ultimos ${RECENT_MINUTES}min (saltados), ` +
+      `${remaining.length} por processar (mais antigos primeiro)${deadline ? `, limite ${process.env.SCRAPE_TIME_BUDGET_MIN}min` : ""}.`
+  );
 
   const onProductError = (url, err) => {
     summary.errors += 1;
@@ -136,6 +147,10 @@ async function main() {
   };
 
   for await (const p of fetchPingoDoceProducts({ onProductError, urls: remaining })) {
+    if (pastDeadline(deadline)) {
+      console.log(`Limite de tempo atingido - a parar aqui (${summary.found}/${remaining.length}); o resto fica para a proxima corrida.`);
+      break;
+    }
     summary.found += 1;
     if (typeof p.price !== "number" || p.price >= MAX_PRODUCT_PRICE || p.price < MIN_PRODUCT_PRICE) {
       summary.ignoredPrice += 1;
@@ -174,7 +189,7 @@ async function main() {
   console.log(`Ignorados (preco >= ${MAX_PRODUCT_PRICE}e ou < ${MIN_PRODUCT_PRICE}e): ${summary.ignoredPrice}`);
   console.log(`Erros: ${summary.errors}`);
 
-  if (summary.errors > 0) process.exitCode = 1;
+  setExitCodeFromErrors(summary.errors, summary.found + summary.errors);
 }
 
 main().catch((err) => {
